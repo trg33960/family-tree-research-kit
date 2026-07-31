@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Family Tree Template</title>
+<meta name="description" content="A template for building an interactive, well-sourced family tree. Replace the demo family with your own.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8C%B3%3C/text%3E%3C/svg%3E">
+<!-- Open Graph: fill these in and add a preview image after you deploy. See GETTING_STARTED.md -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Family Tree Template">
+<meta property="og:description" content="An interactive, well-sourced family tree you can make your own.">
+<style>
+  :root{
+    --scot:#2c5f8a; --dane:#b03a3a; --swede:#c8a028; --anglo:#6b7b60; --german:#5a7d5a; --french:#7d5a86;
+    --ink:#2a2520; --paper:#f4efe6; --card:#fffdf8; --line:#d8cfc0; --accent:#8a6d3b;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{height:100%; overflow:hidden;}
+  body{font-family:Georgia,'Times New Roman',serif; background:var(--paper); color:var(--ink);}
+  /* top bar */
+  #bar{position:fixed; top:0; left:0; right:0; height:56px; z-index:60; background:linear-gradient(160deg,#2a2520,#4a3f33); color:#f0e8d8; display:flex; align-items:center; gap:10px; padding:0 16px;}
+  #bar h1{font-size:1.05rem; font-weight:normal; letter-spacing:1px; margin-right:auto; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+  #bar button{font-family:Verdana,sans-serif; font-size:.72rem; padding:6px 12px; border:1px solid #6b5b3e; background:#3a3227; color:#f0e8d8; border-radius:16px; cursor:pointer; white-space:nowrap;}
+  #bar button:hover{background:#54462f;}
+  #bar .z{width:32px; text-align:center; font-size:.95rem; padding:6px 0;}
+  /* whiteboard */
+  #board{position:absolute; inset:56px 0 0 0; overflow:hidden; cursor:grab; user-select:none; -webkit-user-select:none; touch-action:none;
+    background-image:radial-gradient(#d9d0bf 1.2px, transparent 1.2px); background-size:26px 26px;}
+  #board.panning{cursor:grabbing;}
+  #world{position:absolute; top:0; left:0; transform-origin:0 0; width:3000px; height:1800px;}
+  #wires{position:absolute; top:0; left:0; pointer-events:none;}
+  .card{position:absolute; width:170px; min-height:70px; background:var(--card); border:1.5px solid var(--line); border-left:6px solid var(--anglo); border-radius:9px; padding:8px 10px 7px; cursor:pointer; box-shadow:0 2px 6px rgba(60,45,20,.14); transition:box-shadow .12s, transform .12s;}
+  .card:hover{box-shadow:0 8px 18px rgba(60,45,20,.3); transform:translateY(-2px); z-index:5;}
+  .card h3{font-size:.78rem; line-height:1.2;}
+  .card .dates{font-size:.66rem; color:#6b6155; margin-top:3px;}
+  .card .mini{font-size:.6rem; font-style:italic; color:#8a7a5e; margin-top:3px;}
+  .card.direct::after{content:"★"; position:absolute; top:4px; right:7px; color:var(--accent); font-size:.7rem;}
+  .card.war::before{content:"⚔"; position:absolute; bottom:4px; right:7px; font-size:.7rem;}
+  .card .ph{float:right; width:34px; height:34px; border-radius:50%; object-fit:cover; margin-left:6px; border:1.5px solid var(--line);}
+  .chip{width:145px; min-height:48px; border-style:dashed; opacity:.92; padding:6px 8px;}
+  .chip h3{font-size:.7rem;}
+  .scot{border-left-color:var(--scot);} .dane{border-left-color:var(--dane);} .swede{border-left-color:var(--swede);}
+  .anglo{border-left-color:var(--anglo);} .german{border-left-color:var(--german);} .french{border-left-color:var(--french);}
+  .zone{position:absolute; font-family:Verdana,sans-serif; font-size:.62rem; letter-spacing:3px; color:#b3a892; text-transform:uppercase;}
+  /* legend */
+  #legend{position:fixed; left:12px; bottom:12px; z-index:60; background:rgba(255,253,248,.95); border:1px solid var(--line); border-radius:10px; padding:10px 14px; font-family:Verdana,sans-serif; font-size:.64rem; line-height:1.9;}
+  #legend .dot{width:9px;height:9px;border-radius:50%;display:inline-block;margin-right:6px;}
+  /* panels */
+  #overlay{display:none; position:fixed; inset:0; background:rgba(30,24,16,.55); z-index:90;}
+  .panel{display:none; position:fixed; top:0; right:0; bottom:0; width:min(560px,100%); background:var(--card); z-index:95; overflow-y:auto; box-shadow:-8px 0 30px rgba(0,0,0,.3); padding:26px 30px 60px; line-height:1.5;}
+  .panel .close{position:sticky; top:0; float:right; font-size:1.6rem; background:none; border:none; cursor:pointer; color:#8a8072;}
+  .panel h2{font-size:1.4rem; margin-bottom:2px;}
+  .panel .pdates{color:#6b6155; margin-bottom:10px; font-size:.92rem;}
+  .panel .badges span{display:inline-block; font-family:Verdana,sans-serif; font-size:.64rem; padding:3px 10px; border-radius:12px; background:#eee5d4; color:#5d4e33; margin:0 5px 5px 0;}
+  .panel dt{font-family:Verdana,sans-serif; font-size:.66rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--accent); margin-top:13px;}
+  .panel dd{margin:3px 0 0 0; font-size:.92rem;}
+  .panel .story{background:#f4ecdd; border-left:4px solid var(--accent); padding:12px 14px; margin:14px 0; font-size:.9rem; font-style:italic;}
+  .panel .src{font-size:.74rem; color:#8a8072; margin-top:18px; border-top:1px solid var(--line); padding-top:10px;}
+  .panel .bigph{width:130px; border-radius:10px; float:right; margin:0 0 10px 12px; border:2px solid var(--line);}
+  .panel p{margin-bottom:10px; font-size:.93rem;}
+  .panel .tl{display:flex; gap:12px; margin-bottom:9px; font-size:.88rem;}
+  .panel .yr{font-family:Verdana,sans-serif; font-weight:bold; font-size:.74rem; color:var(--accent); min-width:80px; text-align:right; padding-top:2px;}
+  .panel .storycard{background:#f7f1e4; border:1px solid var(--line); border-radius:9px; padding:12px 14px; font-size:.88rem; margin-bottom:10px;}
+  .panel .storycard b{display:block; margin-bottom:4px;}
+  #hint{position:fixed; right:14px; bottom:12px; z-index:60; font-family:Verdana,sans-serif; font-size:.64rem; color:#8a8072; background:rgba(255,253,248,.9); border:1px solid var(--line); border-radius:8px; padding:6px 10px;}
+  /* ---- mobile / small screens ---- */
+  @media (max-width:640px){
+    #bar{gap:6px; padding:0 8px;}
+    #bar h1{display:none;}
+    #bar button{padding:7px 9px; font-size:.8rem;}
+    #bar button .lbl{display:none;}          /* info buttons become icon-only */
+    #bar button.z{width:30px;}
+    #legend{font-size:.58rem; line-height:1.7; padding:7px 10px; left:8px; bottom:8px; max-width:44vw;}
+    #legend .dot{width:8px; height:8px;}
+    #hint{right:8px; bottom:8px; left:auto; font-size:.56rem; padding:5px 7px; max-width:48vw; text-align:right;}
+  }
+</style>
+</head>
+<body>
+<div id="bar">
+  <h1>Family Tree Template — edit this in index.html</h1>
+  <button onclick="openInfo('clan')">🛡<span class="lbl"> Clan &amp; Arms</span></button>
+  <button onclick="openInfo('stories')">📖<span class="lbl"> Stories</span></button>
+  <button onclick="openInfo('timeline')">🧭<span class="lbl"> Migrations</span></button>
+  <button onclick="openGlobe()">🌍<span class="lbl"> Globe</span></button>
+  <button class="z" onclick="zoomBy(1.2)">+</button>
+  <button class="z" onclick="zoomBy(1/1.2)">−</button>
+  <button onclick="fit()">Fit</button>
+</div>
+<div id="board">
+  <div id="world">
+    <svg id="wires" width="3000" height="1800"></svg>
+
+    <div class="zone" style="left:120px;top:16px;">Origin A</div>
+    <div class="zone" style="left:1180px;top:16px;">Origin B</div>
+  </div>
+</div>
+<div id="legend">
+  <span class="dot" style="background:var(--scot)"></span>Origin A (edit)<br>
+  <span class="dot" style="background:var(--swede)"></span>Origin B (edit)<br>
+  <span class="dot" style="background:var(--anglo)"></span>Later generations<br>
+  ★ direct ancestor &nbsp; ⚔ military service
+</div>
+<div id="hint">drag to pan · pinch or +/− to zoom · tap any card</div>
+<div id="globePanel" style="display:none; position:fixed; inset:56px 0 0 0; z-index:88; background:radial-gradient(ellipse at center,#101830 0%,#05070f 100%);">
+  <button onclick="closeGlobe()" style="position:absolute; top:14px; right:18px; z-index:89; font-size:1.4rem; background:rgba(255,255,255,.1); color:#eee; border:1px solid #445; border-radius:8px; padding:2px 12px; cursor:pointer;">&times;</button>
+  <div style="position:absolute; top:16px; left:20px; z-index:89; color:#cbd3ea; font-family:Verdana,sans-serif; font-size:.72rem; letter-spacing:2px;">BIRTHPLACES ACROSS THE ATLANTIC — drag to spin · scroll to zoom · click a dot</div>
+  <div id="globeViz" style="width:100%;height:100%;"></div>
+  <div id="globeErr" style="display:none; position:absolute; inset:0; color:#cbd3ea; font-family:Georgia,serif; display:none; align-items:center; justify-content:center; text-align:center; padding:40px;">The 3D globe needs an internet connection to load its engine and earth imagery.<br>Reconnect and try again.</div>
+</div>
+<div id="overlay" onclick="closeAll()"></div>
+<div class="panel" id="person"></div>
+<div class="panel" id="info"></div>
+
+<script>
+/* ============ PEOPLE ============ */
+const P = {
+alex:{x:120,y:-240,cls:'scot',direct:1,war:1,n:'Alexander Rivers',d:'1820-1889 - Greenvale',mini:'Example: origin-A founder (edit me)',tags:['DIRECT','Soldier'],
+ dossier:{'The record':'This is a placeholder person. Replace this text with what a document actually says - a census line, a certificate, a gravestone inscription.','How to edit':'Open index.html, find the P object, and change these fields. cls sets the color, direct:1 adds a star, war:1 adds the crossed-swords mark.'},
+ src:['Example source - replace with your real citation']},
+maryd:{x:320,y:-240,cls:'scot',n:'Mary Rivers (nee Doe)',d:'1824-1890 - Greenvale',tags:['Spouse'],
+ dossier:{'The record':'Placeholder spouse. Every person is one entry in the P object, keyed by a short id.'},src:[]},
+sven:{x:1180,y:-240,cls:'swede',n:'Sven Larsson',d:'1828-1901 - Hoften',tags:['Emigrant'],
+ dossier:{'The record':'Placeholder for a second origin line. A different cls value gives a different card color.'},src:[]},
+ingrid:{x:1380,y:-240,cls:'swede',n:'Ingrid Larsson (nee Berg)',d:'1832-1905 - Hoften',tags:['Spouse'],
+ dossier:{'The record':'Placeholder spouse from origin B.'},src:[]},
+thomas:{x:260,y:80,cls:'scot',direct:1,n:'Thomas Rivers',d:'1850-1922 - Greenvale to Riverton',mini:'Crossed the ocean, 1871',tags:['DIRECT','Emigrant'],
+ dossier:{'The record':'A direct ancestor (direct:1 draws the star). This person carries origin A into the new country.'},src:['Passenger list - example citation']},
+anna:{x:1280,y:80,cls:'swede',n:'Anna Rivers (nee Larsson)',d:'1855-1930 - Hoften to Riverton',tags:['Emigrant'],
+ dossier:{'The record':'Married into the Rivers line from origin B.'},src:[]},
+william:{x:660,y:400,cls:'anglo',direct:1,n:'William Rivers',d:'1882-1955 - Riverton',mini:'First generation born in the new country',tags:['DIRECT'],
+ dossier:{'The record':'Where the two origin lines converge. cls anglo is a third color for later, native-born generations.'},src:[]},
+emma:{x:460,y:400,cls:'anglo',n:'Emma Rivers (nee Hill)',d:'1888-1972 - Riverton',tags:['Spouse'],dossier:{'The record':'Placeholder spouse.'},src:[]},
+sarah:{x:860,y:400,cls:'anglo',n:'Sarah Rivers',d:'1885-1970 - Riverton',tags:['Sibling'],dossier:{'The record':'A sibling - not everyone has to be a direct ancestor. Leave direct off and they render without a star.'},src:[]},
+you:{x:560,y:720,cls:'anglo',direct:1,living:1,n:'Your Name Here',d:'living - Riverton',mini:'This is you - start here',tags:['YOU','Living'],
+ dossier:{'Living people':'For living people, include only what you personally know or what the person is happy to share. Do not publish private details of living relatives - see CLAUDE.md.','How to start':'Ask Claude to help you replace this whole demo family with your own. See GETTING_STARTED.md.'},src:[]}
+};
+/* couples: [a,b]; families: {p:[couple], kids:[ids]} */
+const COUPLES=[['alex','maryd'],['sven','ingrid'],['thomas','anna'],['william','emma']];
+const FAMS=[
+ {p:['alex','maryd'],k:['thomas']},
+ {p:['sven','ingrid'],k:['anna']},
+ {p:['thomas','anna'],k:['william','sarah']},
+ {p:['william','emma'],k:['you']}
+];
+const CW=170, CH=70, CHIPW=145;
+
+/* ============ RENDER ============ */
+const YOFF=640;
+const world=document.getElementById('world');
+for(const id in P){
+  const p=P[id];
+  const el=document.createElement('div');
+  el.className='card '+p.cls+(p.chip?' chip':'')+(p.direct?' direct':'')+(p.war?' war':'');
+  el.style.left=p.x+'px'; el.style.top=(p.y+YOFF)+'px';
+  el.innerHTML=(p.img?'<img class="ph" src="'+p.img+'" alt="">':'')+'<h3>'+p.n+'</h3><div class="dates">'+p.d+'</div>'+(p.mini?'<div class="mini">'+p.mini+'</div>':'');
+  el.onclick=(e)=>{if(dragMoved)return; e.stopPropagation(); openPerson(id);};
+  world.appendChild(el);
+  p.el=el;
+}
+function ctr(id){const p=P[id]; const w=p.chip?CHIPW:CW; const h=p.el.offsetHeight||CH; const y0=p.y+YOFF; return {x:p.x+w/2,y:y0+h/2,top:y0,bot:y0+h,w,h};}
+function draw(){
+  const svg=document.getElementById('wires'); let s='';
+  /* marriage bars */
+  COUPLES.forEach(([a,b])=>{
+    const A=ctr(a),B=ctr(b);
+    const y=Math.max(A.y,B.y);
+    s+='<path d="M'+A.x+' '+A.y+' L'+A.x+' '+y+' L'+B.x+' '+y+' L'+B.x+' '+B.y+'" stroke="#a89878" stroke-width="2.5" fill="none"/>';
+    s+='<circle cx="'+((A.x+B.x)/2)+'" cy="'+y+'" r="4" fill="#a89878"/>';
+  });
+  FAMS.forEach(f=>{
+    let mx,my;
+    if(f.p.length===2){const A=ctr(f.p[0]),B=ctr(f.p[1]); mx=(A.x+B.x)/2; my=Math.max(A.y,B.y);}
+    else {const A=ctr(f.p[0]); mx=A.x; my=A.bot;}
+    f.k.forEach(kid=>{
+      const K=ctr(kid);
+      const midY=my+(K.top-my)*0.55;
+      const chip=P[kid].chip;
+      s+='<path d="M'+mx+' '+my+' L'+mx+' '+midY+' L'+K.x+' '+midY+' L'+K.x+' '+K.top+'" stroke="'+(chip?'#d3c6a5':'#b6a680')+'" stroke-width="'+(chip?1.4:2)+'" fill="none"'+(chip?' stroke-dasharray="3 4"':'')+'/>';
+    });
+  });
+  svg.innerHTML=s;
+}
+draw();
+
+/* ============ PAN / ZOOM ============ */
+let scale=1, tx=0, ty=0;
+const board=document.getElementById('board');
+function apply(){world.style.transform='translate('+tx+'px,'+ty+'px) scale('+scale+')';}
+function fit(){
+  const bw=board.clientWidth, bh=board.clientHeight;
+  scale=Math.min(bw/3050, bh/1840, 1);
+  tx=(bw-3000*scale)/2; ty=20*scale; apply();
+}
+function zoomBy(f){
+  const bw=board.clientWidth/2, bh=board.clientHeight/2;
+  const wx=(bw-tx)/scale, wy=(bh-ty)/scale;
+  scale=Math.min(2.5,Math.max(.15,scale*f));
+  tx=bw-wx*scale; ty=bh-wy*scale; apply();
+}
+board.addEventListener('wheel',e=>{
+  e.preventDefault();
+  const r=board.getBoundingClientRect();
+  const mx=e.clientX-r.left, my=e.clientY-r.top;
+  const wx=(mx-tx)/scale, wy=(my-ty)/scale;
+  const f=e.deltaY<0?1.12:1/1.12;
+  scale=Math.min(2.5,Math.max(.15,scale*f));
+  tx=mx-wx*scale; ty=my-wy*scale; apply();
+},{passive:false});
+const pointers=new Map();
+let panning=false,dragMoved=false,px,py,pinchDist=0;
+board.addEventListener('pointerdown',e=>{
+  if(e.pointerType==='mouse' && e.button!==0)return;
+  pointers.set(e.pointerId,{x:e.clientX,y:e.clientY});
+  if(pointers.size===1){panning=true; dragMoved=false; px=e.clientX; py=e.clientY;}
+  else if(pointers.size===2){panning=false; const p=[...pointers.values()]; pinchDist=Math.hypot(p[0].x-p[1].x,p[0].y-p[1].y);}
+});
+board.addEventListener('pointermove',e=>{
+  if(!pointers.has(e.pointerId))return;
+  pointers.set(e.pointerId,{x:e.clientX,y:e.clientY});
+  if(pointers.size>=2){                      // two-finger pinch-zoom
+    dragMoved=true;
+    const p=[...pointers.values()];
+    const dist=Math.hypot(p[0].x-p[1].x,p[0].y-p[1].y);
+    const r=board.getBoundingClientRect();
+    const mx=(p[0].x+p[1].x)/2-r.left, my=(p[0].y+p[1].y)/2-r.top;
+    if(pinchDist>0){
+      const wx=(mx-tx)/scale, wy=(my-ty)/scale;
+      scale=Math.min(2.5,Math.max(.15,scale*(dist/pinchDist)));
+      tx=mx-wx*scale; ty=my-wy*scale; apply();
+    }
+    pinchDist=dist;
+    return;
+  }
+  if(!panning)return;
+  const dx=e.clientX-px, dy=e.clientY-py;
+  if(!dragMoved && Math.hypot(dx,dy)<4)return;
+  dragMoved=true; board.classList.add('panning');
+  tx+=dx; ty+=dy; px=e.clientX; py=e.clientY; apply();
+});
+function endPointer(e){
+  pointers.delete(e.pointerId);
+  if(pointers.size<2)pinchDist=0;
+  if(pointers.size===1){const p=[...pointers.values()][0]; panning=true; dragMoved=false; px=p.x; py=p.y;}
+  if(pointers.size===0){panning=false; board.classList.remove('panning');}
+}
+window.addEventListener('pointerup',endPointer);
+window.addEventListener('pointercancel',endPointer);
+window.addEventListener('resize',fit);
+fit();
+
+/* ============ PANELS ============ */
+function openPerson(id){
+  const p=P[id];
+  let h='<button class="close" onclick="closeAll()">&times;</button>';
+  if(p.img)h+='<img class="bigph" src="'+p.img+'" alt="">';
+  h+='<h2>'+p.n+'</h2><div class="pdates">'+p.d+'</div><div class="badges">'+(p.tags||[]).map(t=>'<span>'+t+'</span>').join('')+'</div>';
+  if(p.mini)h+='<div class="story">'+p.mini+'</div>';
+  h+='<dl>';
+  for(const k in p.dossier)h+='<dt>'+k+'</dt><dd>'+p.dossier[k]+'</dd>';
+  h+='</dl>';
+  if(p.img)h+='<div class="src">Photo displayed from the funeral home\'s public obituary page.</div>';
+  if(p.src&&p.src.length)h+='<div class="src"><b>Sources:</b> '+p.src.join(' · ')+'</div>';
+  if(p.living)h+='<div class="src">Living person — limited to family-provided info and published obituaries of relatives.</div>';
+  const el=document.getElementById('person');
+  el.innerHTML=h; el.style.display='block'; el.scrollTop=0;
+  document.getElementById('overlay').style.display='block';
+}
+
+
+/* ============ 3D GLOBE ============ */
+const GLOCS=[
+ {id:'greenvale',lat:57.1,lng:-2.1,color:'#4d8fc4',label:'Greenvale (origin A)'},
+ {id:'hoften',lat:58.0,lng:15.6,color:'#e0b83a',label:'Hoften (origin B)'},
+ {id:'riverton',lat:41.6,lng:-93.6,color:'#8ba57e',label:'Riverton (the meeting place)'}
+];
+const GARCS=[
+ {startLat:57.1,startLng:-2.1,endLat:41.6,endLng:-93.6,color:'#4d8fc4',label:'Origin A migration'},
+ {startLat:58.0,startLng:15.6,endLat:41.6,endLng:-93.6,color:'#e0b83a',label:'Origin B migration'}
+];
+let globeInit=false;
+function openGlobe(){
+  document.getElementById('globePanel').style.display='block';
+  if(globeInit)return;
+  const s=document.createElement('script');
+  s.src='https://unpkg.com/globe.gl';
+  s.onload=()=>{
+    globeInit=true;
+    const HOME={id:'homezoom',lat:41.6,lng:-93.6,color:'#8ba57e',label:'Riverton - click to zoom'};
+    const FAR=[...GLOCS,HOME];
+    const flyHome=g=>g.pointOfView({lat:41.6,lng:-93.6,altitude:0.35},1200);
+    const g=Globe()(document.getElementById('globeViz'))
+      .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg')
+      .bumpImageUrl('https://unpkg.com/three-globe/example/img/earth-topology.png')
+      .backgroundImageUrl('https://unpkg.com/three-globe/example/img/night-sky.png')
+      .pointsData(GLOCS).pointLat('lat').pointLng('lng').pointColor('color')
+      .pointAltitude(0.012).pointRadius(0.5)
+      .labelsData(FAR).labelLat('lat').labelLng('lng').labelText('label')
+      .labelSize(0.9).labelDotRadius(0).labelColor(()=> 'rgba(255,245,220,.95)').labelAltitude(0.015)
+      .arcsData(GARCS).arcColor('color').arcAltitude(0.28).arcStroke(0.6)
+      .arcDashLength(0.5).arcDashGap(0.2).arcDashAnimateTime(4000)
+      .onPointClick(p=>{ if(p.id==='homezoom') flyHome(g); else openLoc(p.id); })
+      .onLabelClick(p=>{ if(p.id==='homezoom') flyHome(g); else openLoc(p.id); });
+    let mode='far', lastLs=0.9;
+    g.onZoom(pov=>{
+      const a=Math.max(pov.altitude,0.05);
+      const ls=Math.min(1.0,Math.max(0.055,a*0.5));
+      if(Math.abs(ls-lastLs)/lastLs>0.15){
+        lastLs=ls;
+        g.labelSize(ls)
+         .pointRadius(Math.min(0.55,Math.max(0.025,a*0.28)))
+         .arcStroke(Math.min(0.6,Math.max(0.08,a*0.3)));
+      }
+      const m=a>0.75?'far':'near';
+      if(m!==mode){mode=m; g.labelsData(m==='far'?FAR:GLOCS);}
+    });
+    g.pointOfView({lat:48,lng:-45,altitude:1.9},0);
+    g.controls().autoRotate=true; g.controls().autoRotateSpeed=0.4;
+    document.getElementById('globeViz').addEventListener('pointerdown',()=>{g.controls().autoRotate=false;},{once:true});
+  };
+  s.onerror=()=>{const e=document.getElementById('globeErr'); e.style.display='flex';};
+  document.head.appendChild(s);
+}
+function closeGlobe(){document.getElementById('globePanel').style.display='none';}
+
+const LOCS={
+greenvale:{t:'Greenvale (origin A)',note:'Example origin. Replace with a real place from your family tree.',ppl:['alex','maryd','thomas']},
+hoften:{t:'Hoften (origin B)',note:'A second origin, shown in a different color. Replace with your own.',ppl:['sven','ingrid','anna']},
+riverton:{t:'Riverton (the meeting place)',note:'Where the two lines converged. Replace with your family town.',ppl:['thomas','anna','william','sarah','emma','you']}
+};
+function openLoc(k){
+  const L=LOCS[k];
+  let h='<button class="close" onclick="closeAll()">&times;</button><h2>'+L.t+'</h2><div class="story">'+L.note+'</div><dl><dt>Family born / rooted here</dt>';
+  L.ppl.forEach(id=>{const p=P[id]; if(!p)return; h+='<dd style="cursor:pointer;text-decoration:underline;margin-top:6px;" onclick="openPerson(\''+id+'\')">'+p.n+' <span style="color:#8a8072;font-size:.8rem;">'+p.d+'</span></dd>';});
+  h+='</dl><div class="src">Click a name for the full dossier.</div>';
+  const el=document.getElementById('info'); el.innerHTML=h; el.style.display='block'; el.scrollTop=0;
+  document.getElementById('overlay').style.display='block';
+}
+
+const INFO={
+clan:`<button class="close" onclick="closeAll()">&times;</button><h2>Your Family Name &amp; Crest</h2>
+<div style="text-align:center;margin:14px 0;">
+  <svg viewBox="0 0 120 140" style="width:150px;filter:drop-shadow(0 4px 8px rgba(0,0,0,.25));"><path d="M10 10 H110 V70 Q110 120 60 135 Q10 120 10 70 Z" fill="#fffdf8" stroke="#8a6d3b" stroke-width="3"/><line x1="60" y1="10" x2="60" y2="135" stroke="#d8cfc0" stroke-width="2"/><line x1="10" y1="60" x2="110" y2="60" stroke="#d8cfc0" stroke-width="2"/><text x="60" y="82" text-anchor="middle" font-size="9" fill="#8a8072" font-family="Verdana">your crest here</text></svg>
+  <div style="font-size:.72rem;color:#8a8072;margin-top:8px;font-style:italic;">Placeholder crest. Drop in your own family arms or a photo, or delete this panel.</div>
+</div>
+<p><b>About this panel.</b> This is the "Clan &amp; Arms" panel. Put your surname history, coat of arms, or family motto here. Edit it in the INFO object in index.html.</p>
+<p><b>Colors.</b> Each person has a <code>cls</code> field that sets their card color (origin A, origin B, later generations, and more). Edit the legend text at the top of the file to match your own origins.</p>`,
+stories:`<button class="close" onclick="closeAll()">&times;</button><h2>Stories</h2>
+<p>This is the "Stories" panel. Use it for anecdotes and family lore that do not fit on a card - a war record, an emigration story, a family legend.</p>
+<div class="storycard"><b>Example story.</b> Replace this with a real one. Ask Claude to help you turn a document or a family memory into a short, sourced story.</div>`,
+timeline:`<button class="close" onclick="closeAll()">&times;</button><h2>Migrations &amp; Timeline</h2>
+<p>Use this panel for a timeline of moves and milestones.</p>
+<div class="tl"><span class="yr">1871</span><span>Example: Thomas Rivers sails from origin A to Riverton.</span></div>
+<div class="tl"><span class="yr">1878</span><span>Example: Anna Larsson arrives from origin B.</span></div>
+<div class="tl"><span class="yr">1882</span><span>Example: William Rivers born in Riverton - the two lines converge.</span></div>`
+};
+function openInfo(k){
+  const el=document.getElementById('info');
+  el.innerHTML=INFO[k]; el.style.display='block'; el.scrollTop=0;
+  document.getElementById('overlay').style.display='block';
+}
+function closeAll(){document.getElementById('person').style.display='none';document.getElementById('info').style.display='none';document.getElementById('overlay').style.display='none';}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeAll();closeGlobe();}});
+</script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+.DS_Store
+.vercel
+node_modules/
+
+# Your working research log may contain notes on living relatives or
+# unproven claims. It is private by default. Delete this line to track it.
+research_notes.md
