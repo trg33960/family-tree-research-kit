@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Family Tree Template</title>
-<meta name="description" content="A template for building an interactive, well-sourced family tree. Replace the demo family with your own.">
+<title>Garretson &amp; Stearman Family Tree</title>
+<meta name="description" content="An interactive, well-sourced family tree of the Garretson, Sayre, Stearman and Pearman families of Missouri.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8C%B3%3C/text%3E%3C/svg%3E">
 <!-- Open Graph: fill these in and add a preview image after you deploy. See GETTING_STARTED.md -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="Family Tree Template">
-<meta property="og:description" content="An interactive, well-sourced family tree you can make your own.">
+<meta property="og:title" content="Garretson &amp; Stearman Family Tree">
+<meta property="og:description" content="An interactive, well-sourced family tree of the Garretson, Sayre, Stearman and Pearman families of Missouri.">
 <style>
   :root{
     --scot:#2c5f8a; --dane:#b03a3a; --swede:#c8a028; --anglo:#6b7b60; --german:#5a7d5a; --french:#7d5a86;
@@ -28,7 +28,7 @@
   #board{position:absolute; inset:56px 0 0 0; overflow:hidden; cursor:grab; user-select:none; -webkit-user-select:none; touch-action:none;
     background-image:radial-gradient(#d9d0bf 1.2px, transparent 1.2px); background-size:26px 26px;}
   #board.panning{cursor:grabbing;}
-  #world{position:absolute; top:0; left:0; transform-origin:0 0; width:3000px; height:1800px;}
+  #world{position:absolute; top:0; left:0; transform-origin:0 0; width:3900px; height:4200px;}
   #wires{position:absolute; top:0; left:0; pointer-events:none;}
   .card{position:absolute; width:170px; min-height:70px; background:var(--card); border:1.5px solid var(--line); border-left:6px solid var(--anglo); border-radius:9px; padding:8px 10px 7px; cursor:pointer; box-shadow:0 2px 6px rgba(60,45,20,.14); transition:box-shadow .12s, transform .12s;}
   .card:hover{box-shadow:0 8px 18px rgba(60,45,20,.3); transform:translateY(-2px); z-index:5;}
@@ -79,10 +79,10 @@
 </head>
 <body>
 <div id="bar">
-  <h1>Family Tree Template — edit this in index.html</h1>
-  <button onclick="openInfo('clan')">🛡<span class="lbl"> Clan &amp; Arms</span></button>
+  <h1>Garretson &amp; Stearman Family Tree</h1>
+  <button onclick="openInfo('clan')">🛡<span class="lbl"> Family Names</span></button>
   <button onclick="openInfo('stories')">📖<span class="lbl"> Stories</span></button>
-  <button onclick="openInfo('timeline')">🧭<span class="lbl"> Migrations</span></button>
+  <button onclick="openInfo('timeline')">🧭<span class="lbl"> Timeline</span></button>
   <button onclick="openGlobe()">🌍<span class="lbl"> Globe</span></button>
   <button class="z" onclick="zoomBy(1.2)">+</button>
   <button class="z" onclick="zoomBy(1/1.2)">−</button>
@@ -90,22 +90,22 @@
 </div>
 <div id="board">
   <div id="world">
-    <svg id="wires" width="3000" height="1800"></svg>
+    <svg id="wires" width="3900" height="4200"></svg>
 
-    <div class="zone" style="left:120px;top:16px;">Origin A</div>
-    <div class="zone" style="left:1180px;top:16px;">Origin B</div>
+    <div class="zone" style="left:200px;top:16px;">Garretson · Sayre</div>
+    <div class="zone" style="left:2100px;top:16px;">Stearman · Pearman</div>
   </div>
 </div>
 <div id="legend">
-  <span class="dot" style="background:var(--scot)"></span>Origin A (edit)<br>
-  <span class="dot" style="background:var(--swede)"></span>Origin B (edit)<br>
-  <span class="dot" style="background:var(--anglo)"></span>Later generations<br>
+  <span class="dot" style="background:var(--scot)"></span>Garretson &amp; Sayre (paternal)<br>
+  <span class="dot" style="background:var(--swede)"></span>Stearman &amp; Pearman (maternal)<br>
+  <span class="dot" style="background:var(--anglo)"></span>You<br>
   ★ direct ancestor &nbsp; ⚔ military service
 </div>
 <div id="hint">drag to pan · pinch or +/− to zoom · tap any card</div>
 <div id="globePanel" style="display:none; position:fixed; inset:56px 0 0 0; z-index:88; background:radial-gradient(ellipse at center,#101830 0%,#05070f 100%);">
   <button onclick="closeGlobe()" style="position:absolute; top:14px; right:18px; z-index:89; font-size:1.4rem; background:rgba(255,255,255,.1); color:#eee; border:1px solid #445; border-radius:8px; padding:2px 12px; cursor:pointer;">&times;</button>
-  <div style="position:absolute; top:16px; left:20px; z-index:89; color:#cbd3ea; font-family:Verdana,sans-serif; font-size:.72rem; letter-spacing:2px;">BIRTHPLACES ACROSS THE ATLANTIC — drag to spin · scroll to zoom · click a dot</div>
+  <div style="position:absolute; top:16px; left:20px; z-index:89; color:#cbd3ea; font-family:Verdana,sans-serif; font-size:.72rem; letter-spacing:2px;">FAMILY BIRTHPLACES &amp; MOVES — drag to spin · scroll to zoom · click a dot</div>
   <div id="globeViz" style="width:100%;height:100%;"></div>
   <div id="globeErr" style="display:none; position:absolute; inset:0; color:#cbd3ea; font-family:Georgia,serif; display:none; align-items:center; justify-content:center; text-align:center; padding:40px;">The 3D globe needs an internet connection to load its engine and earth imagery.<br>Reconnect and try again.</div>
 </div>
@@ -116,38 +116,491 @@
 <script>
 /* ============ PEOPLE ============ */
 const P = {
-alex:{x:120,y:-240,cls:'scot',direct:1,war:1,n:'Alexander Rivers',d:'1820-1889 - Greenvale',mini:'Example: origin-A founder (edit me)',tags:['DIRECT','Soldier'],
- dossier:{'The record':'This is a placeholder person. Replace this text with what a document actually says - a census line, a certificate, a gravestone inscription.','How to edit':'Open index.html, find the P object, and change these fields. cls sets the color, direct:1 adds a star, war:1 adds the crossed-swords mark.'},
- src:['Example source - replace with your real citation']},
-maryd:{x:320,y:-240,cls:'scot',n:'Mary Rivers (nee Doe)',d:'1824-1890 - Greenvale',tags:['Spouse'],
- dossier:{'The record':'Placeholder spouse. Every person is one entry in the P object, keyed by a short id.'},src:[]},
-sven:{x:1180,y:-240,cls:'swede',n:'Sven Larsson',d:'1828-1901 - Hoften',tags:['Emigrant'],
- dossier:{'The record':'Placeholder for a second origin line. A different cls value gives a different card color.'},src:[]},
-ingrid:{x:1380,y:-240,cls:'swede',n:'Ingrid Larsson (nee Berg)',d:'1832-1905 - Hoften',tags:['Spouse'],
- dossier:{'The record':'Placeholder spouse from origin B.'},src:[]},
-thomas:{x:260,y:80,cls:'scot',direct:1,n:'Thomas Rivers',d:'1850-1922 - Greenvale to Riverton',mini:'Crossed the ocean, 1871',tags:['DIRECT','Emigrant'],
- dossier:{'The record':'A direct ancestor (direct:1 draws the star). This person carries origin A into the new country.'},src:['Passenger list - example citation']},
-anna:{x:1280,y:80,cls:'swede',n:'Anna Rivers (nee Larsson)',d:'1855-1930 - Hoften to Riverton',tags:['Emigrant'],
- dossier:{'The record':'Married into the Rivers line from origin B.'},src:[]},
-william:{x:660,y:400,cls:'anglo',direct:1,n:'William Rivers',d:'1882-1955 - Riverton',mini:'First generation born in the new country',tags:['DIRECT'],
- dossier:{'The record':'Where the two origin lines converge. cls anglo is a third color for later, native-born generations.'},src:[]},
-emma:{x:460,y:400,cls:'anglo',n:'Emma Rivers (nee Hill)',d:'1888-1972 - Riverton',tags:['Spouse'],dossier:{'The record':'Placeholder spouse.'},src:[]},
-sarah:{x:860,y:400,cls:'anglo',n:'Sarah Rivers',d:'1885-1970 - Riverton',tags:['Sibling'],dossier:{'The record':'A sibling - not everyone has to be a direct ancestor. Leave direct off and they render without a star.'},src:[]},
-you:{x:560,y:720,cls:'anglo',direct:1,living:1,n:'Your Name Here',d:'living - Riverton',mini:'This is you - start here',tags:['YOU','Living'],
- dossier:{'Living people':'For living people, include only what you personally know or what the person is happy to share. Do not publish private details of living relatives - see CLAUDE.md.','How to start':'Ask Claude to help you replace this whole demo family with your own. See GETTING_STARTED.md.'},src:[]}
+
+/* --- THE QUAKER GARRETSONS: 5×–7× GREAT-GRANDPARENTS --- */
+johng1741:{x:40,y:-2480,cls:'scot',direct:1,n:'John Garretson',d:'1741–1810 · Pennsylvania (probable)',mini:'7× great-grandfather — married in Quaker meeting, 1763',tags:['DIRECT','PROBABLE','QUAKER'],
+ dossier:{'The record (probable)':'Born 1741; married Mary Griest on 9 June 1763 at the Warrington Monthly Meeting in Pennsylvania — a Quaker meeting-house marriage, recorded in the meeting\'s own registers. Died 1810. The earliest named ancestor on the entire tree.'},
+ src:['FamilySearch tree profile L84F-2N1 (Warrington MM marriage record)']},
+
+marygriest:{x:260,y:-2480,cls:'scot',direct:1,n:'Mary Griest',d:'1745–1827 · Pennsylvania (probable)',mini:'7× great-grandmother (probable)',tags:['DIRECT','PROBABLE','QUAKER'],
+ dossier:{'The record (probable)':'Married John Garretson in the Warrington Monthly Meeting, 1763. Griest is a well-known Pennsylvania Quaker family name. Mother of ten.'},
+ src:['FamilySearch tree profile KJCR-9XB']},
+
+isaacg:{x:40,y:-2160,cls:'scot',direct:1,n:'Isaac Garretson',d:'1765–1844 · Pennsylvania → Iowa',mini:'6× great-grandfather — Quaker inventor',tags:['DIRECT','QUAKER','INVENTOR'],
+ dossier:{'The record':'Born 17 February 1765 in Warrington Township, York County, Pennsylvania; raised a Quaker. Family records describe a remarkable life: an 1796 patent — signed by President George Washington — for a machine "cutting and heading nails at one operation" (a family tradition to verify; early patent records were lost in the 1836 Patent Office fire); clerk of the land office at Grayson, Virginia 1804–08, where he married Alice Paxson; a pioneer move to Highland County, Ohio in 1808; and death in 1844 at Salem, Iowa — the Quaker colony his family helped people. Blue eyes, brown hair, five foot ten, say the family papers.'},
+ src:['FamilySearch tree profile KJ57-KGC (6 sources; patent story is family-recorded — PROBABLE, to verify)']},
+
+alicepaxson:{x:260,y:-2160,cls:'scot',direct:1,n:'Alice Paxson',d:'1779–1855 · probable',mini:'6× great-grandmother (probable)',tags:['DIRECT','PROBABLE','QUAKER'],
+ dossier:{'The record (probable)':'Married Isaac Garretson on 27 March 1804 at Grayson, Virginia. Paxson is among the best-known Quaker surnames of colonial Pennsylvania — another thread in the family\'s Quaker fabric.'},
+ src:['FamilySearch tree profile LH3Z-TQ7']},
+
+johngreen:{x:40,y:-1840,cls:'scot',direct:1,n:'John Green Garretson',d:'1805–1873 · Virginia → Ohio → Iowa',mini:'5× great-grandfather (probable)',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record (probable)':'Born 7 January 1805 at Grayson, Virginia — while his father clerked the land office there; married Mary J. Goodson on 22 September 1828 in Franklin County, Ohio; farmed at Salem, Iowa through the 1850s–60s; died 1873 in Ohio. Father of ten, including Isaac L. Garretson.'},
+ src:['FamilySearch tree profile 9K2D-M4G (12 sources)']},
+
+marygoodson:{x:260,y:-1840,cls:'scot',direct:1,n:'Mary J. Goodson',d:'1808–1866 · probable',mini:'5× great-grandmother (probable)',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record (probable)':'Married John Green Garretson in Franklin County, Ohio, 1828; mother of ten. Died 1866.'},
+ src:['FamilySearch tree profile 9K2D-MHP']},
+
+/* --- HILTON 5× GREAT-GRANDPARENTS --- */
+ornan:{x:490,y:-1840,cls:'scot',direct:1,n:'Ornan Thomas Hilton',d:'1796–1885 · Erie Co., New York (probable)',mini:'5× great-grandfather (probable)',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record (probable)':'Born 1796; married Sophia Hartman about 1820 at Newstead, Erie County, New York — Buffalo\'s county, tying yet another family thread to the place where Isaac Malin Garretson would be born in 1884. Father of eleven, including Peruda Adaline (Hilton) Rapalyea. Lived to 1885.'},
+ src:['FamilySearch tree profile KFTR-R9X']},
+
+sophiah:{x:710,y:-1840,cls:'scot',direct:1,n:'Sophia Hartman',d:'1804–1870 · probable',mini:'5× great-grandmother (probable) — Clara Sophia\'s namesake',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record (probable)':'Married Ornan Thomas Hilton about 1820 in Erie County, New York; died 1870. Her granddaughter Clara Sophia Rapalyea — Ty\'s 3× great-grandmother — carried her name.'},
+ src:['FamilySearch tree profile KFR6-DMC']},
+
+/* --- GARRETSON & RAPALYEA 4× GREAT-GRANDPARENTS --- */
+isaacl:{x:40,y:-1520,cls:'scot',direct:1,n:'Isaac L. Garretson',d:'1831–1914 · Iowa (probable)',mini:'4× great-grandfather (probable)',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record':'Born 18 July 1831 in Franklin County, Ohio; died 3 May 1914 at Salem, Henry County, Iowa — the famous Quaker colony, first Quaker settlement west of the Mississippi, where he spent most of his life. Married Patience Ann Tomlinson there on 10 September 1859. Son of John Green Garretson and Mary J. Goodson. In 1880 he was working in a Buffalo, New York foundry — he is almost certainly the \"Isaac Garretson, machinist\" of the 1880s Buffalo directories, which explains the family\'s Buffalo chapter where grandson Isaac Malin was born and named for him.'},
+ src:['FamilySearch tree profile LH2N-73N (linked from John Worth Garretson\'s sourced profile)']},
+
+patience:{x:260,y:-1520,cls:'scot',direct:1,n:'Patience Ann Tomlinson',d:'1842–1930 · Iowa (probable)',mini:'4× great-grandmother (probable)',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record (probable)':'Mother of John Worth Garretson; married Isaac L. Garretson in Henry County, Iowa in 1859. Her very name — Patience — is a classic Quaker virtue name, of a piece with the family\'s Salem Quaker world.'},
+ src:['FamilySearch tree profile LH2N-Q1R']},
+
+danielr:{x:490,y:-1520,cls:'scot',direct:1,war:1,n:'Daniel Rapalyea',d:'1825–1912 · NY → DeQueen, AR',mini:'4× great-grandfather — Union Civil War soldier',tags:['DIRECT','CIVIL WAR'],
+ dossier:{'The record':'Born October 1825 in New York; died November 1912 in DeQueen, Sevier County, Arkansas — the same town where his daughter Clara\'s family lived in 1900. Served the Union in the Civil War, 1861–1865, in Illinois units, and drew a soldier\'s pension from 1907. His restless road ran New York → Wisconsin (1851 land record; Clara born Ripon 1856) → Missouri (1860) → Wisconsin → Minnesota (1880) → Arkansas. He is the tree\'s bearer of the Dutch colonial Rapalje surname.'},
+ src:['FamilySearch tree profile L5LB-QMW (19 sources: censuses 1860–1910, Civil War pension index)','1880 US Census, Blue Earth Co. MN (family household)']},
+
+adaline:{x:710,y:-1520,cls:'scot',direct:1,n:'Peruda Adaline (Hilton) Rapalyea',d:'1823–1881 · New York → Salem, Iowa',mini:'4× great-grandmother',tags:['DIRECT'],
+ dossier:{'The record':'Born about 1823 in New York, daughter of Ornan Thomas Hilton and Sophia Hartman of Erie County; married Daniel Rapalyea about 1848; mother of eight, including Clara Sophia. "Adaline" with the family in the 1880 Minnesota census.','The quiet revelation':'She died 9 July 1881 and is buried at Salem East Cemetery, SALEM, HENRY COUNTY, IOWA — the Garretsons\' own Quaker town. The Rapalyea family had come to Salem; five months after her mother\'s death there, Clara married Salem\'s John Worth Garretson. That is how the two families\' roads crossed.'},
+ src:['FamilySearch tree profile K6HR-VHG (burial: Salem East Cemetery, Salem, Iowa)','1880 US Census, Blue Earth Co. MN']},
+
+/* --- 6× GREAT-GRANDPARENTS (colonial roots) --- */
+davidjr:{x:840,y:-2160,cls:'scot',direct:1,n:'David Sayre Jr.',d:'1762–1856 · New Jersey → Virginia',mini:'6× great-grandfather (probable) — born in colonial New Jersey',tags:['DIRECT','PROBABLE','COLONIAL'],
+ dossier:{'The record (probable)':'Born 1762 in New Jersey — before the Revolution — and named as the father of Daniel Sayre in Daniel\'s Find a Grave biography ("Daniel was the son of David Sayre and Sarah LITTLE"). The 1850 census of Jackson County, (West) Virginia lists "Sayre David Sr, 87, b. N Jersey" living amid the family cluster — matching exactly. The Sayre trail thus runs New Jersey → Monongalia County, Virginia → Mason County → the Ohio River country. Member-contributed links corroborated by census; primary proof still to be gathered.'},
+ src:['1850 US Census, Jackson Co. VA (USGenWeb transcription: "Sayre David Sr 87 N Jersey")','Find a Grave memorial #6091426 (Daniel Sayre bio names parents)']},
+
+sarahlittle:{x:1060,y:-2160,cls:'scot',direct:1,n:'Sarah Little',d:'1761–1840 · probable',mini:'6× great-grandmother (probable)',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record (probable)':'Named as the mother of Daniel Sayre ("Sarah LITTLE") in Daniel\'s Find a Grave biography. Born about 1761; died about 1840. Awaiting primary-record confirmation.'},
+ src:['Find a Grave memorial #6091426 (Daniel Sayre bio names parents)']},
+
+/* --- 5× GREAT-GRANDPARENTS --- */
+daniel:{x:950,y:-1840,cls:'scot',direct:1,n:'Daniel Sayre',d:'1785–1866 · Virginia',mini:'5× great-grandfather — raised young Alonzo',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record':'Born 1785 in Monongalia County, Virginia; died 1866; buried Staats Cemetery, Evans, Jackson County, West Virginia. In the 1850 census his household in Jackson County includes "Sayre Curtis, 13, b. Ohio" — Ty\'s 3× great-grandfather Alonzo Curtis, being raised by his grandparents after his mother\'s early death. The parent link to Elijah is member-contributed but matches the census cluster exactly (PROBABLE).'},
+ src:['1850 US Census, Jackson Co. VA, dwelling 559 (USGenWeb transcription — household includes Curtis, 13, b. Ohio)','Find a Grave memorial #6091426, Staats Cemetery']},
+
+sarahhall:{x:1170,y:-1840,cls:'scot',direct:1,n:'Sarah (Hall) Sayre',d:'1782–1871',mini:'5× great-grandmother — raised young Alonzo',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record':'Born about 1782 (Pennsylvania, per the 1850 census); died 1871. Wife of Daniel Sayre; the "Sarah, 67" of the 1850 household where 13-year-old grandson Alonzo Curtis was raised.'},
+ src:['1850 US Census, Jackson Co. VA, dwelling 559 (USGenWeb transcription)','Find a Grave memorial #18747902']},
+
+/* --- 4× GREAT-GRANDPARENTS --- */
+elijah:{x:950,y:-1520,cls:'scot',direct:1,n:'Elijah Sayre',d:'1816–1910 · (West) Virginia',mini:'4× great-grandfather — lived to 93',tags:['DIRECT'],
+ dossier:{'The record':'Named as Alonzo\'s father — born "W. Virginia" — on Alonzo\'s 1929 death certificate. The record trail fills him out: born 22 September 1816 (probable), a farmer in Jackson County, (West) Virginia in the 1850 census ("Sayre Elijah, 32, Farmer, Va"), died 29 March 1910, buried Parchment Valley Cemetery, Jackson County.','A hard chapter':'His first wife — the Greer woman, Alonzo\'s mother — died or was gone by about 1843; Elijah remarried (Mary Jane Hunt) and raised a second family, while young Alonzo grew up in his grandparents\' household nearby. It\'s why Alonzo\'s line came down to us through the grandparents\' house.'},
+ src:['Alonzo Curtis Sayre death certificate, Cedar County MO, 1929 (cert 36612)','1850 US Census, Jackson Co. VA, dwelling 556 (USGenWeb transcription)','Find a Grave memorial #70672606, Parchment Valley Cemetery (probable dates)']},
+
+greerm:{x:1170,y:-1520,cls:'scot',direct:1,n:'— Greer',d:'died by ~1843 · first name unknown',mini:'4× great-grandmother — the tree\'s open mystery',tags:['DIRECT'],
+ dossier:{'The record':'Alonzo\'s 1929 death certificate gives his mother\'s maiden name as Greer — her first name was never recorded, and she vanished from the record by about 1843, when Elijah remarried. Greer families lived among the Sayres for decades: a John Greer three census pages from David Sayre in 1810 Mason County, and another John Greer inside the very Sayre neighborhood of the 1850 Jackson County census.','A shared mystery':'A Sayre family researcher posted this exact question to a Meigs County genealogy board back in 2000 — "Any one know who the mother was of Alonzo Curtis Sayre?" — and it has stood open for a quarter century. Recovering her name is this tree\'s white whale.'},
+ src:['Alonzo Curtis Sayre death certificate, Cedar County MO, 1929 (cert 36612)','Meigs Co. OHGenWeb queries page, Feb 2000 (independent researcher, same question)','USGenWeb census transcriptions: Greer households, Mason Co. 1810–1840, Jackson Co. 1850']},
+
+richardt:{x:1410,y:-1520,cls:'scot',direct:1,n:'Richard Tillis',d:'1809–1891 · Mason Co., (W)VA (probable)',mini:'4× great-grandfather (probable)',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record (probable)':'Father of Olive Boone Tillis per her mother\'s Find a Grave biography (quoting a local historian\'s notes), matching the 1850 Mason County census household line for line — "Tillis Richard 41, Elizabeth 48 … Olivia 7." Married Elizabeth 12 September 1829; buried in the family\'s Tillis Cemetery at Arbuckle, Mason County.'},
+ src:['Find a Grave memorial #131144532 (bio quoting Violette Machir\'s notes)','1850 US Census, Mason Co. VA (USGenWeb transcription, household match)']},
+
+elizvb:{x:1630,y:-1520,cls:'scot',direct:1,n:'Elizabeth Greenlee Van Bibber',d:'1802–1883 · probable',mini:'4× great-grandmother (probable) — the Boone connection',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record (probable)':'Mother of Olive Boone Tillis; daughter of Jesse Van Bibber and Rachel Greenlee. The Van Bibbers were famously intertwined with Daniel Boone\'s family — an Olive Van Bibber married Boone\'s son Nathan — and Ty\'s ancestor "Olive Boone Tillis" was very likely named in that tradition. The Boone link itself is a naming echo, not a proven bloodline.'},
+ src:['Find a Grave memorial #131144532 (bio)','Find a Grave memorial #8853841 (Olive Van Bibber Boone — naming context)']},
+
+/* --- GRIFFITTS & STROUD 3× GREAT-GRANDPARENTS --- */
+williamg:{x:1820,y:-1200,cls:'scot',direct:1,n:'William Griffitts',d:'dates unknown',mini:'3× great-grandfather',tags:['DIRECT'],
+ dossier:{'The record':'Named as the father of John Thomas Griffitts on John\'s 1965 Saline County death certificate index.'},
+ src:['Missouri death certificate index: John Thomas Griffitts, d. 24 Nov 1965, Saline Co. (cert 46597)']},
+
+marthas:{x:2040,y:-1200,cls:'scot',direct:1,n:'Martha Stanley',d:'dates unknown',mini:'3× great-grandmother',tags:['DIRECT'],
+ dossier:{'The record':'Named as the mother (maiden name Stanley) of John Thomas Griffitts on his 1965 death certificate index.'},
+ src:['Missouri death certificate index: John Thomas Griffitts, d. 24 Nov 1965, Saline Co. (cert 46597)']},
+
+jstroud:{x:2260,y:-1200,cls:'scot',direct:1,n:'John H. Stroud',d:'dates unknown',mini:'3× great-grandfather',tags:['DIRECT'],
+ dossier:{'The record':'Named as the father of Etha Elizabeth (Stroud) Griffitts on her 1957 Saline County death certificate index. A younger John Thomas Griffitts Jr.\'s 1966 certificate independently names "John T. Griffitts" and "Etha Stroud" as his parents, cross-confirming the family.'},
+ src:['Missouri death certificate index: Etha Elizabeth Griffitts, d. 14 Oct 1957, Saline Co. (cert 38813)']},
+
+harrietj:{x:2480,y:-1200,cls:'scot',direct:1,n:'Harriett Johnson',d:'dates unknown',mini:'3× great-grandmother',tags:['DIRECT'],
+ dossier:{'The record':'Named as the mother (maiden name Johnson) of Etha Elizabeth (Stroud) Griffitts on her 1957 death certificate index.'},
+ src:['Missouri death certificate index: Etha Elizabeth Griffitts, d. 14 Oct 1957, Saline Co. (cert 38813)']},
+
+/* --- 3× GREAT-GRANDPARENTS --- */
+john:{x:60,y:-1200,cls:'scot',direct:1,n:'John Worth Garretson',d:'1861–1909 · Iowa → Buffalo → Oklahoma',mini:'3× great-grandfather',tags:['DIRECT'],
+ dossier:{'The record':'Born 14 February 1861 in Salem, Henry County, Iowa — the pioneer Quaker colony; died 13 June 1909, aged only 48, at Faxon, Comanche County, Oklahoma, where he is buried. Named as Isaac\'s father on Isaac\'s 1969 death certificate (primary), and found as head of household in the 1900 census at DeQueen, Arkansas — "John W Garretson, born February 1861, Iowa, married 18 years." Married Clara Sophia Rapalyea on 28 December 1881 at Ripon, Wisconsin.','A restless life':'Iowa boyhood, married in Wisconsin, a daughter born in Iowa, two sons born during the Buffalo years (city directories show him as foreman of the Garretson family\'s Buffalo School Furniture Company on Seneca Street), back to Iowa by 1895, to Arkansas by 1900, and finally to the new state of Oklahoma, where he died in 1909.'},
+ src:['Isaac M. Garretson death certificate, 1969 (names parents)','1900 US Census, Sevier Co. AR, household 393','FamilySearch tree profile LH6T-GK9 (10 sources)','Buffalo city directories 1886 & 1888 (Internet Archive OCR)']},
+
+clara:{x:280,y:-1200,cls:'scot',direct:1,n:'Clara Sophia Rapalyea',d:'1856–1946 · Wisconsin → California',mini:'3× great-grandmother — a Dutch colonial name',tags:['DIRECT'],
+ dossier:{'The record':'Born 15 June 1856 at Ripon, Fond du Lac County, Wisconsin; died 13 August 1946 in Kern County, California, at ninety. Named as Isaac\'s mother on his 1969 death certificate. The 1880 census catches her at 23 with her parents\' family in Blue Earth County, Minnesota — the only Clara Rapalyea in the nation — and the 1900 census shows her ("born Wisconsin") with John and the children at DeQueen, Arkansas. Widowed at 53, she pressed on to Los Angeles, and died in California having crossed most of the continent in one lifetime.','The Dutch thread':'Her surname descends from one Dutch colonial family — Joris Jansen Rapalje and Catalina Trico, who sailed for New Netherland in 1624; their daughter Sarah (b. 1625) was the first recorded European girl born in the colony, and the family\'s Wallabout Bay farm later became the Brooklyn Navy Yard. Virtually all American Rapalyeas trace to them, so Clara\'s descent is plausible — but the generation-by-generation proof above her father Daniel is still to be built.'},
+ src:['Isaac M. Garretson death certificate, 1969','1900 US Census, Sevier Co. AR','1880 US Census, Blue Earth Co. MN','FamilySearch tree profile 9KG5-CK4 (15 sources)','Rapalje colonial history: New Netherland Institute; Wikipedia']},
+
+clarke:{x:500,y:-1200,cls:'scot',direct:1,n:'Clarke Seward',d:'dates unknown',mini:'3× great-grandfather',tags:['DIRECT'],
+ dossier:{'The record':'Named as the father of Alice Irma (Seward) Garretson on her 1967 Polk County death certificate — a primary record. Details to be found.'},
+ src:['Alice Irma Garretson death certificate, Polk County MO, 1967 (cert 7378)']},
+
+lela:{x:720,y:-1200,cls:'scot',direct:1,n:'Lela Morris',d:'dates unknown',mini:'3× great-grandmother',tags:['DIRECT'],
+ dossier:{'The record':'Named as the mother of Alice Irma (Seward) Garretson on her 1967 death certificate. Details to be found.'},
+ src:['Alice Irma Garretson death certificate, Polk County MO, 1967 (cert 7378)']},
+
+curtis:{x:940,y:-1200,cls:'scot',direct:1,n:'Alonzo Curtis Sayre',d:'1837–1929 · Ohio → Cedar Co., MO',mini:'3× great-grandfather — lived to 92',tags:['DIRECT'],
+ dossier:{'The record':'Born 11 June 1837 in Meigs County, Ohio — per his own 1929 death certificate, with his son Richard as informant. (Richard\'s later certificate recalled his father\'s birthplace as Virginia; the family lived along the Ohio River, where Meigs County, Ohio faces Mason County, Virginia across the water.) Married Olive Boone Tillis on 10 October 1859 in Mason County; widower by his death on 8 November 1929 in Jefferson Township, Cedar County, Missouri, aged 92 — "died suddenly, been bedfast 10 months." Buried at Hickory Grove.','His parents':'The certificate names his father, Elijah Sayre, born western Virginia, and his mother, maiden name Greer — Ty\'s 4× great-grandparents, born in the earliest 1800s.'},
+ src:['Alonzo Curtis Sayre death certificate, Cedar County MO, 1929 (cert 36612) — viewed at Missouri State Archives','Richard Marion Sayre death certificate, 1943','FamilySearch tree profile KFS5-1WY']},
+
+olive:{x:1160,y:-1200,cls:'scot',direct:1,n:'Olive Boone Tillis',d:'1840–1918 · Mason Co., Virginia',mini:'3× great-grandmother',tags:['DIRECT','VIRGINIA'],
+ dossier:{'The record':'Born about 1840 in Mason County, Virginia ("Olivia, 7" in her father\'s 1850 census household); married Alonzo Curtis Sayre there on 10 October 1859; died 1918. Named "Olive Tillis" as Richard\'s mother on his 1943 death certificate.','Her name':'Daughter of Richard Tillis and Elizabeth Greenlee Van Bibber. Her middle name "Boone" almost certainly honors the Van Bibber–Boone connection — an Olive Van Bibber married Daniel Boone\'s son Nathan.'},
+ src:['Richard Marion Sayre death certificate, 1943 — names parents','1850 US Census, Mason Co. VA (Tillis household)','Find a Grave memorials #47015301 and #131144532','FamilySearch tree profile LDYB-18G']},
+
+jchaney:{x:1380,y:-1200,cls:'scot',direct:1,n:'John C. Chaney',d:'b. Indiana',mini:'3× great-grandfather',tags:['DIRECT'],
+ dossier:{'The record':'Named as the father of Matilda A. (Chaney) Sayre — born Indiana — on Matilda\'s 1933 Cedar County death certificate.'},
+ src:['Matilda A. Sayre death certificate, Cedar County MO, 1933 (cert 12653)']},
+
+ester:{x:1600,y:-1200,cls:'scot',direct:1,n:'Ester J. Miller',d:'dates unknown',mini:'3× great-grandmother',tags:['DIRECT'],
+ dossier:{'The record':'Named as the mother (maiden name Miller) of Matilda A. (Chaney) Sayre on her 1933 death certificate.'},
+ src:['Matilda A. Sayre death certificate, Cedar County MO, 1933 (cert 12653)']},
+
+/* --- ANDERSON 2× GREAT-GRANDPARENTS --- */
+charley:{x:430,y:-1040,cls:'scot',direct:1,n:'Charley R. Anderson',d:'Polk County, Missouri',mini:'2× great-grandfather',tags:['DIRECT'],
+ dossier:{'The record':'Named as the father of Helen (Anderson) Garretson in her Social Security file — the government record she filled out in her own lifetime. Of the Dunnegan, Polk County world where Helen was born. Dates and his own parents still to be found.'},
+ src:['US Social Security NUMIDENT file for Helen Garretson (FamilySearch)']},
+
+alicemoore:{x:650,y:-1040,cls:'scot',direct:1,n:'Alice M. Moore',d:'dates unknown',mini:'2× great-grandmother',tags:['DIRECT'],
+ dossier:{'The record':'Named as the mother (maiden name Moore) of Helen (Anderson) Garretson in Helen\'s Social Security file. Details to be found.'},
+ src:['US Social Security NUMIDENT file for Helen Garretson (FamilySearch)']},
+
+/* --- GRIFFITTS 2× GREAT-GRANDPARENTS --- */
+jgriffitts:{x:1090,y:-880,cls:'scot',direct:1,n:'John Thomas Griffitts',d:'1880–1965 · Saline Co., MO',mini:'2× great-grandfather',tags:['DIRECT'],
+ dossier:{'The record':'Born 1880; died 24 November 1965 in Saline County, aged 85. Married Etha Elizabeth Stroud on 22 February 1898; father of thirteen children including Marie Etha (Griffitts) Sayre, Ty\'s great-grandmother. His death certificate names his parents: William Griffitts and Martha Stanley.'},
+ src:['Missouri death certificate index: John Thomas Griffitts, d. 24 Nov 1965, Saline Co. (cert 46597)','FamilySearch tree profile K85D-BH2']},
+
+ethas:{x:1310,y:-880,cls:'scot',direct:1,n:'Etha Elizabeth (Stroud) Griffitts',d:'1878–1957 · Saline Co., MO',mini:'2× great-grandmother',tags:['DIRECT'],
+ dossier:{'The record':'Born 1878; died 14 October 1957 in Saline County, aged 79. Married John Thomas Griffitts in 1898; mother of thirteen. Her daughter Marie carried "Etha" as a middle name. Her death certificate names her parents: John H. Stroud and Harriett Johnson.'},
+ src:['Missouri death certificate index: Etha Elizabeth Griffitts, d. 14 Oct 1957, Saline Co. (cert 38813)','FamilySearch tree profile 9HJ8-F36']},
+
+/* --- SAYRE 2× GREAT-GRANDPARENTS --- */
+richard:{x:650,y:-880,cls:'scot',direct:1,n:'Richard Marion Sayre',d:'1860–1943 · Virginia → Cedar Co., MO',mini:'2× great-grandfather',tags:['DIRECT'],
+ dossier:{'The record':'Born 16 December 1860 in Mason County, Virginia (now West Virginia); died 30 January 1943 in Kansas City; buried at Humansville — per his Missouri death certificate, which names his parents Curtis Sayre and Olive Tillis. A farmer of Jefferson Township, Cedar County. Married Matilda A. Chaney on 28 May 1884 in Allen County, Kansas; they raised ten children, Jack (born Gladys Marion) the eighth.','How the link was proven':'The 1910 census shows 8-year-old "Gladys" (Jack) in Richard\'s household, and Jack\'s fully-sourced FamilySearch profile lists Richard and Matilda as his parents with matching dates throughout.'},
+ src:['Richard Marion Sayre death certificate, Jackson County MO, 1943 (state file 1313)','1910 US Census, Jefferson Twp, Cedar Co. MO','FamilySearch tree profile KX1K-TQR (34 attached sources)','Theodore C. Sayre death certificate index, 1967 — father Richard Sayre']},
+
+matilda:{x:870,y:-880,cls:'scot',direct:1,n:'Matilda A. (Chaney) Sayre',d:'1865–1933 · Missouri',mini:'2× great-grandmother',tags:['DIRECT'],
+ dossier:{'The record':'Born 30 September 1865 in Missouri; died 27 April 1933 in Cedar County, with her husband Richard M. Sayre of Humansville as informant. Her death certificate names her parents: John C. Chaney, born Indiana, and Ester J. Miller. Married Richard 28 May 1884 in Allen County, Kansas; mother of ten, including Jack.'},
+ src:['Matilda A. Sayre death certificate, Cedar County MO, 1933 (cert 12653)','1910 US Census, Jefferson Twp, Cedar Co. MO','FamilySearch tree profile LZG9-DZH']},
+
+/* --- YOU --- */
+ty:{x:1257,y:400,cls:'anglo',direct:1,living:1,n:'Ty Garretson',d:'living',mini:'This is me — where two family lines meet',tags:['YOU','Living'],
+ dossier:{'About':'The starting point of the direct line. As a living person, details here are kept minimal — see the privacy note below. Everything above this card was built by working backward, one sourced record at a time.'},src:[]},
+
+/* --- PARENTS --- */
+jody:{x:495,y:80,cls:'scot',direct:1,n:'Jody Wayne "Joe" Garretson',d:'1972–2010 · Humansville, MO',mini:"Ty's father — rodeo bullfighter",tags:['DIRECT','Bullfighter'],
+ dossier:{'The record':'Born 13 December 1972 in Humansville, Missouri; died 19 January 2010 at his home in Nixa. Son of Jerry Garretson and Janice "Elaine" (Sayre) Garretson. Buried in Humansville Cemetery.','His life':'A professional rodeo bullfighter (PBR/PRCA) who also ran Garretson & Sons Concrete Construction. His obituary names his three children — Ty, Kaytlynn and Cole.'},
+ src:['Jody Garretson obituary, Butler/Murray Funeral Home, Bolivar MO','Find a Grave: Jody Wayne "Joe" Garretson, Humansville Cemetery']},
+
+sara:{x:2020,y:80,cls:'swede',direct:1,living:1,n:'Sara (Stearman) Rains',d:'living · Missouri',mini:"Ty's mother",tags:['DIRECT','Living'],
+ dossier:{'The record':'Born in 1976 (exact year kept off the public page as a living relative). Maiden name Stearman; formerly Garretson; now Rains. Daughter of James Stearman and Julie (Pearman) Stearman.'},src:['Family knowledge (provided by Ty, 2026)']},
+
+/* --- GRANDPARENTS --- */
+jerry:{x:230,y:-240,cls:'scot',direct:1,living:1,n:'Jerry Wayne Garretson',d:'Bolivar, Missouri',mini:'Paternal grandfather',tags:['DIRECT','Living'],
+ dossier:{'The record':'Born in Missouri, about 1953 (year kept off the public page as a living relative). Lives in Bolivar, Missouri. Son of Arthur "Art" Garretson and Helen Garretson; father of Jody. His father\'s headstone names his children as "Steve and Jerry."'},src:['Family knowledge (provided by Ty, 2026)','Corroborated by Jody Garretson obituary and Arthur Garretson\'s headstone']},
+
+janice:{x:760,y:-240,cls:'scot',direct:1,living:1,n:'Janice E. Sayre',d:'Bolivar, Missouri',mini:'Paternal grandmother (goes by Elaine)',tags:['DIRECT','Living'],
+ dossier:{'The record':'Born in Missouri, about 1953 (year kept off the public page as a living relative). Goes by Elaine. Daughter of Jack Sayre and Marie (Griffitts) Sayre; mother of Jody. Her mother\'s headstone lists daughters "Jeanie, Linda, Beverly, Elaine."'},src:['Family knowledge (provided by Ty, 2026)','Corroborated by Jody Garretson obituary ("Elaine (Sayre)") and Marie Sayre\'s headstone']},
+
+james:{x:1750,y:-240,cls:'swede',direct:1,living:1,n:'James Stearman',d:'Stockton / Protem, Missouri',mini:'Maternal grandfather',tags:['DIRECT','Living'],
+ dossier:{'The record':'Ty\'s maternal grandfather. Son of Master Sergeant William Howard Stearman (1919–1968) and Juanita Maxine Burton (1922–2010). Named in his mother\'s obituary as "James Stearman (Julie) of Protem, Missouri." Married to Julie (Pearman) Stearman; father of Sara. The family has lived across El Paso (TX), Denver (CO), Protem (MO) and Stockton (MO) — a path that began with his father\'s Army postings.'},src:['Family knowledge (provided by Ty, 2026)','Juanita M. Cook obituary, Arizona Republic (Legacy.com), 2010']},
+
+julie:{x:2290,y:-240,cls:'swede',direct:1,living:1,n:'Julie (Pearman) Stearman',d:'Protem, Missouri',mini:'Maternal grandmother',tags:['DIRECT','Living'],
+ dossier:{'The record':'Maiden name Pearman. Married to James Stearman; mother of Sara. Daughter of Margaret Belle (Smith) Pearman and Harry Pearman. Named in her mother\'s 2021 obituary as "Julie (James) Stearman of Protem, Missouri."'},src:['Family knowledge (provided by Ty, 2026)','Corroborated by Margaret Belle True obituary, Greenlawn Funeral Home']},
+
+/* --- GREAT-GRANDPARENTS --- */
+arthur:{x:120,y:-560,cls:'scot',direct:1,n:'Arthur Isaac "Art" Garretson',d:'1926–1987 · Iowa → Missouri',mini:'Great-grandfather',tags:['DIRECT'],
+ dossier:{'The record':'Born 24 May 1926 in Keokuk, Lee County, Iowa; died 31 May 1987 in Humansville, Missouri. Buried in Humansville Cemetery. His headstone names his children as "Steve and Jerry" — Jerry being Ty\'s grandfather. Worked for the St. Louis–San Francisco (Frisco) Railway.','How we know':'Named as "Art … Garretson of Humansville" in grandson Jody\'s 2010 obituary, and confirmed by his Find a Grave memorial and headstone inscription.'},
+ src:['Jody Garretson obituary, Butler Funeral Home','Find a Grave memorial #58353344 (headstone: "Children Steve and Jerry")']},
+
+helen:{x:340,y:-560,cls:'scot',direct:1,n:'Helen (Anderson) Garretson',d:'1931–2005 · Dunnegan, MO',mini:'Great-grandmother — maiden name found',tags:['DIRECT'],
+ dossier:{'The record':'Born 31 March in Dunnegan, Polk County, Missouri; died 13 April 2005. Her Social Security file solved the tree\'s last great-grandparent mystery: maiden name ANDERSON, parents Charley R. Anderson and Alice M. Moore. Wife of Arthur "Art" Garretson and mother of Jerry Wayne Garretson. Buried in Humansville Cemetery.','A small discrepancy':'Her Social Security record says born 1931; her headstone reads 1934 — same month and day. The Social Security year, given in her own lifetime, is likely the truer one; both are recorded here honestly.'},
+ src:['US Social Security NUMIDENT file (FamilySearch): b. 31 Mar 1931 Dunnegan MO, d. 13 Apr 2005 — parents Charley R Anderson & Alice M Moore','US Social Security Death Index','Jody Garretson obituary, Butler Funeral Home','Find a Grave memorial #79251223 (headstone: 1934)']},
+
+jack:{x:650,y:-560,cls:'scot',direct:1,n:'Jack (Gladys Marion) Sayre',d:'1902–1980 · Humansville → Fair Play',mini:'Great-grandfather — born "Gladys Marion"',tags:['DIRECT'],
+ dossier:{'The record':'Born 30 July 1902 in Humansville; died 24 July 1980 in Springfield; buried in Humansville Cemetery. Husband of Marie (Griffitts) and father of Janice "Elaine" Sayre, Ty\'s grandmother.','The name':'His birth name was Gladys Marion Sayre — and he went by "Jack" his whole adult life. The 1910 census records him at age 8 as "Gladys, son" in his father\'s Cedar County household, and his fully-sourced FamilySearch profile (exact birth date 30 Jul 1902, exact death date 24 Jul 1980, wife Marie Etha Griffitts, Humansville Cemetery burial) matches Jack in every particular. This solved the puzzle of why no "Jack Sayre" appeared in any early record.','His parents — confirmed':'Richard Marion Sayre and Matilda A. (Chaney) Sayre of Cedar County, married 28 May 1884 in Allen County, Kansas. Jack was the eighth of their ten children.'},
+ src:['Jody Garretson obituary, Butler Funeral Home','Find a Grave memorial #63604187','FamilySearch tree profile G4XP-4MF (14 attached sources incl. WWII draft registration)','1910 US Census, Jefferson Twp, Cedar Co. MO (as "Gladys," son, age 8)']},
+
+marie:{x:870,y:-560,cls:'scot',direct:1,n:'Marie Etha (Griffitts) Sayre',d:'1918–1994 · Saline Co. → Fair Play, MO',mini:'Great-grandmother',tags:['DIRECT'],
+ dossier:{'The record':'Born 15 June 1918 in Marshall, Saline County, Missouri; died 6 June 1994 at Fair Play. Wife of Jack Sayre; after his death she married John Monroe Mead in 1982. Her headstone lists her daughters "Jeanie, Linda, Beverly, Elaine" — Elaine being Ty\'s grandmother.','Her family':'One of thirteen children of John Thomas Griffitts and Etha Elizabeth (Stroud) Griffitts — her middle name honored her mother.'},
+ src:['Find a Grave memorial #63604371 (headstone: "Daughters – Jeanie, Linda, Beverly, Elaine")','Jody Garretson obituary, Butler Funeral Home','FamilySearch tree profile L6GQ-K9Z (11 attached sources)']},
+
+harry:{x:2180,y:-560,cls:'swede',direct:1,n:'Harry Jay Pearman',d:'1931–1985 · Arkansas → El Paso',mini:'Great-grandfather — rests at Fort Bliss',tags:['DIRECT'],
+ dossier:{'The record':'Born 18 August 1931 in Arkansas (the 1940 census finds him a boy in Benton County); husband of Margaret Belle Smith; father of Julie and her Pearman siblings, per Patrick Pearman\'s obituary. Died 27 May 1985 at El Paso, Texas — and rests at FORT BLISS NATIONAL CEMETERY, the same soldier\'s ground as William Howard Stearman. Both of Ty\'s maternal grandparents were children of El Paso military families — which is almost certainly how James and Julie\'s families came to know each other.','His parents':'Ernest Charlie Pearman and Henrietta Clara Foote, married 1927 in Logan, Nebraska.'},
+ src:['FamilySearch tree profile 9S8P-XPS (9 sources; burial Fort Bliss National Cemetery)','Patrick M. Pearman obituary, Snapp-Bearden Forsyth Chapel','1940 US Census, Osage Twp, Benton Co. AR']},
+
+margaret:{x:2400,y:-560,cls:'swede',direct:1,n:'Margaret Belle (Smith) Pearman',d:'1932–2021 · Missouri',mini:'Great-grandmother',tags:['DIRECT'],
+ dossier:{'The record':'Born 3 March 1932 in Sheridan, Worth County, Missouri; died 4 April 2021 in Forsyth, Missouri. Mother of Julie (Pearman) Stearman. Her later married name was True (a 1989 marriage to Wilber True).','How we know':'Her obituary lists among her children "Julie (James) Stearman of Protem, Missouri," matching Ty\'s grandparents exactly, and names her own parents as Edward Lee Smith and Ruth Elizabeth (Laughlin) Smith.'},
+ src:['Margaret Belle True obituary, Greenlawn Funeral Home','Branson Tri-Lakes News obituary']},
+
+/* --- GREAT-GREAT-GRANDPARENTS --- */
+isaac:{x:120,y:-880,cls:'scot',direct:1,n:'Isaac Malin Garretson',d:'1884–1969 · Buffalo, NY → Missouri',mini:'2× great-grandfather',tags:['DIRECT'],
+ dossier:{'The record':'Born 7 March 1884 in Buffalo, Erie County, New York; died 17 July 1969 in Springfield, Missouri. Buried in Greenwood Cemetery, Bolivar. His memorial\'s gravestone inscription records his marriage to Alice Irma Seward on 23 November 1923, and his children include Arthur Isaac Garretson — Ty\'s great-grandfather. So the Garretson trail now runs New York → Iowa → Missouri.','His two families':'He was married twice: first to Clara Louise Collier (1887–1920, m. 1906), with whom he had five children, and after her death to Alice, with whom he had five more — Arthur among them, plus Alice Irene, William "Bill," Nellie Ruth, and Zella Mae.','His parents, from the certificate':'His 1969 Missouri death certificate — informant his son Bill of Humansville — names his parents: John W. Garretson and Clara S. Rapalyea, pushing the line back into New York and toward its probable Dutch roots.'},
+ src:['Isaac M. Garretson death certificate, Missouri State Archives, 1969 (state file 69-0028144)','Find a Grave memorial #45375002 (cross-linked to Arthur\'s memorial #58353344; inscription "Married Nov. 23, 1923")']},
+
+alice:{x:340,y:-880,cls:'scot',direct:1,n:'Alice Irma (Seward) Garretson',d:'1895–1967 · Missouri',mini:'2× great-grandmother',tags:['DIRECT'],
+ dossier:{'The record':'Died 21 February 1967 in Polk County, aged 71. Married Isaac Malin Garretson on 23 November 1923 (his second marriage) and was the mother of Arthur Isaac Garretson and four other children. Her death certificate names her parents: Clarke Seward and Lela Morris.'},
+ src:['Alice Irma Garretson death certificate, Polk County MO, 1967 (cert 7378)','Find a Grave memorial #45375001, cross-linked from Isaac\'s memorial #45375002']},
+
+edward:{x:2300,y:-880,cls:'swede',direct:1,n:'Edward Lee Smith',d:'1896–1979 · Kansas → the Ozarks',mini:'2× great-grandfather',tags:['DIRECT'],
+ dossier:{'The record':'Born 11 September 1896 at Blue Mound, Linn County, Kansas, son of Albert Lee Smith and Elizabeth Caroline Mannon; married Ruth Elizabeth Laughlin on 30 April 1917 at Bedford, Taylor County, Iowa. His long road ran Iowa → Nebraska → Iowa → Bates and Douglas Counties, Missouri — and ended at El Cajon, California on 28 May 1979, one month after Ruth. Buried at Bartlesville, Oklahoma, beside his parents. The 1940 census catches the family at Brown Township, Douglas County, Missouri — with 8-year-old Margaret — after a wandering road written in the children\'s birthplaces: Iowa, Oklahoma, Iowa, Missouri.'},
+ src:['1940 US Census, Brown Twp, Douglas Co. MO (FamilySearch ark 1:1:K7QW-WVQ)','FamilySearch tree profile LYFL-WXD','Margaret Belle True obituary, Greenlawn Funeral Home']},
+
+ruth:{x:2570,y:-880,cls:'swede',direct:1,n:'Ruth Elizabeth (Laughlin) Smith',d:'1900–1979 · Missouri',mini:'2× great-grandmother',tags:['DIRECT'],
+ dossier:{'The record':'Born 11 March 1900 in Nodaway County, Missouri, daughter of Roger Edwin Laughlin and Cora Belle Ingels; married Edward Lee Smith at Bedford, Iowa in 1917; mother of eight, including Margaret Belle. She died at San Diego on 27 April 1979 — and Edward, her husband of sixty-two years, followed one month later. She was carried home to Yates Cemetery, Ava, Douglas County, Missouri. "Ruth E Smith, 40" beside her family in the 1940 Douglas County census.'},
+ src:['1940 US Census, Brown Twp, Douglas Co. MO','FamilySearch tree profile L8H1-3N9','Margaret Belle True obituary, Greenlawn Funeral Home']},
+
+william:{x:1630,y:-560,cls:'swede',direct:1,war:1,n:'William Howard Stearman',d:'1919–1968 · Oklahoma → El Paso',mini:'Great-grandfather — Master Sergeant, US Army',tags:['DIRECT','WWII','Soldier'],
+ dossier:{'The record':'Born 26 October 1919 in Oklahoma; died 19 April 1968 in El Paso, Texas, aged 48. A Master Sergeant in the US Army who served in World War II. Buried at Fort Bliss National Cemetery, El Paso (Section I, Site 1340). Father of James Stearman — Ty\'s grandfather — and named "the late William Howard Stearman (1968), her first love" in Juanita\'s 2010 obituary. He died when his children were young, which is why the family knew little of him.','April 1950, in his own census line':'The 1950 census, taken at Deming, New Mexico ("Booster Station"), records household 205: Stearman, Wm. — head, 30, born Oklahoma; Juanita — wife, 27, born Texas; Yearby H. — son, 6; Robt. J. — son, 3, born Oklahoma; Linda — daughter, 1. Ty\'s grandfather James would join the family a few years later.','The El Paso answer':'His Army career at Fort Bliss explains the family\'s El Paso chapter — the westernmost root of the Stearman migration. His parents were David William Stearman and Jessie May (Jones) Stearman of Oklahoma.'},
+ src:['1950 US Census, Deming, Luna County NM, ED 16-9, household 205 (viewed at 1950census.archives.gov)','Juanita M. Cook obituary, Arizona Republic (Legacy.com), Aug 30 2010','Fort Bliss National Cemetery interment record (interment.net)','VA burial record via sortedbyname.com','Find a Grave memorial #3330944','Family knowledge (provided by Ty, 2026)']},
+
+juanita:{x:1880,y:-560,cls:'swede',direct:1,n:'Juanita Maxine (Burton) Stearman Cook',d:'1922–2010 · Texas → Scottsdale, AZ',mini:'Great-grandmother',tags:['DIRECT'],
+ dossier:{'The record':'Born 18 November 1922 in Texas (per the 1950 census, which lists her at Deming, New Mexico — wife, age 27, born Texas); died 23 August 2010 in Scottsdale, Arizona. Maiden name Burton. Her obituary names her children — including "James Stearman (Julie) of Protem, Missouri," Ty\'s grandparents — and her two husbands: "the late William Howard Stearman (1968), her first love," and "her loving husband, George E. Cook (2004)." Buried at the National Memorial Cemetery of Arizona in Phoenix, her stone marked "wife of George Ellis Cook, Sgt — US Marine Corps."','Her long road':'The 1930 census catches her at age 7 in Elk City, Oklahoma, sixth of seven children. A Texas-born Burton whose family followed the road through Oklahoma to Deming, New Mexico — where her parents still lived a few doors from her own young family in 1950. Widowed in 1968 when William died at El Paso, she later married Marine sergeant George Ellis Cook and lived out her years in Arizona — which is why the family remembers her as "Juanita Cook."'},
+ src:['1950 US Census, Deming, Luna County NM, ED 16-9, household 205 (viewed at 1950census.archives.gov)','Juanita M. Cook obituary, Arizona Republic (Legacy.com), Aug 30 2010','Find a Grave memorial #123586094, National Memorial Cemetery of Arizona','Social Security records via sortedbyname.com (maiden name Burton)','Family knowledge (provided by Ty, 2026)']},
+
+yerby:{x:1470,y:-240,cls:'swede',war:1,n:'Yerby Howard Stearman',d:'1943–1991 · Deming, NM → Houston',mini:'James\'s brother — Vietnam airman',tags:['Great-uncle','Vietnam'],
+ dossier:{'The record':'Born 3 September 1943 in Deming, New Mexico, to William H. Stearman and Juanita M. Burton — the record that ties his parents together. A Sergeant in the US Air Force who served in Vietnam. Died 12 March 1991; buried at Houston National Cemetery. Named in his mother\'s obituary as "Yerby Stearman of Houston, Texas," who preceded her in death.'},
+ src:['Social Security NUMIDENT record via sortedbyname.com — names both parents','Houston National Cemetery burial record','Juanita M. Cook obituary, Arizona Republic (Legacy.com)']},
+
+/* --- THE STURMAN COLONIAL LINE (5×–9× GREAT-GRANDPARENTS, tree-sourced) --- */
+thomas2:{x:1270,y:-2960,cls:'swede',direct:1,n:'Thomas Sturman II',d:'1672–1737 · colonial Virginia (probable)',mini:'9× great-grandfather (probable) — the 1600s',tags:['DIRECT','PROBABLE','COLONIAL'],
+ dossier:{'The record (probable)':'Born about 1672 in Westmoreland County, Virginia — when the colony was barely two generations old; died 1737, the year his will was written. Married Margaret Spence about 1707. The earliest name on the entire tree, from the well-researched Sturman family of Virginia\'s Northern Neck. Member-contributed lineage anchored by his 1737 will; each link this deep deserves primary verification before being treated as final.'},
+ src:['FamilySearch tree profile MQ6K-QV3','Will of Thomas Sturman, written 1 Apr 1737, Westmoreland Co. VA (cited on son Valentine\'s profile)']},
+
+mspence:{x:1490,y:-2960,cls:'swede',direct:1,n:'Margaret Spence',d:'1682–1737 · probable',mini:'9× great-grandmother (probable)',tags:['DIRECT','PROBABLE','COLONIAL'],
+ dossier:{'The record (probable)':'Married Thomas Sturman II about 1707 in colonial Virginia. Spence was likewise an early Westmoreland County family.'},
+ src:['FamilySearch tree profile KZNK-RMG']},
+
+valentine:{x:1270,y:-2640,cls:'swede',direct:1,n:'Valentine Sturman',d:'1723–1789 · Cople Parish, Virginia',mini:'8× great-grandfather (probable)',tags:['DIRECT','PROBABLE','COLONIAL'],
+ dossier:{'The record (probable)':'Born 1723 at Cople Parish, Westmoreland County, Virginia (24 attached sources); named in his father Thomas\'s will of 1737. Married Elizabeth Ransdell in 1751; moved up-country through Richmond County to Bedford and Campbell counties; died 4 January 1789 in Campbell County. His profile carries a curator\'s note: "Important research has been done on this person."'},
+ src:['FamilySearch tree profile LYZY-74R (24 sources; father\'s 1737 will)']},
+
+eransdell:{x:1490,y:-2640,cls:'swede',direct:1,n:'Elizabeth Ransdell',d:'1716–1767 · probable',mini:'8× great-grandmother (probable)',tags:['DIRECT','PROBABLE','COLONIAL'],
+ dossier:{'The record (probable)':'Married Valentine Sturman in 1751, colonial Virginia; died 1767.'},
+ src:['FamilySearch tree profile LH6B-9LN']},
+
+williamst3:{x:1270,y:-2320,cls:'swede',direct:1,n:'William Sturman III',d:'1753–1832 · Virginia → Tennessee',mini:'7× great-grandfather (probable)',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record (probable)':'Born 8 January 1753 in colonial Virginia; married Martha Criddle in 1775 — the year the Revolution began — in Campbell County; died 30 January 1832 in Warren County, Tennessee. Father of eleven. Along this generation the family\'s road bent from Virginia toward Tennessee — where Elizabeth Spurgeon, who married back into the line, was later born.'},
+ src:['FamilySearch tree profile GVTX-8FB (research-flagged profile)']},
+
+marthacriddle:{x:1490,y:-2320,cls:'swede',direct:1,n:'Martha Criddle',d:'1755–1794 · probable',mini:'7× great-grandmother (probable)',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record (probable)':'Married William Sturman III in 1775, Campbell County, Virginia; died 1794, still under forty, mother of a large family.'},
+ src:['FamilySearch tree profile GVTX-5QP']},
+
+johna1780:{x:1270,y:-2000,cls:'swede',direct:1,n:'John A. Stearman',d:'b. 1780 · Bedford, Virginia (probable)',mini:'6× great-grandfather (probable)',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record (probable)':'Born 1780 in Bedford County, Virginia; married Nancy Craig there on 19 October 1804. In his generation the spelling begins its drift from Sturman toward Stearman.'},
+ src:['FamilySearch tree profile 26L7-7R2']},
+
+nancycraig:{x:1490,y:-2000,cls:'swede',direct:1,n:'Nancy Craig',d:'1783–1840 · probable',mini:'6× great-grandmother (probable)',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record (probable)':'Married John A. Stearman in Bedford County, Virginia, 1804; died 1840.'},
+ src:['FamilySearch tree profile GXVQ-DPD']},
+
+johns1812:{x:1270,y:-1680,cls:'swede',direct:1,n:'John Stearman',d:'1812–1892 · Virginia → Ohio → Illinois',mini:'5× great-grandfather (probable)',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record (probable)':'Born 29 May 1812 in Bedford County, Virginia; married Mary Swyers on Christmas Eve 1833 in Ross County, Ohio — where the 1850 census finds the family at Paint Township, including teenage son Robert Henry. Later moved to Kankakee County, Illinois; died 29 January 1892 at Monee, buried Momence Cemetery.'},
+ src:['FamilySearch tree profile LKMT-9HG (15 sources)','1850 US Census, Paint Twp, Ross Co. OH (residence trail)']},
+
+maryswyers:{x:1490,y:-1680,cls:'swede',direct:1,n:'Mary Swyers',d:'1813–1875 · probable',mini:'5× great-grandmother (probable)',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record (probable)':'Married John Stearman in Ross County, Ohio in 1833; mother of eight, including Robert Henry Stearman; died 1875.'},
+ src:['FamilySearch tree profile 9N5F-GRR']},
+
+/* --- STEARMAN 3×–4× GREAT-GRANDPARENTS --- */
+simsanders:{x:1710,y:-1360,cls:'swede',direct:1,n:'Simon "Sim" Sanders',d:'1835–1922 · probable',mini:'4× great-grandfather (probable)',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record (probable)':'Father of Melvina V. (Sanders) Stearman; married Mary Ann "Polly" Hartgroves in 1861 in Bond County, Illinois; lived 1835–1922. From well-sourced FamilySearch profiles.'},
+ src:['FamilySearch tree profile LT63-JL7']},
+
+pollyh:{x:1930,y:-1360,cls:'swede',direct:1,n:'Mary Ann "Polly" Hartgroves',d:'1838–1881 · probable',mini:'4× great-grandmother (probable)',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record (probable)':'Married Simon Sanders in Bond County, Illinois, 1861; mother of seven, including Melvina; died 1881.'},
+ src:['FamilySearch tree profile LT63-PSV']},
+
+
+roberths:{x:1270,y:-1360,cls:'swede',direct:1,n:'Robert Henry Stearman',d:'1835–1901 · probable',mini:'4× great-grandfather (probable)',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record (probable)':'Born 26 May 1835 in Ohio — raised at Paint Township, Ross County, per the 1850 census; married Elizabeth Rachel Spurgeon on 12 October 1854 at Steelville, Crawford County, Missouri; farmed Dade County through the 1880s-90s and followed the land runs to Oklahoma, dying at Meeker, Lincoln County on 9 February 1901. Father of nine, including John Franklin Marion Stearman. Son of John Stearman and Mary Swyers of the Virginia-to-Ohio Sturman line.'},
+ src:['FamilySearch tree profile LKMT-S97 (marriage 12 Oct 1854, Steelville MO)','1910 US Census (son Frank\'s "father born Ohio")']},
+
+espurgeon:{x:1490,y:-1360,cls:'swede',direct:1,n:'Elizabeth Rachel Spurgeon',d:'1836–1928 · probable',mini:'4× great-grandmother (probable)',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record (probable)':'Born 16 February 1836 in Washington County, Tennessee; married Robert Henry Stearman in 1854; followed the family from Ohio to Dade County, Missouri to Oklahoma, and died at Meeker in 1928, aged 92. Mother of nine.','A dispute to resolve':'Her FamilySearch profile carries two competing sets of parents — Joseph Spurgeon and Sarah Bray, or John Spurgeon and Ava Fannon — so neither is placed on this tree until a record settles it. An honest brick wall, marked as such.'},
+ src:['FamilySearch tree profile LJJN-P8T','1910 US Census (son Frank\'s "mother born Tennessee")']},
+
+frank:{x:1380,y:-1040,cls:'swede',direct:1,n:'John Franklin "Frank" Stearman',d:'1859–1923 · Phelps Co., MO → Oklahoma',mini:'3× great-grandfather',tags:['DIRECT'],
+ dossier:{'The record':'Born 3 April 1859 at St. James, Phelps County, Missouri; died 15 May 1923 at McLoud, Oklahoma; buried Jamison Cemetery, Lincoln County. The 1910 census shows him ("Frank Stearman, 51, b. Missouri") heading the South Wichita Township, Oklahoma household with wife Malvina and eight children — including 14-year-old David, Ty\'s 2× great-grandfather. Widowed young (first wife Sarah Parrish died 1884), he married Melvina Sanders in Dade County, Missouri in 1886 and fathered twelve children across the two marriages, farming his way from the Missouri Ozarks to territorial Oklahoma.'},
+ src:['1910 US Census, South Wichita Twp, Lincoln Co. OK (FamilySearch ark 1:1:MLWM-RSY) — household with son David','FamilySearch tree profile LV3K-TLM (25 sources)']},
+
+melvina:{x:1600,y:-1040,cls:'swede',direct:1,n:'Melvina V. (Sanders) Stearman',d:'1868–1957 · Missouri',mini:'3× great-grandmother',tags:['DIRECT'],
+ dossier:{'The record':'Born 20 March 1868 in Missouri, daughter of Simon "Sim" Sanders and Mary Ann "Polly" Hartgroves; married Frank Stearman on 28 November 1886 in Dade County, Missouri; mother of ten, including David William Stearman. "Malvina, 42" in the 1910 Oklahoma census. Lived to 1957.'},
+ src:['1910 US Census, South Wichita Twp, Lincoln Co. OK','FamilySearch tree profile LV3K-YC8']},
+
+/* --- PEARMAN, POOL, FOOTE & NICHOLSON 3×–4× GREAT-GRANDPARENTS --- */
+jamespearman:{x:2150,y:-1680,cls:'swede',direct:1,n:'James Pearman',d:'1825–1900 · Wythe Co., Virginia',mini:'4× great-grandfather (probable)',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record (probable)':'Born August 1825 in Wythe County, Virginia, son (per the tree) of James Pearman Sr. and Mary Jane Freeman; married Mary Elizabeth Pool about 1852; father of seven, including James Buchanan Pearman. He never left the mountains: censuses show him at Wythe County 1850–1870 (Speedwell), Tazewell County 1880, and the Elk Creek district of Grayson County in 1900. Died 1900 in Carroll County — the death itself unsourced on the tree.'},
+ src:['FamilySearch tree profile KHF8-NGH (35 sources; censuses 1850–1900)']},
+
+marypool:{x:2370,y:-1680,cls:'swede',direct:1,n:'Mary Elizabeth Pool',d:'1829–1889 · probable',mini:'4× great-grandmother (probable)',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record (probable)':'Married James Pearman about 1852; died 1889.'},
+ src:['FamilySearch tree profile L2P6-Z1J']},
+
+jamespsr:{x:2150,y:-2000,cls:'swede',direct:1,n:'James Pearman Sr.',d:'d. bef. 1850? \u00b7 Virginia (probable)',mini:'5\u00d7 great-grandfather (probable \u2014 thin record)',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record (probable \u2014 thin)':'Named on FamilySearch as father of James Pearman (1825) of Wythe County, with Mary Jane Freeman as mother of six. No dates or marriage record are attached to him \u2014 the thinnest link on the Pearman line, recorded here as the tree consensus and nothing more. The deepest Pearman name so far.'},
+ src:['FamilySearch tree profile 98L7-7H9 (undated \u2014 tree consensus only)']},
+
+mjfreeman:{x:2370,y:-2000,cls:'swede',direct:1,n:'Mary Jane Freeman',d:'b. 1810 \u00b7 Virginia (probable)',mini:'5\u00d7 great-grandmother (probable)',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record (probable)':'Born about 1810; mother of six including James Pearman (1825) of Wythe County, per the FamilySearch tree.'},
+ src:['FamilySearch tree profile G9VQ-M83']},
+
+jhhampton:{x:2590,y:-1680,cls:'swede',direct:1,n:'John Henry Hampton Sr.',d:'1826\u20131892 \u00b7 Virginia (probable)',mini:'4\u00d7 great-grandfather (probable)',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record (probable)':'Born 1826; married Catherine Huddle on 18 April 1858 at Jefferson, Ashe County, NORTH CAROLINA \u2014 just over the Virginia line from Grayson County, where daughter Rose was born in 1861. Died 1892.'},
+ src:['FamilySearch tree profile 9JHB-4H1']},
+
+cathuddle:{x:2810,y:-1680,cls:'swede',direct:1,n:'Catherine Huddle',d:'1824\u20131908 \u00b7 probable',mini:'4\u00d7 great-grandmother (probable)',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record (probable)':'Born 1824; married John Henry Hampton Sr. in Ashe County, North Carolina in 1858; mother of Rose Catherine Hampton; died 1908 \u2014 eighty-four years.'},
+ src:['FamilySearch tree profile 9JHB-4C9']},
+
+jbpearman:{x:2150,y:-1360,cls:'swede',direct:1,n:'James Buchanan Pearman',d:'1856–1931 · Wythe Co., VA → Arkansas',mini:'3× great-grandfather',tags:['DIRECT'],
+ dossier:{'The record':'Born 13 September 1856 in Wythe County, Virginia — named, it seems, for president-elect James Buchanan — and richly documented (54 attached sources). His censuses trace a whole American migration: Wythe and Tazewell counties, Virginia through 1880; the Nebraska plains from 1900 (Madison, Cherry, and Thomas counties — the Sandhills); and finally the Arkansas Ozarks, where he died 30 November 1931, buried at Mount Pleasant Cemetery, Hiwasse. Married Rose Catherine Hampton on 2 February 1879 in Carroll County, Virginia; father of eleven.'},
+ src:['FamilySearch tree profile G9VQ-Q98 (54 sources; censuses 1860–1930)']},
+
+rosehampton:{x:2370,y:-1360,cls:'swede',direct:1,n:'Rose Catherine Hampton',d:'1861–1936 · Virginia → Arkansas',mini:'3× great-grandmother',tags:['DIRECT'],
+ dossier:{'The record':'Born 16 July 1861 in Grayson County, Virginia, daughter of John Henry Hampton Sr. and Catherine Huddle; married James Buchanan Pearman on 2 February 1879 in Carroll County, and walked his whole long road with him — Tazewell County, the Nebraska Sandhills, the Arkansas Ozarks. Died 12 February 1936 at her home near Centerton, Benton County, Arkansas.','Her obituary':'The Benton County Democrat of 20 February 1936 survives on her FamilySearch page: aged "74 years, seven months and 27 days," she had joined the Baptist church "when a small girl." Of her children it names the survivors — among them "Ernest Pearman of Bentonville," Ty\'s 2× great-grandfather.'},
+ src:['FamilySearch tree profile 9H3T-834 (52 sources)','Obituary, Benton County Democrat, 20 Feb 1936 (transcribed on FamilySearch)']},
+
+harryfoote:{x:2590,y:-1360,cls:'swede',direct:1,n:'Harry James Foote',d:'1870–1942 · Nebraska (probable)',mini:'3× great-grandfather (probable) — Harry Pearman\'s namesake',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record (probable)':'Born 1870; married Minnie Zina Nicholson about 1894 at Omaha, Nebraska; father of four, including Henrietta Clara Foote. His great-grandson — Ty\'s great-grandfather Harry Jay Pearman — carried his name.'},
+ src:['FamilySearch tree profile KH66-67G']},
+
+minnien:{x:2810,y:-1360,cls:'swede',direct:1,n:'Minnie Zina Nicholson',d:'1871–1964 · probable',mini:'3× great-grandmother (probable)',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record (probable)':'Married Harry James Foote in Omaha about 1894; lived 1871–1964 — ninety-three years.'},
+ src:['FamilySearch tree profile KHLT-8N7']},
+
+/* --- SMITH & LAUGHLIN 3× GREAT-GRANDPARENTS --- */
+albertls:{x:2700,y:-1200,cls:'swede',direct:1,n:'Albert Lee Smith',d:'1862–1933 · Wisconsin → Kansas → Iowa (probable)',mini:'3× great-grandfather (probable)',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record (probable)':'Born 18 December 1862 at Mineral Point, Iowa County, WISCONSIN — the old lead-mining town — son of William Thomas Smith and Rupheno Gordon. His censuses walk him west and south: Palo Alto County, Iowa (1870), Atchison County, Missouri (1880), marriage to Elizabeth Caroline Mannon on 16 October 1884 in Clay County, Kansas, then thirty years around Taylor County, Iowa (1900–1920). Died 13 April 1933 at Bartlesville, Oklahoma; buried there at White Rose Cemetery — which explains why his son Edward, dying in California in 1979, was carried home to Bartlesville.'},
+ src:['FamilySearch tree profile LBGR-DY5 (28 sources; censuses 1870–1920)']},
+
+elizmannon:{x:2920,y:-1200,cls:'swede',direct:1,n:'Elizabeth Caroline Mannon',d:'1866–1924 · Iowa → Kansas → Iowa (probable)',mini:'3× great-grandmother (probable)',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record (probable)':'Born 27 September 1866 in Iowa, daughter of Samuel Rice Mannon and Amelia Ann Maple; in Cloud County, Kansas by 1880; married Albert Lee Smith in neighboring Clay County in 1884; mother of six. Died 14 March 1924, buried at Bartlesville, Oklahoma.'},
+ src:['FamilySearch tree profile K2HP-32G (29 sources)']},
+
+rogerl:{x:2590,y:-1040,cls:'swede',direct:1,n:'Roger Edwin Laughlin',d:'1861–1945 · Illinois → Missouri → Iowa (probable)',mini:'3× great-grandfather (probable)',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record (probable)':'Born 1861 in Illinois, son of George Laughlin and Sina Bell Roper of Adams County; married Cora Belle Ingels on 13 September 1891; farming Nodaway County, Missouri by 1900 — where daughter Ruth was born — then Taylor County, Iowa from 1920. Father of ten. Died 1945, buried at Fairview Cemetery, Taylor County, Iowa.'},
+ src:['FamilySearch tree profile MWHM-KYD (25 sources; censuses 1870–1940)']},
+
+coraingels:{x:2810,y:-1040,cls:'swede',direct:1,n:'Cora Belle Ingels',d:'1875–1958 · Missouri → Iowa (probable)',mini:'3× great-grandmother (probable)',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record (probable)':'Born 26 June 1875 at Clinton, Henry County, Missouri, daughter of Samuel Thomas Ingels and Maria Jane Coonrod; raised in Nodaway County; married Roger Laughlin in 1891, at sixteen; mother of ten. Died Christmas Eve 1958 in Taylor County, Iowa.'},
+ src:['FamilySearch tree profile MWHM-LGH (26 sources)']},
+
+/* --- SMITH, MANNON, LAUGHLIN & INGELS 4\u00d7 GREAT-GRANDPARENTS --- */
+wtsmith:{x:3030,y:-1520,cls:'swede',direct:1,n:'William Thomas Smith',d:'1840\u20131932 \u00b7 Wisconsin \u2192 Iowa (probable)',mini:'4\u00d7 great-grandfather (probable)',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record (probable)':'Born 1840; married Rupheno Gordon on 20 March 1862 at Waldwick, Iowa County, WISCONSIN \u2014 nine months before son Albert was born at nearby Mineral Point, the old lead-mining town. Father of four; lived ninety-two years, to 1932.'},
+ src:['FamilySearch tree profile LFQX-8TX']},
+
+ruphenog:{x:3250,y:-1520,cls:'swede',direct:1,n:'Rupheno Gordon',d:'1844\u20131886 \u00b7 probable',mini:'4\u00d7 great-grandmother (probable)',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record (probable)':'Born 1844; married William Thomas Smith in Iowa County, Wisconsin in 1862; mother of Albert Lee Smith; died 1886, in her early forties. Her unusual given name \u2014 Rupheno \u2014 is spelled several ways across the records.'},
+ src:['FamilySearch tree profile LVFV-QXW']},
+
+samuelmannon:{x:3470,y:-1520,cls:'swede',direct:1,n:'Samuel Rice Mannon',d:'1818\u20131895 \u00b7 probable',mini:'4\u00d7 great-grandfather (probable)',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record (probable)':'Born 1818; married Amelia Ann Maple on 27 August 1857 \u2014 he thirty-nine, she twenty; father of seven, including Elizabeth Caroline Mannon, born in Iowa 1866. The family was in Cloud County, Kansas by 1880. Died 1895.'},
+ src:['FamilySearch tree profile K2HP-36N']},
+
+ameliamaple:{x:3690,y:-1520,cls:'swede',direct:1,n:'Amelia Ann Maple',d:'1837\u20131894 \u00b7 probable',mini:'4\u00d7 great-grandmother (probable)',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record (probable)':'Born 1837; married Samuel Rice Mannon in 1857; mother of seven; died 1894.'},
+ src:['FamilySearch tree profile K2HP-3S9']},
+
+georgel:{x:3030,y:-1360,cls:'swede',direct:1,n:'George Laughlin',d:'b. 1808 \u00b7 Illinois (probable)',mini:'4\u00d7 great-grandfather (probable)',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record (probable)':'Born 1808; married Sina Bell Roper on 28 October 1856 in Adams County, Illinois \u2014 he forty-eight, she twenty-three; father of five, including Roger Edwin Laughlin, born in Illinois 1861. His death is unrecorded on the tree.'},
+ src:['FamilySearch tree profile KGCL-QPF']},
+
+sinaroper:{x:3250,y:-1360,cls:'swede',direct:1,n:'Sina Bell Roper',d:'b. 1833 \u00b7 probable',mini:'4\u00d7 great-grandmother (probable)',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record (probable)':'Born 1833; married George Laughlin in Adams County, Illinois in 1856; mother of Roger Edwin Laughlin. Her death is unrecorded on the tree.'},
+ src:['FamilySearch tree profile L21Q-63G']},
+
+samingels:{x:3470,y:-1360,cls:'swede',direct:1,n:'Samuel Thomas Ingels',d:'1850\u20131936 \u00b7 Kansas \u2192 Missouri (probable)',mini:'4\u00d7 great-grandfather (probable)',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record (probable)':'Born 1850; married Maria Jane Coonrod on 5 June 1870 at Cherokee, Kansas; father of ten, including Cora Belle Ingels, born 1875 at Clinton, Henry County, Missouri. The family settled in Nodaway County, Missouri by 1880. Died 1936.'},
+ src:['FamilySearch tree profile 27F5-5ZT']},
+
+mariacoonrod:{x:3690,y:-1360,cls:'swede',direct:1,n:'Maria Jane Coonrod',d:'1853\u20131925 \u00b7 probable',mini:'4\u00d7 great-grandmother (probable)',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record (probable)':'Born 1853; married Samuel Thomas Ingels in Kansas in 1870, at seventeen; mother of ten; died 1925.'},
+ src:['FamilySearch tree profile 278Y-KRS']},
+
+/* --- PEARMAN 2× GREAT-GRANDPARENTS --- */
+ernestp:{x:2150,y:-1040,cls:'swede',direct:1,n:'Ernest Charlie Pearman',d:'1893–1960 · probable',mini:'2× great-grandfather (probable)',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record':'Born 16 July 1893 in Tazewell County, Virginia; raised on the Nebraska plains (Cherry County, 1910–1920, with a WWI draft registration there); settled in Benton County, Arkansas by 1930, where son Harry grew up; died 7 April 1960, buried at Rogers, Arkansas. Son of James Buchanan Pearman and Rose Catherine Hampton. Married first Hazel Dell Meidell (1915), then Henrietta Clara Foote (1927).'},
+ src:['FamilySearch tree profile KDMG-Y5G']},
+
+henrietta:{x:2370,y:-1040,cls:'swede',direct:1,n:'Henrietta Clara Foote',d:'1902–1988 · probable',mini:'2× great-grandmother (probable)',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record':'Born 23 May 1902 at Lincoln, Nebraska, daughter of Harry James Foote and Minnie Zina Nicholson; married Ernest Pearman in 1927; mother of Harry Jay Pearman — who carried her father\'s name; died 28 June 1988 at Bentonville, Arkansas.'},
+ src:['FamilySearch tree profile 9S8P-64V']},
+
+/* --- STEARMAN & BURTON 2× GREAT-GRANDPARENTS --- */
+davidw:{x:1490,y:-880,cls:'swede',direct:1,n:'David William Stearman',d:'1896–1951 · Oklahoma',mini:'2× great-grandfather',tags:['DIRECT'],
+ dossier:{'The record':'Named as William Howard Stearman\'s father on William\'s 1968 Texas death record, and found in the 1930 census at Oklahoma City — born about 1897 in MISSOURI — with wife Jessie M. and children including "Howard W." (Ty\'s great-grandfather, going by his middle name), Herman, Willie D., Verna, Thelma and Wilma. Lived 1896–1951.','Full circle':'Born 4 December 1896; the 1900 census places his boyhood in Washington Township, DADE COUNTY, Missouri — barely thirty miles from the Bolivar country where Ty\'s Garretson and Sayre people lived. The two sides of Ty\'s family were near-neighbors a century before his parents met. Son of Frank Stearman and Melvina Sanders; served in World War I (inducted at St. Louis, September 1918); died 5 May 1951, buried Jamison Cemetery, Lincoln County, Oklahoma.'},
+ src:['1930 US Census, Oklahoma City OK — household with son Howard W.','Texas Deaths 1890–1977 (FamilySearch): William H Stearman, d. 19 Apr 1968 — names parents','Find a Grave family links on memorial #3330944']},
+
+jessie:{x:1710,y:-880,cls:'swede',direct:1,n:'Jessie May (Jones) Stearman',d:'1900–1982 · Oklahoma',mini:'2× great-grandmother',tags:['DIRECT'],
+ dossier:{'The record':'Born 29 September 1900; named as William Howard Stearman\'s mother (maiden name Jones) on his 1968 Texas death record; "Jessie M. Stearman" with husband David and the six children in the 1930 Oklahoma City census. Died 14 February 1982, buried at Jacktown, Lincoln County, Oklahoma. Her Jones parents are unrecorded anywhere yet — a standing brick wall.'},
+ src:['1930 US Census, Oklahoma City OK','Texas Deaths 1890–1977 (FamilySearch)','Find a Grave family links on memorial #3330944']},
+
+jsburton:{x:1930,y:-880,cls:'swede',direct:1,n:'James S. Burton',d:'b. ~1873, Texas',mini:'2× great-grandfather',tags:['DIRECT'],
+ dossier:{'The record — confirmed':'The 1930 census of Elk City, Beckham County, Oklahoma settles it: J. S. Burton, head, 57, born Texas — with wife Martha, 37, and seven children including 7-year-old JUANITA, born Texas. Twenty years later the 1950 census finds the same couple (77 and 57, both Texas-born) at Deming, New Mexico, near Juanita\'s own young family. Census-tracked across two decades and two states, he is confirmed as Juanita\'s father — and Ty\'s grandfather James may carry his name.','One generation further':'The 1930 census records that James\'s own father was born in KENTUCKY and his mother in Texas — the next clue on this line.','A correction on the record':'An earlier candidate — a "James Silas Burton (1904–1987)" on Find a Grave — proved to be an unrelated Kentucky man and was ruled out.'},
+ src:['1930 US Census, Elk City, Beckham Co. OK (FamilySearch ark 1:1:XCQT-XS3) — Juanita, 7, daughter','1950 US Census, Deming Village, Luna County NM, ED 16-2, household 116']},
+
+mattie:{x:2150,y:-880,cls:'swede',direct:1,n:'Martha "Mattie" W. (Lankford) Burton',d:'b. ~1893, Texas',mini:'2× great-grandmother',tags:['DIRECT'],
+ dossier:{'The record — confirmed':'"Martha Burton, 37, born Texas" — wife of J. S. Burton and mother of 7-year-old Juanita in the 1930 Elk City, Oklahoma census; "Mattie W., 57" with the same husband at Deming, New Mexico in 1950. Mother of at least seven: Alta, Eva, Oma Lee, Dee, Estelle, Juanita, and John Wesley. Her maiden name, Lankford ("Martha \'Mattie\' Washington Lankford"), comes from family-tree records matching Juanita\'s exact dates — the maiden name itself still awaits a primary record.'},
+ src:['1930 US Census, Elk City, Beckham Co. OK (FamilySearch)','1950 US Census, Deming Village, Luna County NM','Ancestry member-tree entry (maiden name — probable)']}
 };
 /* couples: [a,b]; families: {p:[couple], kids:[ids]} */
-const COUPLES=[['alex','maryd'],['sven','ingrid'],['thomas','anna'],['william','emma']];
+const COUPLES=[['wtsmith','ruphenog'],['samuelmannon','ameliamaple'],['georgel','sinaroper'],['samingels','mariacoonrod'],['jhhampton','cathuddle'],['jamespsr','mjfreeman'],['albertls','elizmannon'],['rogerl','coraingels'],['jamespearman','marypool'],['jbpearman','rosehampton'],['harryfoote','minnien'],['ernestp','henrietta'],['simsanders','pollyh'],['ornan','sophiah'],['thomas2','mspence'],['valentine','eransdell'],['williamst3','marthacriddle'],['johna1780','nancycraig'],['johns1812','maryswyers'],['roberths','espurgeon'],['frank','melvina'],['charley','alicemoore'],['johng1741','marygriest'],['isaacg','alicepaxson'],['johngreen','marygoodson'],['isaacl','patience'],['danielr','adaline'],['davidjr','sarahlittle'],['daniel','sarahhall'],['richardt','elizvb'],['elijah','greerm'],['williamg','marthas'],['jstroud','harrietj'],['john','clara'],['clarke','lela'],['curtis','olive'],['jchaney','ester'],['richard','matilda'],['jgriffitts','ethas'],['isaac','alice'],['arthur','helen'],['jack','marie'],['jerry','janice'],['davidw','jessie'],['jsburton','mattie'],['william','juanita'],['edward','ruth'],['harry','margaret'],['james','julie'],['jody','sara']];
 const FAMS=[
- {p:['alex','maryd'],k:['thomas']},
- {p:['sven','ingrid'],k:['anna']},
- {p:['thomas','anna'],k:['william','sarah']},
- {p:['william','emma'],k:['you']}
+ {p:['davidjr','sarahlittle'],k:['daniel']},
+ {p:['daniel','sarahhall'],k:['elijah']},
+ {p:['elijah','greerm'],k:['curtis']},
+ {p:['richardt','elizvb'],k:['olive']},
+ {p:['williamg','marthas'],k:['jgriffitts']},
+ {p:['jstroud','harrietj'],k:['ethas']},
+ {p:['johng1741','marygriest'],k:['isaacg']},
+ {p:['isaacg','alicepaxson'],k:['johngreen']},
+ {p:['johngreen','marygoodson'],k:['isaacl']},
+ {p:['isaacl','patience'],k:['john']},
+ {p:['ornan','sophiah'],k:['adaline']},
+ {p:['danielr','adaline'],k:['clara']},
+ {p:['john','clara'],k:['isaac']},
+ {p:['clarke','lela'],k:['alice']},
+ {p:['curtis','olive'],k:['richard']},
+ {p:['jchaney','ester'],k:['matilda']},
+ {p:['richard','matilda'],k:['jack']},
+ {p:['jgriffitts','ethas'],k:['marie']},
+ {p:['isaac','alice'],k:['arthur']},
+ {p:['arthur','helen'],k:['jerry']},
+ {p:['charley','alicemoore'],k:['helen']},
+ {p:['jack','marie'],k:['janice']},
+ {p:['jerry','janice'],k:['jody']},
+ {p:['thomas2','mspence'],k:['valentine']},
+ {p:['valentine','eransdell'],k:['williamst3']},
+ {p:['williamst3','marthacriddle'],k:['johna1780']},
+ {p:['johna1780','nancycraig'],k:['johns1812']},
+ {p:['johns1812','maryswyers'],k:['roberths']},
+ {p:['roberths','espurgeon'],k:['frank']},
+ {p:['simsanders','pollyh'],k:['melvina']},
+ {p:['frank','melvina'],k:['davidw']},
+ {p:['davidw','jessie'],k:['william']},
+ {p:['jsburton','mattie'],k:['juanita']},
+ {p:['william','juanita'],k:['yerby','james']},
+ {p:['albertls','elizmannon'],k:['edward']},
+ {p:['rogerl','coraingels'],k:['ruth']},
+ {p:['wtsmith','ruphenog'],k:['albertls']},
+ {p:['samuelmannon','ameliamaple'],k:['elizmannon']},
+ {p:['georgel','sinaroper'],k:['rogerl']},
+ {p:['samingels','mariacoonrod'],k:['coraingels']},
+ {p:['jhhampton','cathuddle'],k:['rosehampton']},
+ {p:['jamespsr','mjfreeman'],k:['jamespearman']},
+ {p:['edward','ruth'],k:['margaret']},
+ {p:['jamespearman','marypool'],k:['jbpearman']},
+ {p:['jbpearman','rosehampton'],k:['ernestp']},
+ {p:['harryfoote','minnien'],k:['henrietta']},
+ {p:['ernestp','henrietta'],k:['harry']},
+ {p:['harry','margaret'],k:['julie']},
+ {p:['james','julie'],k:['sara']},
+ {p:['jody','sara'],k:['ty']}
 ];
 const CW=170, CH=70, CHIPW=145;
 
 /* ============ RENDER ============ */
-const YOFF=640;
+const YOFF=3200;
 const world=document.getElementById('world');
 for(const id in P){
   const p=P[id];
@@ -190,8 +643,8 @@ const board=document.getElementById('board');
 function apply(){world.style.transform='translate('+tx+'px,'+ty+'px) scale('+scale+')';}
 function fit(){
   const bw=board.clientWidth, bh=board.clientHeight;
-  scale=Math.min(bw/3050, bh/1840, 1);
-  tx=(bw-3000*scale)/2; ty=20*scale; apply();
+  scale=Math.min(bw/3950, bh/4240, 1);
+  tx=(bw-3900*scale)/2; ty=20*scale; apply();
 }
 function zoomBy(f){
   const bw=board.clientWidth/2, bh=board.clientHeight/2;
@@ -271,13 +724,47 @@ function openPerson(id){
 
 /* ============ 3D GLOBE ============ */
 const GLOCS=[
- {id:'greenvale',lat:57.1,lng:-2.1,color:'#4d8fc4',label:'Greenvale (origin A)'},
- {id:'hoften',lat:58.0,lng:15.6,color:'#e0b83a',label:'Hoften (origin B)'},
- {id:'riverton',lat:41.6,lng:-93.6,color:'#8ba57e',label:'Riverton (the meeting place)'}
+ {id:'newjersey',lat:40.06,lng:-74.41,color:'#4d8fc4',label:'New Jersey — colonial Sayre roots (b.1762)'},
+ {id:'masonwv',lat:38.77,lng:-82.02,color:'#4d8fc4',label:'Mason/Jackson Co., (W)VA — Sayre & Tillis'},
+ {id:'yorkpa',lat:40.05,lng:-76.99,color:'#4d8fc4',label:'York Co., PA — Quaker Garretsons (1741)'},
+ {id:'salemia',lat:40.853,lng:-91.622,color:'#4d8fc4',label:'Salem, IA — Quaker Garretsons (b.1861)'},
+ {id:'ripon',lat:43.842,lng:-88.836,color:'#4d8fc4',label:'Ripon, WI — Clara Rapalyea (b.1856)'},
+ {id:'dequeen',lat:34.038,lng:-94.341,color:'#4d8fc4',label:'DeQueen, AR — Garretson & Rapalyea, 1900'},
+ {id:'buffalo',lat:42.886,lng:-78.878,color:'#4d8fc4',label:'Buffalo, NY — Garretson (b.1884)'},
+ {id:'keokuk',lat:40.397,lng:-91.384,color:'#4d8fc4',label:'Keokuk, IA — Garretson (b.1926)'},
+ {id:'humansville',lat:37.793,lng:-93.579,color:'#4d8fc4',label:'Humansville, MO — Garretson & Sayre'},
+ {id:'bolivar',lat:37.610,lng:-93.410,color:'#4d8fc4',label:'Bolivar, MO — grandparents'},
+ {id:'sheridan',lat:40.525,lng:-94.616,color:'#e0b83a',label:'Sheridan, MO — Smith (b.1932)'},
+ {id:'protem',lat:36.529,lng:-92.821,color:'#e0b83a',label:'Protem, MO — Stearman & Pearman'},
+ {id:'stockton',lat:37.699,lng:-93.796,color:'#e0b83a',label:'Stockton, MO — Stearman'},
+ {id:'denver',lat:39.739,lng:-104.990,color:'#e0b83a',label:'Denver, CO — Stearman & Pearman'},
+ {id:'elpaso',lat:31.759,lng:-106.487,color:'#e0b83a',label:'El Paso, TX — MSG Stearman, Ft. Bliss'},
+ {id:'westmoreland',lat:38.11,lng:-76.80,color:'#e0b83a',label:'Westmoreland Co., VA — Sturman roots (1600s)'},
+ {id:'dadeco',lat:37.43,lng:-93.85,color:'#e0b83a',label:'Dade Co., MO — Stearman origins (1890s)'},
+ {id:'oklahoma',lat:35.5,lng:-97.5,color:'#e0b83a',label:'Oklahoma — Stearman farms (1900s)'},
+ {id:'deming',lat:32.269,lng:-107.758,color:'#e0b83a',label:'Deming, NM — Yerby born 1943'},
+ {id:'arizona',lat:33.45,lng:-112.07,color:'#e0b83a',label:'Phoenix, AZ — Juanita\'s resting place'},
+ {id:'mineralpoint',lat:42.860,lng:-90.180,color:'#e0b83a',label:'Mineral Point, WI — Smith line (b.1862)'},
+ {id:'wythe',lat:36.949,lng:-81.085,color:'#e0b83a',label:'Wythe Co., VA — Pearman mountains (1825)'}
 ];
 const GARCS=[
- {startLat:57.1,startLng:-2.1,endLat:41.6,endLng:-93.6,color:'#4d8fc4',label:'Origin A migration'},
- {startLat:58.0,startLng:15.6,endLat:41.6,endLng:-93.6,color:'#e0b83a',label:'Origin B migration'}
+ {startLat:40.06,startLng:-74.41,endLat:38.77,endLng:-82.02,color:'#4d8fc4',label:'Sayre: New Jersey → western Virginia'},
+ {startLat:40.05,startLng:-76.99,endLat:40.853,endLng:-91.622,color:'#4d8fc4',label:'Garretson: Quaker PA → Salem, Iowa'},
+ {startLat:38.11,startLng:-76.80,endLat:39.30,endLng:-83.07,color:'#e0b83a',label:'Sturman/Stearman: Virginia → Ohio'},
+ {startLat:39.30,startLng:-83.07,endLat:37.43,endLng:-93.85,color:'#e0b83a',label:'Stearman: Ohio → Missouri Ozarks'},
+ {startLat:37.43,startLng:-93.85,endLat:35.5,endLng:-97.5,color:'#e0b83a',label:'Stearman: Missouri → Oklahoma land runs'},
+ {startLat:38.77,startLng:-82.02,endLat:37.793,endLng:-93.579,color:'#4d8fc4',label:'Sayre: Ohio River country → the Ozarks'},
+ {startLat:42.886,startLng:-78.878,endLat:40.397,endLng:-91.384,color:'#4d8fc4',label:'Garretson: New York → Iowa'},
+ {startLat:40.397,startLng:-91.384,endLat:37.793,endLng:-93.579,color:'#4d8fc4',label:'Garretson: Iowa → Missouri'},
+ {startLat:40.525,startLng:-94.616,endLat:36.529,endLng:-92.821,color:'#e0b83a',label:'Smith/Pearman: north Missouri → the Ozarks'},
+ {startLat:35.5,startLng:-97.5,endLat:31.759,endLng:-106.487,color:'#e0b83a',label:'Stearman: Oklahoma → El Paso (Army)'},
+ {startLat:31.759,startLng:-106.487,endLat:39.739,endLng:-104.990,color:'#e0b83a',label:'Stearman move (sequence to confirm)'},
+ {startLat:39.739,startLng:-104.990,endLat:36.529,endLng:-92.821,color:'#e0b83a',label:'Stearman move (sequence to confirm)'},
+ {startLat:36.529,startLng:-92.821,endLat:37.699,endLng:-93.796,color:'#e0b83a',label:'Stearman move (sequence to confirm)'},
+ {startLat:31.759,startLng:-106.487,endLat:33.45,endLng:-112.07,color:'#c8a028',label:'Juanita: to Arizona with George Cook'},
+ {startLat:36.949,startLng:-81.085,endLat:42.3,endLng:-101.0,color:'#e0b83a',label:'Pearman: Virginia mountains → Nebraska Sandhills'},
+ {startLat:42.3,startLng:-101.0,endLat:36.37,endLng:-94.40,color:'#e0b83a',label:'Pearman: Nebraska → Arkansas Ozarks'},
+ {startLat:36.37,startLng:-94.40,endLat:31.759,endLng:-106.487,color:'#e0b83a',label:'Harry Pearman: Ozarks → El Paso'}
 ];
 let globeInit=false;
 function openGlobe(){
@@ -287,9 +774,9 @@ function openGlobe(){
   s.src='https://unpkg.com/globe.gl';
   s.onload=()=>{
     globeInit=true;
-    const HOME={id:'homezoom',lat:41.6,lng:-93.6,color:'#8ba57e',label:'Riverton - click to zoom'};
+    const HOME={id:'homezoom',lat:37.6,lng:-93.5,color:'#8ba57e',label:'Missouri - click to zoom'};
     const FAR=[...GLOCS,HOME];
-    const flyHome=g=>g.pointOfView({lat:41.6,lng:-93.6,altitude:0.35},1200);
+    const flyHome=g=>g.pointOfView({lat:37.6,lng:-93.5,altitude:0.35},1200);
     const g=Globe()(document.getElementById('globeViz'))
       .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg')
       .bumpImageUrl('https://unpkg.com/three-globe/example/img/earth-topology.png')
@@ -315,7 +802,7 @@ function openGlobe(){
       const m=a>0.75?'far':'near';
       if(m!==mode){mode=m; g.labelsData(m==='far'?FAR:GLOCS);}
     });
-    g.pointOfView({lat:48,lng:-45,altitude:1.9},0);
+    g.pointOfView({lat:38,lng:-96,altitude:1.3},0);
     g.controls().autoRotate=true; g.controls().autoRotateSpeed=0.4;
     document.getElementById('globeViz').addEventListener('pointerdown',()=>{g.controls().autoRotate=false;},{once:true});
   };
@@ -325,9 +812,28 @@ function openGlobe(){
 function closeGlobe(){document.getElementById('globePanel').style.display='none';}
 
 const LOCS={
-greenvale:{t:'Greenvale (origin A)',note:'Example origin. Replace with a real place from your family tree.',ppl:['alex','maryd','thomas']},
-hoften:{t:'Hoften (origin B)',note:'A second origin, shown in a different color. Replace with your own.',ppl:['sven','ingrid','anna']},
-riverton:{t:'Riverton (the meeting place)',note:'Where the two lines converged. Replace with your family town.',ppl:['thomas','anna','william','sarah','emma','you']}
+newjersey:{t:'Colonial New Jersey',note:'Where David Sayre Jr. was born in 1762, before the Revolution — the deepest root of the Sayre line (probable). From here the family moved to western Virginia.',ppl:['davidjr']},
+masonwv:{t:'Mason & Jackson Counties, (West) Virginia',note:'The Sayre and Tillis heartland on the Ohio River — where Daniel raised his family (and later his grandson Alonzo), where Elijah farmed, and where Alonzo married Olive Boone Tillis in 1859. Meigs County, Ohio, where Alonzo was born, faces these counties across the river.',ppl:['davidjr','sarahlittle','daniel','sarahhall','elijah','greerm','richardt','elizvb','curtis','olive','richard']},
+yorkpa:{t:'York County, Pennsylvania',note:'The Quaker cradle of the Garretson line — Warrington Monthly Meeting, where John Garretson married Mary Griest in 1763, and where inventor Isaac Garretson was born in 1765.',ppl:['johng1741','marygriest','isaacg']},
+salemia:{t:'Salem, Henry County, Iowa',note:'The pioneer Quaker colony — first Quaker settlement west of the Mississippi — where John Worth Garretson was born in 1861 to Isaac L. Garretson and Patience Ann Tomlinson.',ppl:['isaacl','patience','john']},
+ripon:{t:'Ripon, Wisconsin',note:'Where Clara Sophia Rapalyea was born in 1856, and where she married John Worth Garretson on 28 December 1881.',ppl:['clara']},
+dequeen:{t:'DeQueen, Sevier County, Arkansas',note:'The 1900 census finds the whole clan here — John, Clara and the children, with Clara\'s father, Union veteran Daniel Rapalyea, in the same small town. Daniel died here in 1912.',ppl:['john','clara','isaac','danielr']},
+buffalo:{t:'Buffalo, New York',note:'Birthplace of Isaac Malin Garretson (1884) — the earliest confirmed root of the Garretson line, before its road ran west through Iowa to Missouri.',ppl:['isaac']},
+keokuk:{t:'Keokuk, Iowa',note:'Birthplace of Arthur "Art" Garretson (1926), Ty\'s great-grandfather — the Garretson line\'s Iowa chapter between New York and Missouri.',ppl:['arthur']},
+humansville:{t:'Humansville, Missouri',note:'The Garretson–Sayre home ground in Polk County. Arthur & Helen Garretson are buried here, the Sayres nearby in Fair Play, and Ty\'s father Jody was born here in 1972.',ppl:['arthur','helen','jack','marie','jody']},
+bolivar:{t:'Bolivar, Missouri',note:'Home of Ty\'s paternal grandparents, Jerry Wayne Garretson and Janice "Elaine" Sayre.',ppl:['jerry','janice']},
+sheridan:{t:'Sheridan, Worth County, Missouri',note:'Birthplace of Margaret Belle (Smith) Pearman (1932), Ty\'s great-grandmother, in far northern Missouri.',ppl:['margaret']},
+protem:{t:'Protem, Missouri',note:'The Pearman–Stearman home in Taney County, in the southern Ozarks. Home of Ty\'s maternal grandparents James & Julie Stearman.',ppl:['harry','margaret','james','julie']},
+stockton:{t:'Stockton, Missouri',note:'A later Stearman family home in Cedar County.',ppl:['james','julie']},
+denver:{t:'Denver, Colorado',note:'The family\'s Colorado chapter — Julie\'s brother Clayton Pearman still lives here.',ppl:['james','julie']},
+elpaso:{t:'El Paso, Texas',note:'The military chapter — on BOTH maternal sides. Master Sergeant William Howard Stearman (d. 1968) and Harry Jay Pearman (d. 1985) both rest in Fort Bliss National Cemetery. Ty\'s grandparents James and Julie were children of two Fort Bliss families — this desert post is where their roads merged.',ppl:['william','harry','james','julie']},
+westmoreland:{t:'Westmoreland County, Virginia',note:'The Northern Neck cradle of the Sturman line — Thomas Sturman II (1672–1737) and Valentine Sturman, born at Cople Parish in 1723. From here the family\'s three-century road ran through Bedford County (where Sturman became Stearman), Ohio, Missouri, Oklahoma, Texas — and home to the Ozarks.',ppl:['thomas2','mspence','valentine','eransdell']},
+dadeco:{t:'Dade County, Missouri',note:'The Stearman heartland before Oklahoma — Frank married Melvina Sanders here in 1886, and David William Stearman spent his boyhood in Washington Township, barely thirty miles from the Garretson and Sayre country around Bolivar. The two halves of Ty\'s family were near-neighbors a century early.',ppl:['frank','melvina','davidw']},
+oklahoma:{t:'Oklahoma',note:'The Stearman farms of Lincoln County, from the 1900s. Frank and Melvina raised their family at South Wichita Township; William Howard Stearman was born here in 1919, son of David and Jessie.',ppl:['roberths','frank','melvina','davidw','jessie','william']},
+deming:{t:'Deming, New Mexico',note:'The family\'s crossroads. The April 1950 census finds the whole young Stearman family here — William, Juanita, and three children — with Juanita\'s parents, James S. and Mattie Burton, living in Deming Village nearby. Yerby was born here in 1943.',ppl:['william','juanita','yerby','jsburton','mattie']},
+arizona:{t:'Phoenix / Scottsdale, Arizona',note:'Juanita\'s final chapter. Widowed in 1968, she married Marine sergeant George Ellis Cook and lived in Scottsdale until 2010. She rests at the National Memorial Cemetery of Arizona.',ppl:['juanita']},
+mineralpoint:{t:'Mineral Point, Wisconsin',note:'The old Cornish lead-mining town where Albert Lee Smith was born in December 1862, months after his parents William Thomas Smith and Rupheno Gordon married at nearby Waldwick. The Smith line\'s road ran from here through Iowa, Missouri and Kansas before settling in Taylor County, Iowa.',ppl:['wtsmith','ruphenog','albertls']},
+wythe:{t:'Wythe County, Virginia',note:'The Pearman mountain heartland. Four generations trace here — from James Pearman Sr. and Mary Jane Freeman through James (b. 1825, who never left the mountains) to James Buchanan Pearman, born here in 1856 before the family struck out for the Nebraska Sandhills.',ppl:['jamespsr','mjfreeman','jamespearman','marypool','jbpearman']}
 };
 function openLoc(k){
   const L=LOCS[k];
@@ -339,21 +845,88 @@ function openLoc(k){
 }
 
 const INFO={
-clan:`<button class="close" onclick="closeAll()">&times;</button><h2>Your Family Name &amp; Crest</h2>
-<div style="text-align:center;margin:14px 0;">
-  <svg viewBox="0 0 120 140" style="width:150px;filter:drop-shadow(0 4px 8px rgba(0,0,0,.25));"><path d="M10 10 H110 V70 Q110 120 60 135 Q10 120 10 70 Z" fill="#fffdf8" stroke="#8a6d3b" stroke-width="3"/><line x1="60" y1="10" x2="60" y2="135" stroke="#d8cfc0" stroke-width="2"/><line x1="10" y1="60" x2="110" y2="60" stroke="#d8cfc0" stroke-width="2"/><text x="60" y="82" text-anchor="middle" font-size="9" fill="#8a8072" font-family="Verdana">your crest here</text></svg>
-  <div style="font-size:.72rem;color:#8a8072;margin-top:8px;font-style:italic;">Placeholder crest. Drop in your own family arms or a photo, or delete this panel.</div>
-</div>
-<p><b>About this panel.</b> This is the "Clan &amp; Arms" panel. Put your surname history, coat of arms, or family motto here. Edit it in the INFO object in index.html.</p>
-<p><b>Colors.</b> Each person has a <code>cls</code> field that sets their card color (origin A, origin B, later generations, and more). Edit the legend text at the top of the file to match your own origins.</p>`,
+clan:`<button class="close" onclick="closeAll()">&times;</button><h2>The Family Names</h2>
+<p><b>Two sides, meeting in the Missouri Ozarks.</b> On Ty's father's side, the <b>Garretson</b> and <b>Sayre</b> families of Polk County (Humansville, Fair Play, Bolivar). On his mother's side, the <b>Stearman</b> and <b>Pearman</b> families of the southern Ozarks (Protem, Stockton), with earlier chapters in Colorado and Texas.</p>
+<dl>
+<dt>Garretson</dt><dd>A patronymic name — "son of Garrett/Gerrit." This family's patriline is now traced to <b>Quaker Pennsylvania in 1741</b>: John Garretson married Mary Griest at the Warrington Monthly Meeting in 1763, and the line runs through inventor Isaac Garretson (1765–1844), Grayson County Virginia, pioneer Ohio, and the Quaker colony of <b>Salem, Iowa</b>, before reaching Missouri. The Quaker names along the way — Patience, Paxson, Griest, the "Malin" middle name — tell the story. The Dutch colonial thread runs instead through Isaac Malin's mother, Clara <b>Rapalyea</b> — a New Amsterdam surname of 1624.</dd>
+<dt>Sayre</dt><dd>Chiefly English, most often from the medieval personal name Saher/Seir (Norman-Germanic, roughly "victory-army"). Several other origins have been proposed, so treat it as disputed. This family's Sayre line traces (via a probable link) to Richard Marion Sayre, born 1860 in Virginia.</dd>
+<dt>Stearman</dt><dd>An English occupational name for a cattleman — from Old English <i>steor</i> (steer) + "man." In this family, though, the trail suggests the name began as <b>Sturman</b>, of Westmoreland County in Virginia\'s Northern Neck (1600s), softening to Stearman in the Bedford County generations around 1800 — a lineage traced through family trees and a 1737 will, still awaiting full primary proof.</dd>
+<dt>Pearman</dt><dd>English — a grower or seller of pears, or someone who lived by a pear orchard. First recorded in Sussex in 1296.</dd>
+<dt>Burton</dt><dd>Great-grandmother Juanita's maiden name, likely of English locational origin (a common English place-name); this family's Burton line traces so far to James Silas Burton and Martha "Mattie" Lankford. Deeper origins to be researched.</dd>
+<dt>Rains</dt><dd>Ty's mother's later married name. Genuinely multi-origin — proposed roots include a Germanic personal name ("ragin," counsel), the French <i>Reine</i> (queen), or a Scottish place-name.</dd>
+</dl>
+<div class="src">Surname etymologies from the Dictionary of American Family Names (via Geneanet) and SurnameDB. These describe the names in general; a family's actual origin is proven by records, not by name meaning.</div>`,
 stories:`<button class="close" onclick="closeAll()">&times;</button><h2>Stories</h2>
-<p>This is the "Stories" panel. Use it for anecdotes and family lore that do not fit on a card - a war record, an emigration story, a family legend.</p>
-<div class="storycard"><b>Example story.</b> Replace this with a real one. Ask Claude to help you turn a document or a family memory into a short, sourced story.</div>`,
-timeline:`<button class="close" onclick="closeAll()">&times;</button><h2>Migrations &amp; Timeline</h2>
-<p>Use this panel for a timeline of moves and milestones.</p>
-<div class="tl"><span class="yr">1871</span><span>Example: Thomas Rivers sails from origin A to Riverton.</span></div>
-<div class="tl"><span class="yr">1878</span><span>Example: Anna Larsson arrives from origin B.</span></div>
-<div class="tl"><span class="yr">1882</span><span>Example: William Rivers born in Riverton - the two lines converge.</span></div>`
+<div class="storycard"><b>Home to Bartlesville.</b> Edward Lee Smith died at El Cajon, California in May 1979 — one month after Ruth, his wife of sixty-two years. But he isn't buried in California, and the tree now explains why: his parents, Albert Lee Smith and Elizabeth Caroline Mannon, had been laid to rest decades earlier at Bartlesville, Oklahoma (1933 and 1924). Edward was carried back to Bartlesville — home to his parents.<br><span style="color:#8a8072;font-size:.8rem;">Sources: FamilySearch profiles LYFL-WXD, LBGR-DY5, K2HP-32G.</span></div>
+<div class="storycard"><b>Jody the bullfighter.</b> Ty's father, Jody Wayne "Joe" Garretson (1972–2010), was a professional rodeo bullfighter (PBR/PRCA) who also ran Garretson & Sons Concrete Construction. He was born in Humansville and is buried there.<br><span style="color:#8a8072;font-size:.8rem;">Source: Jody Garretson obituary, Butler Funeral Home.</span></div>
+<div class="storycard"><b>From Buffalo to the Ozarks.</b> The Garretson line reaches back to Buffalo, New York, where 2×-great-grandfather Isaac Malin Garretson was born in 1884. His road ran west to Keokuk, Iowa — where son Arthur "Art" was born in 1926 — and on to the hills around Humansville and Bolivar, Missouri, where both men rest today.<br><span style="color:#8a8072;font-size:.8rem;">Sources: Isaac Garretson (Find a Grave #45375002); Arthur Garretson (Find a Grave #58353344); Jody Garretson obituary.</span></div>
+<div class="storycard"><b>The man called Jack.</b> Great-grandfather "Jack" Sayre guarded a secret in plain sight: his birth name was Gladys Marion Sayre. Born in Humansville in 1902, the eighth of ten children, he appears in the 1910 census as "Gladys, son, age 8" — and went by Jack ever after. It took his exact birth and death dates, his wife Marie's name, and his burial plot all matching to prove that Jack and Gladys were the same man — and it explains why no early record of a "Jack Sayre" seemed to exist.<br><span style="color:#8a8072;font-size:.8rem;">Sources: 1910 US Census, Cedar Co. MO; FamilySearch profile G4XP-4MF; Find a Grave #63604187.</span></div>
+<div class="storycard"><b>Raised in his grandparents\' house.</b> When the census-taker came through Jackson County, Virginia in 1850, he found 13-year-old "Curtis" Sayre — born in Ohio — living not with his father but with his grandparents, Daniel and Sarah Sayre, both near seventy. His mother, a Greer, had died when he was small; his father Elijah had remarried and begun a new family nearby. The boy raised in that farmhouse would live to 92, cross three states, and become Ty\'s 3× great-grandfather. Her first name is still lost — the tree\'s great open mystery, one other researchers have chased since at least the year 2000.<br><span style="color:#8a8072;font-size:.8rem;">Sources: 1850 US Census, Jackson Co. VA (USGenWeb); Alonzo Curtis Sayre death certificate, 1929; Meigs Co. OHGenWeb query archive.</span></div>
+<div class="storycard"><b>A Boone echo.</b> Olive Boone Tillis\'s middle name carries frontier history: her mother was a Van Bibber, a family so close to Daniel Boone\'s that one of them — Olive Van Bibber — married Boone\'s son Nathan. Ty\'s ancestor was almost certainly named for her. A naming echo, not a proven bloodline — but a fine one.<br><span style="color:#8a8072;font-size:.8rem;">Sources: Find a Grave memorials #131144532, #8853841.</span></div>
+<div class="storycard"><b>The Ohio River Sayres.</b> The Sayre line lived where three states meet on the Ohio River. Elijah Sayre was born in western Virginia around the 1810s; his son Alonzo Curtis Sayre was born across the water in Meigs County, Ohio in 1837, and married Olive Tillis back on the Virginia side in 1859 — a year before their son Richard arrived, on the eve of the Civil War. Richard carried the family to Kansas (marrying Matilda Chaney there in 1884) and finally to the Missouri Ozarks at Humansville. Alonzo followed his son west and lived to 92.<br><span style="color:#8a8072;font-size:.8rem;">Sources: Missouri death certificates 36612 (1929), 1313 (1943), 12653 (1933), Missouri State Archives; FamilySearch profiles.</span></div>
+<div class="storycard"><b>A Dutch whisper.</b> Isaac Garretson's 1969 death certificate names his mother: Clara S. Rapalyea. Every American Rapalyea traces back to one couple — Joris Jansen Rapalje and Catalina Trico, who sailed to New Netherland in 1624. Their daughter Sarah, born 1625, was the first recorded European girl born in the colony, and their Wallabout Bay farm in Brooklyn later became the Brooklyn Navy Yard. Whether Clara descends from them is not yet proven — but paired with "Garretson" (often an Americanized Dutch "Gerritsen"), the family's Buffalo roots may reach back four centuries to Dutch New Amsterdam.<br><span style="color:#8a8072;font-size:.8rem;">Sources: Isaac M. Garretson death certificate, 1969; New Netherland Institute; Wikipedia (Joris Jansen Rapelje, Sarah Rapelje).</span></div>
+<div class="storycard"><b>From Sturman to Stearman — three centuries on the road.</b> The maternal line\'s deep story (as the family trees tell it, awaiting final proof) begins on Virginia\'s Northern Neck in the 1600s with the Sturmans of Westmoreland County. Thomas Sturman II (1672–1737) left a will naming son Valentine, born at Cople Parish in 1723. Valentine\'s grandson-line drifted inland — Bedford County, where the name softened to Stearman — then over the mountains to Ohio in the 1830s, down to the Missouri Ozarks, out to territorial Oklahoma in the land-run years, to an Army post at El Paso — and finally home to the Missouri hills, where Ty\'s grandfather James settled thirty miles from where the family had farmed in 1900. Ten generations, one road.<br><span style="color:#8a8072;font-size:.8rem;">Sources: FamilySearch profiles MQ6K-QV3 through L5PJ-94J; 1737 will citation; censuses 1850–1950.</span></div>
+<div class="storycard"><b>The Quaker inventor.</b> The Garretson line begins, as far as the records reach, in the Quaker meeting-houses of colonial Pennsylvania: John Garretson married Mary Griest at the Warrington Monthly Meeting in 1763. Their son Isaac (1765–1844) is the family\'s great character — a Quaker credited in family records with a 1796 patent, signed by President George Washington, for a machine that cut and headed nails in one operation. He clerked a Virginia land office, married Alice Paxson, pioneered into Ohio in 1808, and died at Salem, Iowa, the Quaker colony where his descendants would live for generations. Four Isaacs echo down this line — ending with Isaac Malin Garretson, Ty\'s 2× great-grandfather.<br><span style="color:#8a8072;font-size:.8rem;">Source: FamilySearch profiles KJ57-KGC, L84F-2N1 (patent story family-recorded; to verify — early patent records burned in 1836).</span></div>
+<div class="storycard"><b>The wanderers.</b> No branch of the family moved like John Worth Garretson and Clara Sophia Rapalyea. Born in Iowa\'s Quaker colony of Salem and in Ripon, Wisconsin, they married in 1881 and then kept moving: a daughter born in Iowa, sons born in Buffalo, back to Iowa, down to DeQueen, Arkansas by 1900 — Clara\'s Civil War veteran father Daniel Rapalyea settling in the same little town — then to brand-new Oklahoma, where John died at 48 in 1909. Clara pressed on alone to Los Angeles and died in California in 1946, at ninety, having crossed most of a continent in one lifetime.<br><span style="color:#8a8072;font-size:.8rem;">Sources: 1880, 1900 censuses; FamilySearch profiles LH6T-GK9, 9KG5-CK4, L5LB-QMW; Isaac Garretson death certificate.</span></div>
+<div class="storycard"><b>The furniture makers of Seneca Street.</b> In 1880s Buffalo, city directories show a cluster of Garretsons living and working along Seneca Street — among them John W. Garretson, foreman of the Buffalo School Furniture Company, a firm run by the Garretson family itself. Isaac Malin Garretson was born there in 1884, plausibly named for an elder Isaac Garretson, a machinist, in the same cluster.<br><span style="color:#8a8072;font-size:.8rem;">Source: Buffalo city directories 1884–1888 (Internet Archive; OCR to be verified against page images).</span></div>
+<div class="storycard"><b>One census page, two households.</b> On an April day in 1950, a census-taker walking Deming, New Mexico wrote down the young Stearman family — Sgt. William, 30; Juanita, 27; and children Yearby, Robert, and baby Linda — while across town in Deming Village sat the household of James S. and Mattie Burton, Juanita's parents. Three generations of the maternal line, captured in one small desert town.<br><span style="color:#8a8072;font-size:.8rem;">Source: 1950 US Census, Luna County NM, ED 16-9 h.205 and ED 16-2 h.116 (1950census.archives.gov).</span></div>
+<div class="storycard"><b>The Pearman–Smith Ozarks.</b> On the maternal side, great-grandmother Margaret Belle (Smith) Pearman was born in 1932 in Worth County, far northern Missouri, and lived her later years in the Taney County Ozarks near Protem and Forsyth.<br><span style="color:#8a8072;font-size:.8rem;">Source: Margaret Belle True obituary, Greenlawn Funeral Home.</span></div>
+<div class="storycard"><b>The Master Sergeant of Fort Bliss.</b> Great-grandfather William Howard Stearman left Oklahoma for the Army, served through World War II, and rose to Master Sergeant. The service that carried his family across the Southwest — a son born in Deming, New Mexico in 1943, years at El Paso — ended there too: he died at 48 in 1968 and rests at Fort Bliss National Cemetery. His children, including Ty's grandfather James, grew up largely without him.<br><span style="color:#8a8072;font-size:.8rem;">Sources: Fort Bliss National Cemetery interment record; Juanita Cook obituary, Arizona Republic; family knowledge.</span></div>
+<div class="storycard"><b>Juanita's two loves.</b> Juanita Maxine Burton married William Stearman and raised their children through Army life; her 2010 obituary still called him "her first love." Widowed at 45, she later married George Ellis Cook, a Marine Corps sergeant, and found a second life in Scottsdale, Arizona — where her gravestone carries his name, and where the family remembered her as "Grandma Cook."<br><span style="color:#8a8072;font-size:.8rem;">Source: Juanita M. Cook obituary, Arizona Republic, Aug 30, 2010.</span></div>
+<div class="storycard"><b>Two soldiers of Fort Bliss.</b> Here is the answer to "why El Paso?", found on both sides at once: William Howard Stearman, Ty\'s great-grandfather through his grandfather James, and Harry Jay Pearman, Ty\'s great-grandfather through his grandmother Julie, both rest at Fort Bliss National Cemetery in El Paso. James and Julie were children of two Fort Bliss families — the desert post that appears again and again in this tree is where their two roads, and this family, began to merge.<br><span style="color:#8a8072;font-size:.8rem;">Sources: Fort Bliss National Cemetery records; FamilySearch profiles LTJ9-48C, 9S8P-XPS.</span></div>
+<div class="storycard"><b>Sgt. Yerby Stearman, USAF.</b> James's older brother Yerby Howard Stearman (1943–1991), born in Deming, New Mexico, served as an Air Force sergeant in Vietnam — the second generation of Stearman servicemen. He rests at Houston National Cemetery.<br><span style="color:#8a8072;font-size:.8rem;">Sources: Social Security and Houston National Cemetery records; Juanita Cook obituary.</span></div>
+<div class="storycard"><b>Add your own.</b> Tell me a memory or hand me a document — an obituary, a letter, a photo caption — and I'll turn it into a short, sourced story here.</div>`,
+timeline:`<button class="close" onclick="closeAll()">&times;</button><h2>Timeline</h2>
+<div class="tl"><span class="yr">1672</span><span>Thomas Sturman II born in Westmoreland County, colonial Virginia (probable).</span></div>
+<div class="tl"><span class="yr">1723</span><span>Valentine Sturman born at Cople Parish, Virginia.</span></div>
+<div class="tl"><span class="yr">1737</span><span>Thomas Sturman\'s will written — the tree\'s oldest cited document.</span></div>
+<div class="tl"><span class="yr">1741</span><span>John Garretson born in Quaker Pennsylvania (probable).</span></div>
+<div class="tl"><span class="yr">1763</span><span>John Garretson marries Mary Griest at Warrington Monthly Meeting.</span></div>
+<div class="tl"><span class="yr">1775</span><span>William Sturman III marries Martha Criddle as the Revolution begins.</span></div>
+<div class="tl"><span class="yr">1804</span><span>John A. Stearman marries Nancy Craig in Bedford County, Virginia.</span></div>
+<div class="tl"><span class="yr">1762</span><span>David Sayre Jr. born in colonial New Jersey (probable).</span></div>
+<div class="tl"><span class="yr">1765</span><span>Isaac Garretson, the Quaker inventor, born in York County, Pennsylvania.</span></div>
+<div class="tl"><span class="yr">1785</span><span>Daniel Sayre born in Monongalia County, Virginia.</span></div>
+<div class="tl"><span class="yr">1796</span><span>Isaac Garretson\'s nail-machine patent — signed, family records say, by George Washington.</span></div>
+<div class="tl"><span class="yr">1808</span><span>The Garretsons pioneer into Ohio; by the 1840s they help settle Quaker Salem, Iowa.</span></div>
+<div class="tl"><span class="yr">1816</span><span>Elijah Sayre born in western Virginia.</span></div>
+<div class="tl"><span class="yr">1825</span><span>Daniel Rapalyea born in New York.</span></div>
+<div class="tl"><span class="yr">1837</span><span>Alonzo Curtis Sayre born in Meigs County, Ohio, on the Ohio River.</span></div>
+<div class="tl"><span class="yr">1854</span><span>Robert Stearman marries Elizabeth Spurgeon at Steelville, Missouri.</span></div>
+<div class="tl"><span class="yr">1859</span><span>Frank Stearman born at St. James, Missouri; Alonzo Sayre marries Olive Tillis in Virginia.</span></div>
+<div class="tl"><span class="yr">1861–65</span><span>Daniel Rapalyea serves the Union in the Civil War.</span></div>
+<div class="tl"><span class="yr">1881</span><span>John Worth Garretson marries Clara Rapalyea at Ripon, Wisconsin.</span></div>
+<div class="tl"><span class="yr">1860</span><span>Richard Marion Sayre born in Mason County, Virginia.</span></div>
+<div class="tl"><span class="yr">1884</span><span>Richard Sayre marries Matilda Chaney in Allen County, Kansas.</span></div>
+<div class="tl"><span class="yr">1865</span><span>Matilda Chaney born in Missouri.</span></div>
+<div class="tl"><span class="yr">1884</span><span>Isaac Malin Garretson born in Buffalo, New York.</span></div>
+<div class="tl"><span class="yr">1902</span><span>Jack Sayre born in Humansville — as "Gladys Marion Sayre."</span></div>
+<div class="tl"><span class="yr">1909</span><span>John Worth Garretson dies at 48 in Faxon, Oklahoma.</span></div>
+<div class="tl"><span class="yr">1912</span><span>Daniel Rapalyea, Union veteran, dies at DeQueen, Arkansas.</span></div>
+<div class="tl"><span class="yr">1918</span><span>Marie Griffitts (later Sayre) born.</span></div>
+<div class="tl"><span class="yr">1919</span><span>William Howard Stearman born in Oklahoma.</span></div>
+<div class="tl"><span class="yr">1922</span><span>Juanita Maxine Burton born.</span></div>
+<div class="tl"><span class="yr">1926</span><span>Arthur "Art" Garretson born in Keokuk, Iowa.</span></div>
+<div class="tl"><span class="yr">1932</span><span>Margaret Belle Smith born in Worth County, Missouri.</span></div>
+<div class="tl"><span class="yr">1934</span><span>Helen Garretson born.</span></div>
+<div class="tl"><span class="yr">1923</span><span>Isaac Garretson marries Alice Seward, November 23.</span></div>
+<div class="tl"><span class="yr">1933</span><span>Matilda (Chaney) Sayre dies in Cedar County.</span></div>
+<div class="tl"><span class="yr">1943</span><span>Richard Marion Sayre dies; buried at Humansville.</span></div>
+<div class="tl"><span class="yr">1946</span><span>Clara (Rapalyea) Garretson dies in California, aged 90.</span></div>
+<div class="tl"><span class="yr">1941–45</span><span>William Stearman serves in World War II, US Army.</span></div>
+<div class="tl"><span class="yr">1943</span><span>Yerby Stearman born in Deming, New Mexico — the Army years in the Southwest.</span></div>
+<div class="tl"><span class="yr">1950</span><span>The census finds the Stearmans and the Burtons together in Deming, NM.</span></div>
+<div class="tl"><span class="yr">1968</span><span>MSG William Stearman dies at El Paso, 48; buried Fort Bliss National Cemetery.</span></div>
+<div class="tl"><span class="yr">1972</span><span>Jody Wayne Garretson born in Humansville, Missouri.</span></div>
+<div class="tl"><span class="yr">1976</span><span>Sara Stearman born.</span></div>
+<div class="tl"><span class="yr">1980</span><span>Jack Sayre dies.</span></div>
+<div class="tl"><span class="yr">1987</span><span>Arthur Garretson dies in Humansville.</span></div>
+<div class="tl"><span class="yr">1991</span><span>Yerby Stearman dies; buried Houston National Cemetery.</span></div>
+<div class="tl"><span class="yr">1994</span><span>Marie Sayre dies.</span></div>
+<div class="tl"><span class="yr">2005</span><span>Helen Garretson dies.</span></div>
+<div class="tl"><span class="yr">2010</span><span>Jody Garretson dies; Juanita (Burton) Stearman Cook dies in Scottsdale.</span></div>
+<div class="tl"><span class="yr">2021</span><span>Margaret (Smith) Pearman True dies.</span></div>
+<div class="tl"><span class="yr">today</span><span>Ty Garretson — the direct line continues.</span></div>`
 };
 function openInfo(k){
   const el=document.getElementById('info');
