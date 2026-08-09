@@ -28,7 +28,7 @@
   #board{position:absolute; inset:56px 0 0 0; overflow:hidden; cursor:grab; user-select:none; -webkit-user-select:none; touch-action:none;
     background-image:radial-gradient(#d9d0bf 1.2px, transparent 1.2px); background-size:26px 26px;}
   #board.panning{cursor:grabbing;}
-  #world{position:absolute; top:0; left:0; transform-origin:0 0; width:3900px; height:4560px;}
+  #world{position:absolute; top:0; left:0; transform-origin:0 0; width:3900px; height:4880px;}
   #wires{position:absolute; top:0; left:0; pointer-events:none;}
   .card{position:absolute; width:170px; min-height:70px; background:var(--card); border:1.5px solid var(--line); border-left:6px solid var(--anglo); border-radius:9px; padding:8px 10px 7px; cursor:pointer; box-shadow:0 2px 6px rgba(60,45,20,.14); transition:box-shadow .12s, transform .12s;}
   .card:hover{box-shadow:0 8px 18px rgba(60,45,20,.3); transform:translateY(-2px); z-index:5;}
@@ -90,7 +90,7 @@
 </div>
 <div id="board">
   <div id="world">
-    <svg id="wires" width="3900" height="4560"></svg>
+    <svg id="wires" width="3900" height="4880"></svg>
 
     <div class="zone" style="left:200px;top:16px;">Garretson · Sayre</div>
     <div class="zone" style="left:2100px;top:16px;">Stearman · Pearman</div>
@@ -269,6 +269,38 @@ isaacjvb1609:{x:1390,y:-3440,cls:'scot',direct:1,n:'Isaac Jacobs Van Bibber',d:'
 hesterodg:{x:1610,y:-3440,cls:'scot',direct:1,n:'Hester Op den Graeff',d:'1609–1643 · Krefeld (probable)',mini:'10× great-grandmother (probable)',tags:['DIRECT','PROBABLE'],
  dossier:{'The record (probable — thin)':'Born about 1609 into the Op den Graeff family of Krefeld — among the most famous of the town\'s Mennonite families: Op den Graeffs stood with the original Germantown settlers, and two of them signed the 1688 Germantown protest against slavery, the first such protest in America. Hester married Isaac Jacobs Van Bibber about 1628 and died in 1643. The Van Bibber–Op den Graeff bond ran deep: a later Herman op den Graff married two sisters of her grandson Isaac.'},
  src:['FamilySearch tree profile LYRG-KXD (thin — tree consensus)','Van Bibber family research on profiles L8SL-SBJ / MNJQ-C4Z']},
+
+hermannodg:{x:1390,y:-3760,cls:'scot',direct:1,n:'Bishop Hermann op den Graeff',d:'1585–1642 · Aldekerk & Krefeld',mini:'11× great-grandfather — Mennonite bishop; oldest name on the tree (1585)',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record (probable)':'Born 26 November 1585 (per the family records) at Aldekerk, near Krefeld; married Grietjen Pletjes of Kempen on 6 August 1605; father of EIGHTEEN children; died 1642 at Krefeld. FamilySearch styles him \u201cBishop\u201d Hermann op den Graeff: he is remembered in Mennonite family histories as a leader of Krefeld\'s congregation, and a Herman op den Graeff of Krefeld stands among the signers of the 1632 Dordrecht Confession of Faith — the foundational Mennonite statement still in use today. His descendants and kin were at the heart of the Germantown settlement; two op den Graeff grandsons signed America\'s first protest against slavery (Germantown, 1688).','A caution':'The generations between Hermann and the American Van Bibbers rest on tree consensus with some internal contradictions in the copied biographies (his daughter Hester\'s profile mixes dates that cannot all be true). Recorded here as the tree shows, flagged as probable.'},
+ src:['FamilySearch tree profile LVDY-QH3','Op den Graeff family histories (Dordrecht Confession 1632 signers; Germantown 1688 protest)']},
+
+grietjen:{x:1610,y:-3760,cls:'scot',direct:1,n:'Grietjen Margaretha Pletjes',d:'1588–1643 · Kempen (probable)',mini:'11× great-grandmother (probable)',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record (probable)':'Born about 1588 at Kempen in the Electorate of Cologne; married Hermann op den Graeff in 1605; mother of eighteen; died 1643.'},
+ src:['FamilySearch tree profile LVDY-Q4G']},
+
+georgecoonrod:{x:3470,y:-2320,cls:'swede',direct:1,n:'George Coonrod',d:'1770–1826 · Virginia → Kentucky (probable)',mini:'6× great-grandfather (probable)',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record (probable)':'Born 1770; married Paralee Zumwalt about 1789 in Pendleton County, Virginia — Coonrod (Conrad) and Zumwalt are both German names of the Virginia backcountry. Father of thirteen; the family crossed into Kentucky, where son Squire was born in Carter County in 1817. Died 1826.'},
+ src:['FamilySearch tree profile 2MRV-CZG']},
+
+paraleez:{x:3690,y:-2320,cls:'swede',direct:1,n:'Paralee Zumwalt',d:'1772–1820 · probable',mini:'6× great-grandmother (probable)',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record (probable)':'Born 1772; married George Coonrod about 1789; mother of thirteen; died 1820.'},
+ src:['FamilySearch tree profile L7H9-49W']},
+
+josephashton:{x:3470,y:-2480,cls:'swede',direct:1,n:'Joseph Ashton',d:'1773–1818 · Virginia → Ohio (probable)',mini:'6× great-grandfather (probable)',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record (probable)':'Born 1773; married Mary Brelsford in Virginia on 21 November 1796; the family settled Guernsey County, Ohio, where daughter Julia Ann was born in 1813. Died 1818.'},
+ src:['FamilySearch tree profile LWZ9-XQ1']},
+
+marybrelsford:{x:3690,y:-2480,cls:'swede',direct:1,n:'Mary Brelsford',d:'1775–1831 · probable',mini:'6× great-grandmother (probable)',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record (probable)':'Born 1775; married Joseph Ashton in 1796; mother of three; died 1831 in Ohio.'},
+ src:['FamilySearch tree profile LXQZ-577']},
+
+jamesgordon:{x:2590,y:-1840,cls:'swede',direct:1,n:'James Gordon',d:'1806–1893 · Wisconsin lead country (probable)',mini:'5× great-grandfather (probable)',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record (probable)':'Born 1806; married Emaline Fowler in 1844; farmed at Waldwick in Wisconsin\'s lead-mining country, where daughter Rupheno was born that December. Lived to 1893 — eighty-seven years.'},
+ src:['FamilySearch tree profile L4WL-Q2M']},
+
+emalinef:{x:2810,y:-1840,cls:'swede',direct:1,n:'Emaline Fowler',d:'1827–1858 · probable',mini:'5× great-grandmother (probable)',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record (probable)':'Born 1827; married James Gordon in 1844, at seventeen — daughter Rupheno arrived that December. Mother of eight in fourteen years; died 1858, barely thirty.'},
+ src:['FamilySearch tree profile L4WL-QGS']},
 
 /* --- GRIFFITTS & STROUD 3× GREAT-GRANDPARENTS --- */
 williamg:{x:1820,y:-1200,cls:'scot',direct:1,n:'William Griffitts',d:'dates unknown',mini:'3× great-grandfather',tags:['DIRECT'],
@@ -557,8 +589,8 @@ wtsmith:{x:3030,y:-1520,cls:'swede',direct:1,war:1,n:'William Thomas Smith',d:'1
  src:['FamilySearch tree profile LFQX-8TX (20 sources; censuses 1850\u20131930; military-service event 1865)']},
 
 ruphenog:{x:3250,y:-1520,cls:'swede',direct:1,n:'Rupheno Gordon',d:'1844\u20131886 \u00b7 probable',mini:'4\u00d7 great-grandmother (probable)',tags:['DIRECT','PROBABLE'],
- dossier:{'The record (probable)':'Born 1844; married William Thomas Smith in Iowa County, Wisconsin in 1862; mother of Albert Lee Smith; died 1886, in her early forties. Her unusual given name \u2014 Rupheno \u2014 is spelled several ways across the records.'},
- src:['FamilySearch tree profile LVFV-QXW']},
+ dossier:{'The record (probable)':'Born 12 December 1844 at Waldwick, Iowa County, Wisconsin \u2014 daughter of James Gordon and Emaline Fowler, married in her own hometown to William Thomas Smith in 1862. Mother of four, including Albert Lee Smith. She followed the family road west and died 16 August 1886 in Emmett Township, Norton County, Kansas, in her early forties; buried at Norton Cemetery. Her unusual given name \u2014 Rupheno, Ruphena, Ruthena \u2014 is spelled several ways across the records.'},
+ src:['FamilySearch tree profile LVFV-QXW (13 sources)']},
 
 samuelmannon:{x:3470,y:-1520,cls:'swede',direct:1,n:'Samuel Rice Mannon',d:'1818\u20131895 \u00b7 Indiana \u2192 Illinois \u2192 Iowa \u2192 Kansas',mini:'4\u00d7 great-grandfather \u2014 the singing teacher',tags:['DIRECT','PROBABLE'],
  dossier:{'The record':'Born 9 March 1818 in Wayne County, Indiana, son of Aaron Mannon and Sally Scott Wharton; died 12 March 1895 of "lung fever" at Miltonvale, Cloud County, Kansas, where he is buried.','His life':'A written family history survives on his FamilySearch page. Samuel was "considered one of the best singers in the county" \u2014 he led a family quartette, taught singing school most of his life, and worked as carpenter and millwright, building houses in Mercer County, Illinois and a great flour mill at Muscatine, Iowa that became a landmark. He owned farms but "did not have much success with it, being more interested in his music."','Three widowings':'He buried three wives before Ty\'s line begins. Rebecca Long died in 1841 at twenty-three; Catherine Baker died in 1848, twenty-two days after childbirth; and Elizabeth Caroline Leech died in 1856 after a rattlesnake, coiled in a hen\'s nest she reached into while gathering eggs, bit her \u2014 she suffered four days, gave birth during them, and mother and child were buried in one grave.','The fourth marriage':'His Iowa farm sat on the state line \u2014 house in Iowa, barn in Missouri \u2014 and on the Missouri side he courted Amelia Ann Maple, marrying her on 27 August 1857. Their daughter Elizabeth Caroline, born 1866, carried the same name as the wife the rattlesnake took.'},
@@ -590,8 +622,8 @@ elishasm:{x:3030,y:-1840,cls:'swede',direct:1,n:'Elisha Smith',d:'1810\u20131880
  src:['FamilySearch tree profile KHTK-FR7 (18 sources; censuses 1850\u20131870)']},
 
 juliaashton:{x:3250,y:-1840,cls:'swede',direct:1,n:'Julia Ann Ashton',d:'1813\u20131880 \u00b7 probable',mini:'5\u00d7 great-grandmother (probable)',tags:['DIRECT','PROBABLE'],
- dossier:{'The record (probable)':'Born 1813; married Elisha Smith in Guernsey County, Ohio in 1836; mother of seven, including William Thomas Smith. Died 1880 \u2014 the same year as her husband.'},
- src:['FamilySearch tree profile KDSV-4SR']},
+ dossier:{'The record (probable)':'Born 1813 in Guernsey County, Ohio, daughter of Joseph Ashton and Mary Brelsford, Virginians who had come to the Ohio country; married Elisha Smith there in 1836; mother of seven, including William Thomas Smith. Died 17 January 1880 in Rock County, Wisconsin \u2014 the same year as her husband.'},
+ src:['FamilySearch tree profile KDSV-4SR (15 sources)']},
 
 elishasr:{x:3030,y:-2160,cls:'swede',direct:1,n:'Elisha Smith Sr.',d:'1780\u20131853 \u00b7 New Jersey \u2192 Ohio (probable)',mini:'6\u00d7 great-grandfather (probable)',tags:['DIRECT','PROBABLE','DISPUTED'],
  dossier:{'The record (probable)':'Born 1780 at Cumberland, New Jersey, son of Elisha Smith (1748) and Rebekah Bowen; married Mary Westcott on 22 November 1800 at Cumberland \u2014 a second colonial New Jersey line on the tree, alongside the Sayres. The family\'s road ran to Guernsey County, Ohio \u2014 where, a generation later, his grandson William Thomas Smith was born at a village called Cumberland. The 1850 census finds him at Westland, Guernsey County, \u201cElisha Smith, 70, New Jersey, farmer.\u201d Died before 13 October 1853.','An unresolved dispute':'His FamilySearch page carries a research alert. The tree\'s structured data makes Mary Westcott (d. 1824) mother of his twelve children, including Ty\'s ancestor Elisha (born 1810). But a researcher\'s note on the same page says Mary died in 1807 leaving only two children, and that Elisha remarried \u2014 Eliza Lemmons, about 1808 \u2014 making HER the 1810 Elisha\'s mother. Which wife was Ty\'s 6\u00d7 great-grandmother is genuinely unresolved; the tree shows the structured version, flagged here.'},
@@ -623,12 +655,12 @@ henryhuddle:{x:2590,y:-2000,cls:'swede',direct:1,n:'Henry Huddle',d:'1798\u20131
  src:['FamilySearch tree profile LZ82-36V']},
 
 nancyhurt:{x:2810,y:-2000,cls:'swede',direct:1,n:'Nancy Elza Hurt',d:'1799\u20131881 \u00b7 Virginia (probable)',mini:'5\u00d7 great-grandmother (probable)',tags:['DIRECT','PROBABLE'],
- dossier:{'The record (probable)':'Born 1799; married Henry Huddle in Wythe County in 1822; mother of thirteen; outlived her husband by twenty-seven years, dying in 1881.'},
- src:['FamilySearch tree profile LKPT-RHK']},
+ dossier:{'The record (probable)':'Born 8 October 1799 in Botetourt County, Virginia; married Henry Huddle in Wythe County in 1822; mother of thirteen. She outlived her husband by twenty-seven years, staying in the Speedwell and Lead Mines country of Wythe County to the end \u2014 died 4 February 1881, buried at Huddle Cemetery, Ivanhoe, in the family\'s own ground. Her parents are unrecorded on the tree \u2014 a brick wall.'},
+ src:['FamilySearch tree profile LKPT-RHK (25 sources; censuses 1850\u20131880)']},
 
 squirec:{x:3470,y:-2000,cls:'swede',direct:1,n:'Squire Coonrod',d:'1817\u20131874 \u00b7 Illinois \u2192 Texas \u2192 Kansas (probable)',mini:'5\u00d7 great-grandfather (probable)',tags:['DIRECT','PROBABLE'],
- dossier:{'The record (probable)':'Born 1817; married Nancy Ann Ballard on 5 April 1849 in Greene County, Illinois; father of ten. The family\'s wandering road shows in the records \u2014 daughter Maria born in TEXAS in 1853, back in Macoupin County, Illinois by 1860, then Kansas by 1870. Died 1874.'},
- src:['FamilySearch tree profile L78N-D41']},
+ dossier:{'The record (probable)':'Born 1 February 1817 at Grayson, Carter County, KENTUCKY, son of George Coonrod and Paralee Zumwalt; buying Illinois land by 1836 (two 40-acre purchases are on his profile); married three times \u2014 Nancy Waters Lee (1837, died 1848), Nancy Ann Ballard (1849), and, after Nancy Ann\'s death, her own sister Martha Elizabeth Ballard (February 1873). The family\'s wandering road shows in the records \u2014 daughter Maria born in TEXAS in 1853, back in Illinois by 1860, then Kansas. Died 12 March 1874 at Cherokee, Crawford County, Kansas, a year after his last marriage.'},
+ src:['FamilySearch tree profile L78N-D41 (14 sources; land purchases 1836/1838)']},
 
 nancyballard:{x:3690,y:-2000,cls:'swede',direct:1,n:'Nancy Ann Ballard',d:'1829\u20131873 \u00b7 probable',mini:'5\u00d7 great-grandmother (probable)',tags:['DIRECT','PROBABLE'],
  dossier:{'The record (probable)':'Born 1829; married Squire Coonrod in Illinois in 1849; mother of ten; died 1873, the year before her husband.'},
@@ -710,7 +742,7 @@ mattie:{x:2150,y:-880,cls:'swede',direct:1,n:'Martha "Mattie" W. (Lankford) Burt
  src:['1930 US Census, Elk City, Beckham Co. OK (FamilySearch)','1950 US Census, Deming Village, Luna County NM','Ancestry member-tree entry (maiden name — probable)']}
 };
 /* couples: [a,b]; families: {p:[couple], kids:[ids]} */
-const COUPLES=[['jacob1640','christiana'],['isaacjvb1609','hesterodg'],['alexgreenlee','annahenry'],['isaacvb','fronika'],['jessevb','rachelgreenlee'],['petervb','margerybounds'],['petersr','annagooding'],['nathanboone','olivevb'],['abner1712','sarahramsey'],['abneraaron','zerviahsands'],['andrewfoote','sarahtilsley'],['jbnicholson','nancywarner'],['henryhuddle','nancyhurt'],['squirec','nancyballard'],['elisha1748','rebekahbowen'],['samuelmjr','marybowman'],['elishasm','juliaashton'],['elishasr','marywestcott'],['aaronmannon','sallywharton'],['wmingels','sarahnash'],['wtsmith','ruphenog'],['samuelmannon','ameliamaple'],['georgel','sinaroper'],['samingels','mariacoonrod'],['jhhampton','cathuddle'],['jamespsr','mjfreeman'],['albertls','elizmannon'],['rogerl','coraingels'],['jamespearman','marypool'],['jbpearman','rosehampton'],['harryfoote','minnien'],['ernestp','henrietta'],['simsanders','pollyh'],['ornan','sophiah'],['thomas2','mspence'],['valentine','eransdell'],['williamst3','marthacriddle'],['johna1780','nancycraig'],['johns1812','maryswyers'],['roberths','espurgeon'],['frank','melvina'],['charley','alicemoore'],['johng1741','marygriest'],['isaacg','alicepaxson'],['johngreen','marygoodson'],['isaacl','patience'],['danielr','adaline'],['davidjr','sarahlittle'],['daniel','sarahhall'],['richardt','elizvb'],['elijah','greerm'],['williamg','marthas'],['jstroud','harrietj'],['john','clara'],['clarke','lela'],['curtis','olive'],['jchaney','ester'],['richard','matilda'],['jgriffitts','ethas'],['isaac','alice'],['arthur','helen'],['jack','marie'],['jerry','janice'],['davidw','jessie'],['jsburton','mattie'],['william','juanita'],['edward','ruth'],['harry','margaret'],['james','julie'],['jody','sara']];
+const COUPLES=[['hermannodg','grietjen'],['georgecoonrod','paraleez'],['josephashton','marybrelsford'],['jamesgordon','emalinef'],['jacob1640','christiana'],['isaacjvb1609','hesterodg'],['alexgreenlee','annahenry'],['isaacvb','fronika'],['jessevb','rachelgreenlee'],['petervb','margerybounds'],['petersr','annagooding'],['nathanboone','olivevb'],['abner1712','sarahramsey'],['abneraaron','zerviahsands'],['andrewfoote','sarahtilsley'],['jbnicholson','nancywarner'],['henryhuddle','nancyhurt'],['squirec','nancyballard'],['elisha1748','rebekahbowen'],['samuelmjr','marybowman'],['elishasm','juliaashton'],['elishasr','marywestcott'],['aaronmannon','sallywharton'],['wmingels','sarahnash'],['wtsmith','ruphenog'],['samuelmannon','ameliamaple'],['georgel','sinaroper'],['samingels','mariacoonrod'],['jhhampton','cathuddle'],['jamespsr','mjfreeman'],['albertls','elizmannon'],['rogerl','coraingels'],['jamespearman','marypool'],['jbpearman','rosehampton'],['harryfoote','minnien'],['ernestp','henrietta'],['simsanders','pollyh'],['ornan','sophiah'],['thomas2','mspence'],['valentine','eransdell'],['williamst3','marthacriddle'],['johna1780','nancycraig'],['johns1812','maryswyers'],['roberths','espurgeon'],['frank','melvina'],['charley','alicemoore'],['johng1741','marygriest'],['isaacg','alicepaxson'],['johngreen','marygoodson'],['isaacl','patience'],['danielr','adaline'],['davidjr','sarahlittle'],['daniel','sarahhall'],['richardt','elizvb'],['elijah','greerm'],['williamg','marthas'],['jstroud','harrietj'],['john','clara'],['clarke','lela'],['curtis','olive'],['jchaney','ester'],['richard','matilda'],['jgriffitts','ethas'],['isaac','alice'],['arthur','helen'],['jack','marie'],['jerry','janice'],['davidw','jessie'],['jsburton','mattie'],['william','juanita'],['edward','ruth'],['harry','margaret'],['james','julie'],['jody','sara']];
 const FAMS=[
  {p:['davidjr','sarahlittle'],k:['daniel']},
  {p:['daniel','sarahhall'],k:['elijah']},
@@ -773,6 +805,10 @@ const FAMS=[
  {p:['isaacvb','fronika'],k:['petersr']},
  {p:['jacob1640','christiana'],k:['isaacvb']},
  {p:['isaacjvb1609','hesterodg'],k:['jacob1640']},
+ {p:['hermannodg','grietjen'],k:['hesterodg']},
+ {p:['georgecoonrod','paraleez'],k:['squirec']},
+ {p:['josephashton','marybrelsford'],k:['juliaashton']},
+ {p:['jamesgordon','emalinef'],k:['ruphenog']},
  {p:['edward','ruth'],k:['margaret']},
  {p:['jamespearman','marypool'],k:['jbpearman']},
  {p:['jbpearman','rosehampton'],k:['ernestp']},
@@ -785,7 +821,7 @@ const FAMS=[
 const CW=170, CH=70, CHIPW=145;
 
 /* ============ RENDER ============ */
-const YOFF=3520;
+const YOFF=3840;
 const world=document.getElementById('world');
 for(const id in P){
   const p=P[id];
@@ -828,7 +864,7 @@ const board=document.getElementById('board');
 function apply(){world.style.transform='translate('+tx+'px,'+ty+'px) scale('+scale+')';}
 function fit(){
   const bw=board.clientWidth, bh=board.clientHeight;
-  scale=Math.min(bw/3950, bh/4600, 1);
+  scale=Math.min(bw/3950, bh/4920, 1);
   tx=(bw-3900*scale)/2; ty=20*scale; apply();
 }
 function zoomBy(f){
