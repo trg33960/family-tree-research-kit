@@ -460,9 +460,9 @@ annestanley:{x:4130,y:-2960,cls:'swede',direct:1,n:'Anne Stanley',d:'1741–1820
  src:['FamilySearch tree profile L251-6RK']},
 
 /* --- HALE, PACE & NICHOLSON DEEP PARENTS --- */
-meshachhale:{x:2270,y:-2960,cls:'swede',direct:1,n:'Meshach Hale I',d:'1738–1814 · Bedford Co., Virginia (probable)',mini:'8× great-grandfather (probable)',tags:['DIRECT','PROBABLE'],
- dossier:{'The record (probable)':'Born 1738; married Catherine Gibson in Bedford County, Virginia in 1758 — the same county where, in those same decades, Ty\'s Sturman line was becoming Stearman. Father of nine, including William, born at Shepherdstown in Bedford in 1777. Died 1814.'},
- src:['FamilySearch tree profile MGH7-KBF']},
+meshachhale:{x:2270,y:-2960,cls:'swede',direct:1,war:1,n:'Meshach Hale I',d:'1738–1814 · Baltimore → Bedford Co., Virginia',mini:'8× great-grandfather (probable) — Sgt., Virginia Militia 1758',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record (probable)':'Born 19 August 1738 at BALTIMORE, christened at St. Paul Episcopal Church there; married Catherine Gibson in Bedford County, Virginia in 1758 — the same county where, in those same decades, Ty\'s Sturman line was becoming Stearman. His tree carries a military event: SERGEANT, VIRGINIA MILITIA, Bedford, 1758 — the French and Indian War years (unsourced; recorded as the tree has it). Father of nine. Died 1814 in Bedford — though his profile also carries conflicting later events (an 1812–15 service note and an 1834 Tennessee burial) that cannot all belong to one man; the conflicts are preserved, not resolved.'},
+ src:['FamilySearch tree profile MGH7-KBF (11 sources; 14 collaborations — a much-debated profile)']},
 
 cathgibson:{x:2490,y:-2960,cls:'swede',direct:1,n:'Catherine Gibson',d:'1735–1813 · Virginia (probable)',mini:'8× great-grandmother (probable)',tags:['DIRECT','PROBABLE'],
  dossier:{'The record (probable)':'Born about 1735; married Meshach Hale in 1758; mother of nine; died 1813, the year before her husband.'},
@@ -477,7 +477,7 @@ ruthlambert:{x:4130,y:-3120,cls:'swede',direct:1,n:'Ruth Lambert',d:'1748–1820
  src:['FamilySearch tree profile LC88-27P']},
 
 elijahnich:{x:2710,y:-2640,cls:'swede',direct:1,n:'Elijah Nicholson',d:'1785–1845 · Kentucky → Indiana (probable)',mini:'6× great-grandfather (probable)',tags:['DIRECT','PROBABLE'],
- dossier:{'The record (probable)':'Born 1785; married Mary Davis on 11 June 1810 in Jessamine County, KENTUCKY; father of thirteen, including Green Benton Nicholson. Died 1845.'},
+ dossier:{'The record (probable)':'Born 1785 in Russell County, in the Virginia mountains, son of Peter Nicholson and Sarah Green; married Mary Davis on 11 June 1810 in Jessamine County, KENTUCKY. His tree carries a service-begin note for 1812 (thin). By 1813 the family was in the INDIANA TERRITORY — Washington County, where they stayed forty years. Father of thirteen. Died 1845.'},
  src:['FamilySearch tree profile LW65-1FQ']},
 
 marydavis:{x:2930,y:-2640,cls:'swede',direct:1,n:'Mary Davis',d:'d. unknown · Kentucky (probable)',mini:'6× great-grandmother (probable)',tags:['DIRECT','PROBABLE'],
@@ -491,6 +491,22 @@ wpace1716:{x:3910,y:-3440,cls:'swede',direct:1,n:'William Pace',d:'1716–1790 �
 maryevans:{x:4130,y:-3440,cls:'swede',direct:1,n:'Mary Evans',d:'1720–1760 · North Carolina (probable)',mini:'9× great-grandmother (probable)',tags:['DIRECT','PROBABLE'],
  dossier:{'The record (probable)':'Born about 1720; married William Pace in Edgecombe County in 1741; died about 1760.'},
  src:['FamilySearch tree profile LCWN-RWT']},
+
+peternich:{x:2710,y:-2960,cls:'swede',direct:1,n:'Peter Nicholson',d:'1750–1826 · Virginia (probable)',mini:'7× great-grandfather (probable)',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record (probable)':'Born 1750; with Sarah Green, father of three, including Elijah, born in Russell County in the Virginia mountains in 1785. No marriage record survives on the tree. Died 1826.'},
+ src:['FamilySearch tree profile LW15-VW5 (thin)']},
+
+sarahgreen:{x:2930,y:-2960,cls:'swede',direct:1,n:'Sarah Green',d:'1758–1807 · Virginia (probable)',mini:'7× great-grandmother (probable)',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record (probable)':'Born 1758; mother of Elijah Nicholson; died 1807.'},
+ src:['FamilySearch tree profile M789-51G (thin)']},
+
+georgeingels:{x:40,y:-2320,cls:'swede',direct:1,n:'George Ingels',d:'1765–1846 · Pennsylvania (probable)',mini:'7× great-grandfather (probable)',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record (probable)':'Born 1765; married Mary Ann Ramey in Pennsylvania in 1790; father of nine, including Joseph, born in Maryland that same year. Lived to 1846.'},
+ src:['FamilySearch tree profile LH7D-337']},
+
+maryramey:{x:260,y:-2320,cls:'swede',direct:1,n:'Mary Ann Ramey',d:'b. 1770 · Pennsylvania (probable)',mini:'7× great-grandmother (probable)',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record (probable)':'Born about 1770; married George Ingels in 1790; mother of nine. Her death is unrecorded.'},
+ src:['FamilySearch tree profile KL7Z-F78 (thin)']},
 
 /* --- GRIFFITTS & STROUD 3× GREAT-GRANDPARENTS --- */
 williamg:{x:1820,y:-1200,cls:'scot',direct:1,n:'William Griffitts',d:'dates unknown',mini:'3× great-grandfather',tags:['DIRECT'],
@@ -932,7 +948,7 @@ mattie:{x:2150,y:-880,cls:'swede',direct:1,n:'Martha "Mattie" W. (Lankford) Burt
  src:['1930 US Census, Elk City, Beckham Co. OK (FamilySearch)','1950 US Census, Deming Village, Luna County NM','Ancestry member-tree entry (maiden name — probable)']}
 };
 /* couples: [a,b]; families: {p:[couple], kids:[ids]} */
-const COUPLES=[['wpace1716','maryevans'],['meshachhale','cathgibson'],['williampace','ruthlambert'],['elijahnich','marydavis'],['johanneshodel','elisabethahildebrandt'],['wballardsr','annestanley'],['georghottel','elizpigot'],['georgegose','annaspangler'],['johnhottel','elisabethapf'],['stephengose','catharinasprecher'],['gideonhuddle','barbaragose'],['whballard','nancythompson'],['jamespace','maryloving'],['williamhale','sarahbrown'],['jamesbounds','anndykes'],['johnfowler','ameliahale'],['lewisballard','ruthpace'],['petergordon','margaretg'],['simonwarner','nancymiller'],['andrewfsr','ursulanugent'],['greennicholson','annmcclure'],['josephingels','nancycrooks'],['woollery','elizdressler'],['hermannodg','grietjen'],['georgecoonrod','paraleez'],['josephashton','marybrelsford'],['jamesgordon','emalinef'],['jacob1640','christiana'],['isaacjvb1609','hesterodg'],['alexgreenlee','annahenry'],['isaacvb','fronika'],['jessevb','rachelgreenlee'],['petervb','margerybounds'],['petersr','annagooding'],['nathanboone','olivevb'],['abner1712','sarahramsey'],['abneraaron','zerviahsands'],['andrewfoote','sarahtilsley'],['jbnicholson','nancywarner'],['henryhuddle','nancyhurt'],['squirec','nancyballard'],['elisha1748','rebekahbowen'],['samuelmjr','marybowman'],['elishasm','juliaashton'],['elishasr','marywestcott'],['aaronmannon','sallywharton'],['wmingels','sarahnash'],['wtsmith','ruphenog'],['samuelmannon','ameliamaple'],['georgel','sinaroper'],['samingels','mariacoonrod'],['jhhampton','cathuddle'],['jamespsr','mjfreeman'],['albertls','elizmannon'],['rogerl','coraingels'],['jamespearman','marypool'],['jbpearman','rosehampton'],['harryfoote','minnien'],['ernestp','henrietta'],['simsanders','pollyh'],['ornan','sophiah'],['thomas2','mspence'],['valentine','eransdell'],['williamst3','marthacriddle'],['johna1780','nancycraig'],['johns1812','maryswyers'],['roberths','espurgeon'],['frank','melvina'],['charley','alicemoore'],['johng1741','marygriest'],['isaacg','alicepaxson'],['johngreen','marygoodson'],['isaacl','patience'],['danielr','adaline'],['davidjr','sarahlittle'],['daniel','sarahhall'],['richardt','elizvb'],['elijah','greerm'],['williamg','marthas'],['jstroud','harrietj'],['john','clara'],['clarke','lela'],['curtis','olive'],['jchaney','ester'],['richard','matilda'],['jgriffitts','ethas'],['isaac','alice'],['arthur','helen'],['jack','marie'],['jerry','janice'],['davidw','jessie'],['jsburton','mattie'],['william','juanita'],['edward','ruth'],['harry','margaret'],['james','julie'],['jody','sara']];
+const COUPLES=[['peternich','sarahgreen'],['georgeingels','maryramey'],['wpace1716','maryevans'],['meshachhale','cathgibson'],['williampace','ruthlambert'],['elijahnich','marydavis'],['johanneshodel','elisabethahildebrandt'],['wballardsr','annestanley'],['georghottel','elizpigot'],['georgegose','annaspangler'],['johnhottel','elisabethapf'],['stephengose','catharinasprecher'],['gideonhuddle','barbaragose'],['whballard','nancythompson'],['jamespace','maryloving'],['williamhale','sarahbrown'],['jamesbounds','anndykes'],['johnfowler','ameliahale'],['lewisballard','ruthpace'],['petergordon','margaretg'],['simonwarner','nancymiller'],['andrewfsr','ursulanugent'],['greennicholson','annmcclure'],['josephingels','nancycrooks'],['woollery','elizdressler'],['hermannodg','grietjen'],['georgecoonrod','paraleez'],['josephashton','marybrelsford'],['jamesgordon','emalinef'],['jacob1640','christiana'],['isaacjvb1609','hesterodg'],['alexgreenlee','annahenry'],['isaacvb','fronika'],['jessevb','rachelgreenlee'],['petervb','margerybounds'],['petersr','annagooding'],['nathanboone','olivevb'],['abner1712','sarahramsey'],['abneraaron','zerviahsands'],['andrewfoote','sarahtilsley'],['jbnicholson','nancywarner'],['henryhuddle','nancyhurt'],['squirec','nancyballard'],['elisha1748','rebekahbowen'],['samuelmjr','marybowman'],['elishasm','juliaashton'],['elishasr','marywestcott'],['aaronmannon','sallywharton'],['wmingels','sarahnash'],['wtsmith','ruphenog'],['samuelmannon','ameliamaple'],['georgel','sinaroper'],['samingels','mariacoonrod'],['jhhampton','cathuddle'],['jamespsr','mjfreeman'],['albertls','elizmannon'],['rogerl','coraingels'],['jamespearman','marypool'],['jbpearman','rosehampton'],['harryfoote','minnien'],['ernestp','henrietta'],['simsanders','pollyh'],['ornan','sophiah'],['thomas2','mspence'],['valentine','eransdell'],['williamst3','marthacriddle'],['johna1780','nancycraig'],['johns1812','maryswyers'],['roberths','espurgeon'],['frank','melvina'],['charley','alicemoore'],['johng1741','marygriest'],['isaacg','alicepaxson'],['johngreen','marygoodson'],['isaacl','patience'],['danielr','adaline'],['davidjr','sarahlittle'],['daniel','sarahhall'],['richardt','elizvb'],['elijah','greerm'],['williamg','marthas'],['jstroud','harrietj'],['john','clara'],['clarke','lela'],['curtis','olive'],['jchaney','ester'],['richard','matilda'],['jgriffitts','ethas'],['isaac','alice'],['arthur','helen'],['jack','marie'],['jerry','janice'],['davidw','jessie'],['jsburton','mattie'],['william','juanita'],['edward','ruth'],['harry','margaret'],['james','julie'],['jody','sara']];
 const FAMS=[
  {p:['davidjr','sarahlittle'],k:['daniel']},
  {p:['daniel','sarahhall'],k:['elijah']},
@@ -1022,6 +1038,8 @@ const FAMS=[
  {p:['williampace','ruthlambert'],k:['jamespace']},
  {p:['wpace1716','maryevans'],k:['williampace']},
  {p:['elijahnich','marydavis'],k:['greennicholson']},
+ {p:['peternich','sarahgreen'],k:['elijahnich']},
+ {p:['georgeingels','maryramey'],k:['josephingels']},
  {p:['edward','ruth'],k:['margaret']},
  {p:['jamespearman','marypool'],k:['jbpearman']},
  {p:['jbpearman','rosehampton'],k:['ernestp']},
