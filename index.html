@@ -28,7 +28,7 @@
   #board{position:absolute; inset:56px 0 0 0; overflow:hidden; cursor:grab; user-select:none; -webkit-user-select:none; touch-action:none;
     background-image:radial-gradient(#d9d0bf 1.2px, transparent 1.2px); background-size:26px 26px;}
   #board.panning{cursor:grabbing;}
-  #world{position:absolute; top:0; left:0; transform-origin:0 0; width:3900px; height:4880px;}
+  #world{position:absolute; top:0; left:0; transform-origin:0 0; width:4340px; height:4880px;}
   #wires{position:absolute; top:0; left:0; pointer-events:none;}
   .card{position:absolute; width:170px; min-height:70px; background:var(--card); border:1.5px solid var(--line); border-left:6px solid var(--anglo); border-radius:9px; padding:8px 10px 7px; cursor:pointer; box-shadow:0 2px 6px rgba(60,45,20,.14); transition:box-shadow .12s, transform .12s;}
   .card:hover{box-shadow:0 8px 18px rgba(60,45,20,.3); transform:translateY(-2px); z-index:5;}
@@ -90,7 +90,7 @@
 </div>
 <div id="board">
   <div id="world">
-    <svg id="wires" width="3900" height="4880"></svg>
+    <svg id="wires" width="4340" height="4880"></svg>
 
     <div class="zone" style="left:200px;top:16px;">Garretson · Sayre</div>
     <div class="zone" style="left:2100px;top:16px;">Stearman · Pearman</div>
@@ -295,8 +295,8 @@ marybrelsford:{x:3690,y:-2480,cls:'swede',direct:1,n:'Mary Brelsford',d:'1775–
  src:['FamilySearch tree profile LXQZ-577']},
 
 jamesgordon:{x:2590,y:-1840,cls:'swede',direct:1,n:'James Gordon',d:'1806–1893 · Wisconsin lead country (probable)',mini:'5× great-grandfather (probable)',tags:['DIRECT','PROBABLE'],
- dossier:{'The record (probable)':'Born 1806; married Emaline Fowler in 1844; farmed at Waldwick in Wisconsin\'s lead-mining country, where daughter Rupheno was born that December. Lived to 1893 — eighty-seven years.'},
- src:['FamilySearch tree profile L4WL-Q2M']},
+ dossier:{'The record (probable)':'Born 15 May 1806 in CANADA — son of Peter and Margaret Gordon of Quebec, a Scots name come through British North America. He settled at Waldwick in Wisconsin\'s lead-mining country, married Emaline Fowler in 1844 (daughter Rupheno arrived that December), and after Emaline\'s death remarried at Mineral Point (Dorcas Price, 1859). Censuses show him farming Waldwick for at least thirty years; he died 11 December 1893, at eighty-seven, and is buried at Waldwick Cemetery.'},
+ src:['FamilySearch tree profile L4WL-Q2M (10 sources)']},
 
 emalinef:{x:2810,y:-1840,cls:'swede',direct:1,n:'Emaline Fowler',d:'1827–1858 · probable',mini:'5× great-grandmother (probable)',tags:['DIRECT','PROBABLE'],
  dossier:{'The record (probable)':'Born 1827; married James Gordon in 1844, at seventeen — daughter Rupheno arrived that December. Mother of eight in fourteen years; died 1858, barely thirty.'},
@@ -334,6 +334,31 @@ woollery:{x:3470,y:-2640,cls:'swede',direct:1,n:'Woollery Coonrod Jr.',d:'1745�
 elizdressler:{x:3690,y:-2640,cls:'swede',direct:1,n:'Elizabeth Dressler',d:'1745–1814 · probable',mini:'7× great-grandmother (probable)',tags:['DIRECT','PROBABLE'],
  dossier:{'The record (probable)':'Born 1745; married Woollery Coonrod Jr. in 1762; mother of twelve; died 1814. Dressler — another German name of the Virginia valley.'},
  src:['FamilySearch tree profile LDGP-NX9 (thin — tree consensus)']},
+
+/* --- BALLARD, GORDON (QUEBEC) & WARNER PARENTS --- */
+lewisballard:{x:3910,y:-2320,cls:'swede',direct:1,n:'Lewis J. Ballard',d:'1800–1878 · Tennessee → Illinois (probable)',mini:'6× great-grandfather (probable)',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record (probable)':'Born 1800; married Ruth Pace on 19 July 1824 in Rutherford County, TENNESSEE, where daughter Nancy Ann was born in 1829; father of thirteen. The family moved north to Greene County, Illinois, where the Ballard girls married Squire Coonrod. Died 1878.'},
+ src:['FamilySearch tree profile K8GR-B5J']},
+
+ruthpace:{x:4130,y:-2320,cls:'swede',direct:1,n:'Ruth Pace',d:'1803–1881 · Tennessee (probable)',mini:'6× great-grandmother (probable)',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record (probable)':'Born 1803; married Lewis Ballard in Tennessee in 1824; mother of thirteen; died 1881.'},
+ src:['FamilySearch tree profile LHXB-ZCM']},
+
+petergordon:{x:2270,y:-2160,cls:'swede',direct:1,n:'Peter Gordon',d:'b. 1774 · Quebec (probable)',mini:'6× great-grandfather (probable) — the Canadian root',tags:['DIRECT','PROBABLE','CANADA'],
+ dossier:{'The record (probable)':'Born about 1774; married Margaret in QUEBEC in 1805 — the tree\'s first Canadian record, and Gordon is a Scots name, suggesting a Scottish family come through British North America. Father of James Gordon, born in Canada in 1806. His death is unrecorded.'},
+ src:['FamilySearch tree profile L4WL-QF8 (thin — tree consensus)']},
+
+margaretg:{x:2490,y:-2160,cls:'swede',direct:1,n:'Margaret (Gordon)',d:'b. 1778 · Quebec (probable)',mini:'6× great-grandmother (probable)',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record (probable)':'Born about 1778; married Peter Gordon in Quebec in 1805. Her surname is unrecorded — even her name survives only as \u201cMargaret.\u201d'},
+ src:['FamilySearch tree profile L4WL-Q19 (thin — tree consensus)']},
+
+simonwarner:{x:3910,y:-2160,cls:'swede',direct:1,n:'Simon Wisor Warner',d:'1811–1867 · Illinois → Iowa (probable)',mini:'5× great-grandfather (probable)',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record (probable)':'Born 1811; married Nancy Ann Miller on 28 October 1836 in MERCER COUNTY, ILLINOIS — the same county where Ty\'s Mannon ancestors were building their log cabin that very year, two separate lines passing through one frontier county. Father of thirteen; the family settled in eastern Iowa, where daughter Nancy Ann was born at Mount Vernon in 1841. Died 1867.'},
+ src:['FamilySearch tree profile K4DM-7S7']},
+
+nancymiller:{x:4130,y:-2160,cls:'swede',direct:1,n:'Nancy Ann Miller',d:'1817–1901 · probable',mini:'5× great-grandmother (probable)',tags:['DIRECT','PROBABLE'],
+ dossier:{'The record (probable)':'Born 1817; married Simon Warner in Illinois in 1836; mother of thirteen; outlived him by thirty-four years, dying in 1901.'},
+ src:['FamilySearch tree profile LWM9-3NP']},
 
 /* --- GRIFFITTS & STROUD 3× GREAT-GRANDPARENTS --- */
 williamg:{x:1820,y:-1200,cls:'scot',direct:1,n:'William Griffitts',d:'dates unknown',mini:'3× great-grandfather',tags:['DIRECT'],
@@ -696,8 +721,8 @@ squirec:{x:3470,y:-2000,cls:'swede',direct:1,n:'Squire Coonrod',d:'1817\u2013187
  src:['FamilySearch tree profile L78N-D41 (14 sources; land purchases 1836/1838)']},
 
 nancyballard:{x:3690,y:-2000,cls:'swede',direct:1,n:'Nancy Ann Ballard',d:'1829\u20131873 \u00b7 probable',mini:'5\u00d7 great-grandmother (probable)',tags:['DIRECT','PROBABLE'],
- dossier:{'The record (probable)':'Born 1829; married Squire Coonrod in Illinois in 1849; mother of ten; died 1873, the year before her husband.'},
- src:['FamilySearch tree profile 2HQJ-N8Q']},
+ dossier:{'The record (probable)':'Born 28 August 1829 in Rutherford County, TENNESSEE, daughter of Lewis Ballard and Ruth Pace; came north with the family to Greene County, Illinois, where she married Squire Coonrod in 1849; mother of ten. Died before February 1873 \u2014 whereupon Squire married her own sister Martha.'},
+ src:['FamilySearch tree profile 2HQJ-N8Q (13 sources)']},
 
 elisha1748:{x:3030,y:-2480,cls:'swede',direct:1,n:'Elisha Smith',d:'1748\u20131810 \u00b7 New Jersey (probable)',mini:'7\u00d7 great-grandfather (probable)',tags:['DIRECT','PROBABLE'],
  dossier:{'The record':'Born 9 March 1748 in Deerfield Township, Cumberland County, New Jersey, son of Abner Smith and Sarah Ramsey. His marriage to Rebekah Bowen \u2014 2 May 1778, at Deerfield, in the middle of the Revolution \u2014 is an actual documented record: New Jersey Colonial Documents, p. 52 (LDS film 888708), indexed in New Jersey Marriages 1678\u20131985. The 1800 census finds him at Slippery Rock, Butler County, PENNSYLVANIA, where he died in 1810. Three Elisha Smiths run in a row here: 1748, 1780, 1810.'},
@@ -745,8 +770,8 @@ jbnicholson:{x:3030,y:-2000,cls:'swede',direct:1,n:'James Beck Nicholson',d:'183
  src:['FamilySearch tree profile K83Y-XL8 (20 sources; pension index 1907\u20131933)']},
 
 nancywarner:{x:3250,y:-2000,cls:'swede',direct:1,n:'Nancy Ann Warner',d:'1841\u20131924 \u00b7 probable',mini:'4\u00d7 great-grandmother (probable)',tags:['DIRECT','PROBABLE'],
- dossier:{'The record (probable)':'Born 1841; married James Beck Nicholson in Iowa in 1860; mother of ten; died 1924.'},
- src:['FamilySearch tree profile K69N-WMC']},
+ dossier:{'The record (probable)':'Born 16 April 1841 at Mount Vernon, Linn County, Iowa, daughter of Simon Wisor Warner and Nancy Ann Miller; married James Beck Nicholson in Johnson County in 1860; mother of ten. Died 8 November 1924 at Springfield, Nebraska, and buried two days later at Springfield Memorial Cemetery, beside the husband who had died on their wedding anniversary six years before.'},
+ src:['FamilySearch tree profile K69N-WMC (21 sources)']},
 
 /* --- PEARMAN 2× GREAT-GRANDPARENTS --- */
 ernestp:{x:2150,y:-1040,cls:'swede',direct:1,n:'Ernest Charlie Pearman',d:'1893–1960 · probable',mini:'2× great-grandfather (probable)',tags:['DIRECT','PROBABLE'],
@@ -775,7 +800,7 @@ mattie:{x:2150,y:-880,cls:'swede',direct:1,n:'Martha "Mattie" W. (Lankford) Burt
  src:['1930 US Census, Elk City, Beckham Co. OK (FamilySearch)','1950 US Census, Deming Village, Luna County NM','Ancestry member-tree entry (maiden name — probable)']}
 };
 /* couples: [a,b]; families: {p:[couple], kids:[ids]} */
-const COUPLES=[['andrewfsr','ursulanugent'],['greennicholson','annmcclure'],['josephingels','nancycrooks'],['woollery','elizdressler'],['hermannodg','grietjen'],['georgecoonrod','paraleez'],['josephashton','marybrelsford'],['jamesgordon','emalinef'],['jacob1640','christiana'],['isaacjvb1609','hesterodg'],['alexgreenlee','annahenry'],['isaacvb','fronika'],['jessevb','rachelgreenlee'],['petervb','margerybounds'],['petersr','annagooding'],['nathanboone','olivevb'],['abner1712','sarahramsey'],['abneraaron','zerviahsands'],['andrewfoote','sarahtilsley'],['jbnicholson','nancywarner'],['henryhuddle','nancyhurt'],['squirec','nancyballard'],['elisha1748','rebekahbowen'],['samuelmjr','marybowman'],['elishasm','juliaashton'],['elishasr','marywestcott'],['aaronmannon','sallywharton'],['wmingels','sarahnash'],['wtsmith','ruphenog'],['samuelmannon','ameliamaple'],['georgel','sinaroper'],['samingels','mariacoonrod'],['jhhampton','cathuddle'],['jamespsr','mjfreeman'],['albertls','elizmannon'],['rogerl','coraingels'],['jamespearman','marypool'],['jbpearman','rosehampton'],['harryfoote','minnien'],['ernestp','henrietta'],['simsanders','pollyh'],['ornan','sophiah'],['thomas2','mspence'],['valentine','eransdell'],['williamst3','marthacriddle'],['johna1780','nancycraig'],['johns1812','maryswyers'],['roberths','espurgeon'],['frank','melvina'],['charley','alicemoore'],['johng1741','marygriest'],['isaacg','alicepaxson'],['johngreen','marygoodson'],['isaacl','patience'],['danielr','adaline'],['davidjr','sarahlittle'],['daniel','sarahhall'],['richardt','elizvb'],['elijah','greerm'],['williamg','marthas'],['jstroud','harrietj'],['john','clara'],['clarke','lela'],['curtis','olive'],['jchaney','ester'],['richard','matilda'],['jgriffitts','ethas'],['isaac','alice'],['arthur','helen'],['jack','marie'],['jerry','janice'],['davidw','jessie'],['jsburton','mattie'],['william','juanita'],['edward','ruth'],['harry','margaret'],['james','julie'],['jody','sara']];
+const COUPLES=[['lewisballard','ruthpace'],['petergordon','margaretg'],['simonwarner','nancymiller'],['andrewfsr','ursulanugent'],['greennicholson','annmcclure'],['josephingels','nancycrooks'],['woollery','elizdressler'],['hermannodg','grietjen'],['georgecoonrod','paraleez'],['josephashton','marybrelsford'],['jamesgordon','emalinef'],['jacob1640','christiana'],['isaacjvb1609','hesterodg'],['alexgreenlee','annahenry'],['isaacvb','fronika'],['jessevb','rachelgreenlee'],['petervb','margerybounds'],['petersr','annagooding'],['nathanboone','olivevb'],['abner1712','sarahramsey'],['abneraaron','zerviahsands'],['andrewfoote','sarahtilsley'],['jbnicholson','nancywarner'],['henryhuddle','nancyhurt'],['squirec','nancyballard'],['elisha1748','rebekahbowen'],['samuelmjr','marybowman'],['elishasm','juliaashton'],['elishasr','marywestcott'],['aaronmannon','sallywharton'],['wmingels','sarahnash'],['wtsmith','ruphenog'],['samuelmannon','ameliamaple'],['georgel','sinaroper'],['samingels','mariacoonrod'],['jhhampton','cathuddle'],['jamespsr','mjfreeman'],['albertls','elizmannon'],['rogerl','coraingels'],['jamespearman','marypool'],['jbpearman','rosehampton'],['harryfoote','minnien'],['ernestp','henrietta'],['simsanders','pollyh'],['ornan','sophiah'],['thomas2','mspence'],['valentine','eransdell'],['williamst3','marthacriddle'],['johna1780','nancycraig'],['johns1812','maryswyers'],['roberths','espurgeon'],['frank','melvina'],['charley','alicemoore'],['johng1741','marygriest'],['isaacg','alicepaxson'],['johngreen','marygoodson'],['isaacl','patience'],['danielr','adaline'],['davidjr','sarahlittle'],['daniel','sarahhall'],['richardt','elizvb'],['elijah','greerm'],['williamg','marthas'],['jstroud','harrietj'],['john','clara'],['clarke','lela'],['curtis','olive'],['jchaney','ester'],['richard','matilda'],['jgriffitts','ethas'],['isaac','alice'],['arthur','helen'],['jack','marie'],['jerry','janice'],['davidw','jessie'],['jsburton','mattie'],['william','juanita'],['edward','ruth'],['harry','margaret'],['james','julie'],['jody','sara']];
 const FAMS=[
  {p:['davidjr','sarahlittle'],k:['daniel']},
  {p:['daniel','sarahhall'],k:['elijah']},
@@ -846,6 +871,9 @@ const FAMS=[
  {p:['greennicholson','annmcclure'],k:['jbnicholson']},
  {p:['josephingels','nancycrooks'],k:['wmingels']},
  {p:['woollery','elizdressler'],k:['georgecoonrod']},
+ {p:['lewisballard','ruthpace'],k:['nancyballard']},
+ {p:['petergordon','margaretg'],k:['jamesgordon']},
+ {p:['simonwarner','nancymiller'],k:['nancywarner']},
  {p:['edward','ruth'],k:['margaret']},
  {p:['jamespearman','marypool'],k:['jbpearman']},
  {p:['jbpearman','rosehampton'],k:['ernestp']},
@@ -901,8 +929,8 @@ const board=document.getElementById('board');
 function apply(){world.style.transform='translate('+tx+'px,'+ty+'px) scale('+scale+')';}
 function fit(){
   const bw=board.clientWidth, bh=board.clientHeight;
-  scale=Math.min(bw/3950, bh/4920, 1);
-  tx=(bw-3900*scale)/2; ty=20*scale; apply();
+  scale=Math.min(bw/4390, bh/4920, 1);
+  tx=(bw-4340*scale)/2; ty=20*scale; apply();
 }
 function zoomBy(f){
   const bw=board.clientWidth/2, bh=board.clientHeight/2;
@@ -1005,7 +1033,10 @@ const GLOCS=[
  {id:'mineralpoint',lat:42.860,lng:-90.180,color:'#e0b83a',label:'Mineral Point, WI — Smith line (b.1862)'},
  {id:'wythe',lat:36.949,lng:-81.085,color:'#e0b83a',label:'Wythe Co., VA — Pearman mountains (1825)'},
  {id:'krefeld',lat:51.333,lng:6.567,color:'#4d8fc4',label:'Krefeld, Rhineland — Van Bibber origin (1600s)'},
- {id:'germantown',lat:40.034,lng:-75.171,color:'#4d8fc4',label:'Germantown, PA — van Bebber, founder (1683)'}
+ {id:'germantown',lat:40.034,lng:-75.171,color:'#4d8fc4',label:'Germantown, PA — van Bebber, founder (1683)'},
+ {id:'armagh',lat:54.35,lng:-6.653,color:'#e0b83a',label:'Co. Armagh, Ireland — Foote & Nugent (m.1838)'},
+ {id:'india',lat:22.0,lng:78.0,color:'#e0b83a',label:'India — Andrew H. Foote born 1847'},
+ {id:'quebec',lat:46.813,lng:-71.208,color:'#e0b83a',label:'Quebec — Gordon roots (m.1805)'}
 ];
 const GARCS=[
  {startLat:40.06,startLng:-74.41,endLat:38.77,endLng:-82.02,color:'#4d8fc4',label:'Sayre: New Jersey → western Virginia'},
@@ -1026,7 +1057,10 @@ const GARCS=[
  {startLat:42.3,startLng:-101.0,endLat:36.37,endLng:-94.40,color:'#e0b83a',label:'Pearman: Nebraska → Arkansas Ozarks'},
  {startLat:36.37,startLng:-94.40,endLat:31.759,endLng:-106.487,color:'#e0b83a',label:'Harry Pearman: Ozarks → El Paso'},
  {startLat:51.333,startLng:6.567,endLat:39.6,endLng:-75.9,color:'#4d8fc4',label:'Van Bibber: Krefeld → colonial Maryland (1680s)'},
- {startLat:39.6,startLng:-75.9,endLat:38.85,endLng:-82.14,color:'#4d8fc4',label:'Van Bibber: Maryland → Point Pleasant frontier'}
+ {startLat:39.6,startLng:-75.9,endLat:38.85,endLng:-82.14,color:'#4d8fc4',label:'Van Bibber: Maryland → Point Pleasant frontier'},
+ {startLat:54.35,startLng:-6.653,endLat:22.0,endLng:78.0,color:'#e0b83a',label:'Foote: Ireland → India (British Army?)'},
+ {startLat:22.0,startLng:78.0,endLat:39.1,endLng:-96.71,color:'#e0b83a',label:'Foote: India → Fort Riley, Kansas'},
+ {startLat:46.813,startLng:-71.208,endLat:42.94,endLng:-89.94,color:'#e0b83a',label:'Gordon: Quebec → Wisconsin lead country'}
 ];
 let globeInit=false;
 function openGlobe(){
@@ -1097,7 +1131,10 @@ arizona:{t:'Phoenix / Scottsdale, Arizona',note:'Juanita\'s final chapter. Widow
 mineralpoint:{t:'Mineral Point, Wisconsin',note:'The old Cornish lead-mining town where Albert Lee Smith was born in December 1862, months after his parents William Thomas Smith and Rupheno Gordon married at nearby Waldwick. The Smith line\'s road ran from here through Iowa, Missouri and Kansas before settling in Taylor County, Iowa.',ppl:['wtsmith','ruphenog','albertls']},
 wythe:{t:'Wythe County, Virginia',note:'The Pearman mountain heartland. Four generations trace here — from James Pearman Sr. and Mary Jane Freeman through James (b. 1825, who never left the mountains) to James Buchanan Pearman, born here in 1856 before the family struck out for the Nebraska Sandhills.',ppl:['jamespsr','mjfreeman','jamespearman','marypool','jbpearman']},
 krefeld:{t:'Krefeld, on the lower Rhine',note:'The tree\'s oldest origin point, now reaching to 1609. Krefeld\'s persecuted Mennonite families — followers of Menno Simons — emigrated at William Penn\'s invitation, and Ty\'s Van Bebbers were at the very center of it: Jacob Isaacs van Bebber was one of the six original purchasers of Germantown. The line here runs Isaac (1609) → Jacob (1640) → Isaac (1661), married into the famous Op den Graeff family.',ppl:['isaacjvb1609','hesterodg','jacob1640','christiana','isaacvb']},
-germantown:{t:'Germantown, Pennsylvania',note:'Founded 1683 on land William Penn conveyed to six Krefeld purchasers — one of them Ty\'s 9× great-grandfather Jacob Isaacs van Bebber, baker, who became the town\'s first Recorder (1691) and a burgess (1692). The first Mennonite services in America were held in his house in 1690. A religious dispute later sent the family south to Bohemia Manor, Maryland.',ppl:['jacob1640','christiana','isaacvb','fronika']}
+germantown:{t:'Germantown, Pennsylvania',note:'Founded 1683 on land William Penn conveyed to six Krefeld purchasers — one of them Ty\'s 9× great-grandfather Jacob Isaacs van Bebber, baker, who became the town\'s first Recorder (1691) and a burgess (1692). The first Mennonite services in America were held in his house in 1690. A religious dispute later sent the family south to Bohemia Manor, Maryland.',ppl:['jacob1640','christiana','isaacvb','fronika']},
+armagh:{t:'County Armagh, Ireland',note:'The tree\'s Irish root. Andrew Foote and Ursula Nugent married here in 1838; their son Andrew H. was born in INDIA in 1847 — the year his father died — pointing to a British Army posting. Widowed Ursula brought the family to America and lived to 1905.',ppl:['andrewfsr','ursulanugent']},
+india:{t:'India',note:'The most far-flung birthplace on the tree: Andrew H. Foote, Ty\'s 4× great-grandfather (probable), was born here in 1847 to Irish parents — eight sources agree. His road ran to a Kansas fort town, the Nebraska plains, and finally Venice, California.',ppl:['andrewfoote']},
+quebec:{t:'Quebec, Canada',note:'Peter Gordon — a Scots name in British North America — married Margaret here in 1805; son James was born in Canada the next year and became a Waldwick, Wisconsin farmer of eighty-seven years.',ppl:['petergordon','margaretg','jamesgordon']}
 };
 function openLoc(k){
   const L=LOCS[k];
